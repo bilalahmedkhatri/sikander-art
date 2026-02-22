@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Sikander Art",
+  "description": "Professional painting services in Karachi. Specializing in high-end residential and commercial painting with extreme attention to detail.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
