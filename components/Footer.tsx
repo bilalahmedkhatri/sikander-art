@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Palette, Facebook, Instagram, Phone, Mail, MapPin, Send, Video } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -31,7 +30,7 @@ export const Footer: React.FC = () => {
             <div className="flex gap-4">
               {[
                 { icon: Facebook, href: "#", name: "Facebook" },
-                { icon: Video, href: "#", name: "TikTok" }, // Using Video icon for TikTok as requested
+                { icon: Video, href: "#", name: "TikTok" },
                 { icon: Instagram, href: "#", name: "Instagram" }
               ].map((social, i) => (
                 <motion.a
@@ -62,21 +61,17 @@ export const Footer: React.FC = () => {
                 { name: 'Home', path: '/' },
                 { name: 'Services', path: '/services' },
                 { name: 'Portfolio', path: '/portfolio' },
-                { name: 'Calculator', path: '/calculate-cost'},
+                { name: 'Calculator', path: '/calculate-cost' },
                 { name: 'About', path: '/about' }
               ].map((item) => (
                 <li key={item.name}>
-                  {item.isExternal ? (
-                    <a href={item.path} className="text-gray-300 hover:text-white hover:translate-x-4 transition-all flex items-center gap-4 group font-black uppercase text-xs tracking-[0.2em]">
-                      <div className="w-0 h-0.5 bg-secondary group-hover:w-8 transition-all"></div>
-                      {item.name}
-                    </a>
-                  ) : (
-                    <Link to={item.path} className="text-gray-300 hover:text-white hover:translate-x-4 transition-all flex items-center gap-4 group font-black uppercase text-xs tracking-[0.2em]">
-                      <div className="w-0 h-0.5 bg-secondary group-hover:w-8 transition-all"></div>
-                      {item.name}
-                    </Link>
-                  )}
+                  <Link
+                    to={item.path}
+                    className="text-gray-300 hover:text-white hover:translate-x-4 transition-all flex items-center gap-4 group font-black uppercase text-xs tracking-[0.2em]"
+                  >
+                    <div className="w-0 h-0.5 bg-secondary group-hover:w-8 transition-all"></div>
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -97,7 +92,7 @@ export const Footer: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Call Us</p>
-                  <a href="tel:+928282569675" className="text-xl font-bold text-white hover:text-secondary transition-colors">+92 302 291 10 88</a>
+                  <a href="tel:+923022911088" className="text-xl font-bold text-white hover:text-secondary transition-colors">+92 302 291 10 88</a>
                 </div>
               </li>
               <li className="flex items-start gap-5 group">
