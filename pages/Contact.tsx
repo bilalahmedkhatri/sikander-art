@@ -127,7 +127,7 @@ const Contact: React.FC = () => {
                       </div>
                       <div>
                         <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">WhatsApp</p>
-                        <p className="text-lg font-bold text-gray-800">+92 3XX XXXXXXX</p>
+                        <p className="text-lg font-bold text-gray-800">+92 302 291 10 88</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">

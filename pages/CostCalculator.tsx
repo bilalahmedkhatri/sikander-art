@@ -16,7 +16,8 @@ import {
   Plus, 
   Trash2,
   DollarSign,
-  MapPin
+  MapPin,
+  MessageCircle
 } from 'lucide-react';
 
 // --- Types ---
@@ -60,24 +61,24 @@ interface CostBreakdown {
 // --- Constants ---
 const RATES = {
   labor: {
-    standard: 12,    // Rs per sq ft
-    good: 18,        // Rs per sq ft
-    premium: 28,     // Rs per sq ft
+    standard: 12,
+    good: 18,
+    premium: 28,
   },
   material: {
-    standard: 8,     // Rs per sq ft
-    good: 14,        // Rs per sq ft
-    premium: 22,     // Rs per sq ft
+    standard: 8,
+    good: 14,
+    premium: 22,
   },
-  putty: 6,          // Rs per sq ft extra
-  primer: 4,         // Rs per sq ft extra
-  door: 800,         // Rs per door
-  window: 500,       // Rs per window
+  putty: 6,
+  primer: 4,
+  door: 800,
+  window: 500,
   coatMultiplier: {
     1: 1.0,
     2: 1.6,
   },
-  ceilingMultiplier: 0.4,   // adds 40% of floor area as ceiling area
+  ceilingMultiplier: 0.4,
   locationMultiplier: {
     dha: 1.15,
     gulshan: 1.0,
@@ -154,39 +155,28 @@ const CostCalculator: React.FC = () => {
   };
 
   const calculateCost = () => {
-    // 1. Calculate Total Area
     let totalWallArea = 0;
     
     state.rooms.forEach(room => {
-      // Wall Area = Perimeter * Height
       const perimeter = 2 * (Number(room.length) + Number(room.width));
       const wallArea = perimeter * Number(room.height);
-      
-      // Ceiling Area
       const ceilingArea = state.includesCeiling ? (Number(room.length) * Number(room.width)) : 0;
-      
       totalWallArea += wallArea + ceilingArea;
     });
 
-    // Subtract doors and windows area (approx)
-    // Assuming standard door 21 sqft, window 12 sqft
     const doorsArea = state.includesDoors * 21;
     const windowsArea = state.includesWindows * 12;
-    
     const netPaintableArea = Math.max(0, totalWallArea - doorsArea - windowsArea);
 
-    // 2. Calculate Costs
     const quality = state.paintQuality as 'standard' | 'good' | 'premium';
     const loc = state.location as keyof typeof RATES.locationMultiplier;
     
     const locMultiplier = RATES.locationMultiplier[loc] || 1.0;
     const coatMult = RATES.coatMultiplier[state.coats as 1 | 2] || 1.0;
 
-    // Base Rates
     const laborRate = RATES.labor[quality] * locMultiplier;
     const materialRate = RATES.material[quality] * locMultiplier;
 
-    // Calculate Components
     const laborCost = netPaintableArea * laborRate * coatMult;
     const materialCost = netPaintableArea * materialRate * coatMult;
     
@@ -214,7 +204,6 @@ const CostCalculator: React.FC = () => {
     });
   };
 
-  // Auto-calculate on state change if result is already shown
   useEffect(() => {
     if (result) {
       calculateCost();
@@ -240,11 +229,23 @@ const CostCalculator: React.FC = () => {
     });
   };
 
+  // Build WhatsApp message with estimate details
+  const getWhatsAppLink = () => {
+    if (!result) return 'https://wa.me/923022911088';
+    const msg = `Hi Sikander Arts! 👋\n\nI used your Cost Calculator and got this estimate:\n\n` +
+      `📋 Service: ${state.serviceType}\n` +
+      `🏠 Property: ${state.propertyType}\n` +
+      `📐 Total Area: ${Math.round(result.totalArea).toLocaleString()} sq ft\n` +
+      `💰 Estimated Cost: Rs. ${Math.round(result.totalCost).toLocaleString()}\n\n` +
+      `Please provide further information and confirm the quote. Thank you!`;
+    return `https://wa.me/923022911088?text=${encodeURIComponent(msg)}`;
+  };
+
   return (
     <>
       <Helmet>
         <title>Painting Cost Calculator | Sikander Arts – Karachi</title>
-        <meta name="description" content="Use Sikander Arts' free painting cost calculator to estimate your painting project cost in Karachi. Get an instant estimate for interior, exterior, texture and more." />
+        <meta name="description" content="Use Sikander Arts' free painting cost calculator to estimate your painting project cost in Karachi." />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50 pb-20">
@@ -545,7 +546,6 @@ const CostCalculator: React.FC = () => {
                   >
                     Calculate My Cost
                   </button>
-
                 </div>
               </motion.div>
             </div>
@@ -648,12 +648,17 @@ const CostCalculator: React.FC = () => {
                         >
                           Get Exact Quote – Book Visit <ArrowRight size={18} />
                         </Link>
+
+                        {/* ✅ WhatsApp Button */}
                         <a 
-                          href="tel:+923001234567" 
-                          className="w-full bg-gray-100 hover:bg-gray-200 text-primary py-3 rounded-xl font-bold text-center transition-all flex items-center justify-center gap-2"
+                          href={getWhatsAppLink()}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-bold text-center transition-all flex items-center justify-center gap-2 shadow-lg"
                         >
-                          <Phone size={18} /> Call Us Now
+                          <MessageCircle size={18} /> WhatsApp for Further Info
                         </a>
+
                         <button 
                           onClick={resetCalculator}
                           className="w-full text-gray-400 hover:text-gray-600 text-sm font-medium py-2 flex items-center justify-center gap-2"
@@ -676,7 +681,6 @@ const CostCalculator: React.FC = () => {
                 )}
               </motion.div>
             </div>
-
           </div>
         </div>
       </div>

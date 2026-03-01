@@ -5,12 +5,12 @@ import { X, ZoomIn, ArrowRight, Paintbrush } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const projects = [
-  { id: 1, cat: 'Interior', img: 'https://images.unsplash.com/photo-1588854337236-6889d631faa8?q=80&w=800&auto=format&fit=crop', title: 'DHA Phase 8 Villa' },
+  { id: 1, cat: 'Interior', img: 'https://images.pexels.com/photos/6283973/pexels-photo-6283973.jpeg', title: 'DHA Phase 8 Villa' },
   { id: 2, cat: 'Exterior', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop', title: 'Clifton Modern Facade' },
   { id: 3, cat: 'Commercial', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop', title: 'I.I. Chundrigar Office' },
   { id: 4, cat: 'Interior', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop', title: 'Gulshan Minimalist Den' },
-  { id: 5, cat: 'Kitchen', img: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop', title: 'Cabinet Restoration' },
-  { id: 6, cat: 'Detail', img: 'https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800&q=80', title: 'Gold Leaf Trim Detail' },
+  { id: 5, cat: 'Kitchen', img: 'https://images.pexels.com/photos/35443238/pexels-photo-35443238.png', title: 'Cabinet Restoration' },
+  { id: 6, cat: 'Detail', img: 'https://images.pexels.com/photos/8210463/pexels-photo-8210463.jpeg', title: 'Gold Leaf Trim Detail' },
 ];
 
 const transformations = [
@@ -18,14 +18,14 @@ const transformations = [
     id: 1,
     title: 'Bahria Town Exterior',
     description: 'We revitalized this fading exterior with a complete power wash, crack repairs, and weather-resistant premium paint.',
-    before: 'https://images.unsplash.com/photo-1516156008625-3a9d60da923c?q=80&w=800&auto=format&fit=crop',
-    after: 'https://images.unsplash.com/photo-1560448204-61dc36dc98c8?q=80&w=800&auto=format&fit=crop'
+    before: 'https://images.pexels.com/photos/11384223/pexels-photo-11384223.jpeg',
+    after: 'https://images.pexels.com/photos/2681639/pexels-photo-2681639.jpeg'
   },
   {
     id: 2,
     title: 'PECHS Apartment Shift',
     description: 'Complete interior color shift from dated beige to a modern, crisp white palette, enhancing natural light.',
-    before: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=800&auto=format&fit=crop',
+    before: 'https://images.pexels.com/photos/3562689/pexels-photo-3562689.jpeg',
     after: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop'
   }
 ];

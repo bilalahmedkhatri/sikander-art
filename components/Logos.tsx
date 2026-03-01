@@ -297,7 +297,7 @@ export const Logo5: React.FC<LogoProps> = ({ isSolidNav = true }) => {
                             }
                         }}
                     >
-                        <span className={`relative z-20 ${isSolidNav ? 'text-white' : 'text-gray-900'}`}>{char}</span>
+                        <span className="relative z-20 text-white">{char}</span>
 
                         {/* Rainbow Layer 1 (Logo 1 + Logo 4 colors) */}
                         {char !== ' ' && (
@@ -388,25 +388,20 @@ export const Logo5: React.FC<LogoProps> = ({ isSolidNav = true }) => {
             />
 
             <motion.span
-                className={`hidden md:block text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] -mt-1 relative z-40 ${isSolidNav ? 'text-gray-100' : 'text-gray-800'}`}
+                className="hidden md:block text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] -mt-1 relative z-40 text-white"
                 variants={{
                     rest: { opacity: 0.8, y: 0, letterSpacing: "0.2em" },
-                    hover: { opacity: 1, y: 5, letterSpacing: "0.3em", color: isSolidNav ? "#a78bfa" : "#7c3aed" } // Shifts to purple tint
+                    hover: { opacity: 1, y: 5, letterSpacing: "0.3em", color: isSolidNav ? "#df6311" : "#df6311" } // Shifts to purple tint
                 }}
                 transition={{ duration: 0.4 }}
             >
                 Professional Painting Contractors
             </motion.span>
             <motion.span
-                className={`block md:hidden text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.2em] -mt-1 relative z-40 ${isSolidNav ? 'text-gray-100' : 'text-gray-800'}`}
-                variants={{
-                    rest: { opacity: 0.8, y: 0, letterSpacing: "0.2em" },
-                    hover: { opacity: 1, y: 3, letterSpacing: "0.4em", color: isSolidNav ? "#a78bfa" : "#7c3aed" }
-                }}
-                transition={{ duration: 0.4 }}
-            >
-                Professional Painters
-            </motion.span>
+  className="block md:hidden text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.2em] -mt-1 relative z-40 text-white"
+>
+  Professional Painting Contractors
+</motion.span>
         </motion.div>
     );
 };

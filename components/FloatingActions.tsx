@@ -21,7 +21,7 @@ export const FloatingActions: React.FC = () => {
     <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-40 items-end">
       {/* WhatsApp Button */}
       <motion.a
-        href="https://wa.me/15551234567"
+        href="https://wa.me/+923022911088"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0 }}

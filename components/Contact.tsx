@@ -37,7 +37,7 @@ export const Contact: React.FC = () => {
 
             <div className="space-y-8 mb-16">
               {[
-                { icon: Phone, title: "Phone", info: "+92 302 291 10 88", href: "tel:+928282569675" },
+                { icon: Phone, title: "Phone", info: "+92 302 291 10 88", href: "tel: +92 302 291 10 88" },
                 { icon: Mail, title: "Email", info: "sikanderpaint@example.com", href: "mailto:sikanderpaint@example.com" },
                 { icon: MapPin, title: "Office", info: "Kharadar, Karachi, Pakistan", href: "#" }
               ].map((item, i) => (

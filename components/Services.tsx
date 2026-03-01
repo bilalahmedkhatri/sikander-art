@@ -8,7 +8,7 @@ const services = [
     icon: <Home className="w-8 h-8" />,
     title: 'Interior Painting',
     description: 'Flawless finishes for living rooms, kitchens, bedrooms, and more using low-VOC premium paints.',
-    img: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&q=80'
+    img: 'https://images.pexels.com/photos/35419462/pexels-photo-35419462.jpeg'
   },
   {
     icon: <PaintBucket className="w-8 h-8" />,
@@ -38,7 +38,7 @@ const services = [
     icon: <Brush className="w-8 h-8" />,
     title: 'Cabinet Refinishing',
     description: 'Transform your kitchen or bathroom cabinets with a factory-like finish at a fraction of the replacement cost.',
-    img: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop'
+    img: 'https://images.pexels.com/photos/6283960/pexels-photo-6283960.jpeg'
   },
 ];
 

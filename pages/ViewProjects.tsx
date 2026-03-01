@@ -62,11 +62,11 @@ const projects: Project[] = [
     challenge: "Large surface area with high ceilings requiring scaffolding and precision finish.",
     solution: "Used professional scaffolding, applied putty and primer before two coats of premium paint.",
     result: "Flawless, smooth finish delivered 2 days ahead of schedule. Client fully satisfied.",
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&q=80",
+    image: "https://images.pexels.com/photos/6283973/pexels-photo-6283973.jpeg?auto=compress&cs=tinysrgb&w=800",
     gallery: [
-      "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=800&q=80",
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
-      "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800&q=80"
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=800&auto=format&fit=crop"
     ]
   },
   {
@@ -83,11 +83,11 @@ const projects: Project[] = [
     challenge: "Working at height on a busy street in Gulshan with minimal disruption to residents.",
     solution: "Used safety harnesses and scaffolding, worked floor by floor, completed during off-peak hours.",
     result: "Building exterior transformed completely. Weather protection guaranteed for 5+ years.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
     gallery: [
-      "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&q=80"
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop",
+      "https://images.pexels.com/photos/2681639/pexels-photo-2681639.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop"
     ]
   },
   {
@@ -97,18 +97,18 @@ const projects: Project[] = [
     location: "Clifton Block 2, Karachi",
     area: "800 sq ft",
     duration: "5 days",
-    year: 2024,
+    year: 2025,
     client: "Residential Client",
     services: ["Venetian Plaster", "Decorative Texture", "Custom Finish"],
     description: "Custom Venetian plaster texture applied on the main lounge feature wall and adjacent dining wall. Rich, luxurious finish that completely transformed the living space.",
     challenge: "Matching the client's reference image exactly and achieving consistent texture depth.",
     solution: "Used imported Italian plaster technique, applied in 3 layers with hand-polishing between each.",
     result: "Stunning result that exceeded client expectations. Featured in client's home tour.",
-    image: "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800&q=80",
+    image: "https://images.pexels.com/photos/8210463/pexels-photo-8210463.jpeg?auto=compress&cs=tinysrgb&w=800",
     gallery: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-      "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80",
-      "https://images.unsplash.com/photo-1586105251261-72a756497a11?w=800&q=80"
+      "https://images.pexels.com/photos/6207819/pexels-photo-6207819.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/6207368/pexels-photo-6207368.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.unsplash.com/photo-1615529328331-f8917597711f?q=80&w=800&auto=format&fit=crop"
     ]
   },
   {
@@ -118,18 +118,18 @@ const projects: Project[] = [
     location: "North Nazimabad, Karachi",
     area: "2,200 sq ft",
     duration: "7 days",
-    year: 2024,
+    year: 2026,
     client: "Building Owner",
     services: ["Roof Waterproofing", "Bathroom Waterproofing", "Chemical Treatment", "Membrane Application"],
     description: "Complete waterproofing solution for a 5-storey building roof and 8 bathrooms. Chemical-based and membrane-based waterproofing applied to permanently eliminate leakage.",
     challenge: "Severe leakage issue causing damage to multiple floors during monsoon season.",
     solution: "Applied SBR chemical waterproofing on roof followed by APP membrane. Bathroom walls treated with crystalline waterproofing.",
     result: "Zero leakage reported after first monsoon season. Client saved significant repair costs.",
-    image: "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=800&q=80",
+    image: "https://images.pexels.com/photos/7031413/pexels-photo-7031413.jpeg?auto=compress&cs=tinysrgb&w=800",
     gallery: [
-      "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?w=800&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+      "https://images.pexels.com/photos/5998082/pexels-photo-5998082.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/7031614/pexels-photo-7031614.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=800&auto=format&fit=crop"
     ]
   },
   {
@@ -139,18 +139,18 @@ const projects: Project[] = [
     location: "Bahria Town Karachi",
     area: "All wooden surfaces",
     duration: "8 days",
-    year: 2023,
+    year: 2026,
     client: "Residential Client",
     services: ["Wood Polish", "Lacquer Finish", "Door Painting", "Cabinet Polish"],
     description: "All wooden surfaces in a large bungalow polished and finished — main door, all room doors, kitchen cabinets, wardrobes, and window frames. Premium lacquer used throughout.",
     challenge: "Different wood types requiring different polish treatments for consistent final appearance.",
     solution: "Assessed each wood type separately, sanded to bare wood, applied wood filler, primer, and 3 coats of lacquer.",
     result: "Rich, warm wood finish with consistent sheen across all surfaces. Client extremely satisfied.",
-    image: "https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=800&q=80",
+    image: "https://images.pexels.com/photos/34277666/pexels-photo-34277666.jpeg?auto=compress&cs=tinysrgb&w=800",
     gallery: [
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
-      "https://images.unsplash.com/photo-1586105251261-72a756497a11?w=800&q=80",
-      "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=800&q=80"
+      "https://images.pexels.com/photos/34277666/pexels-photo-34277666.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/34277666/pexels-photo-34277666.jpeg&auto=format&fit=crop",
+      "https://images.pexels.com/photos/34277666/pexels-photo-34277666.jpeg?auto=compress&cs=tinysrgb&w=800"
     ]
   },
   {
@@ -160,18 +160,18 @@ const projects: Project[] = [
     location: "Korangi Industrial Area, Karachi",
     area: "8,000 sq ft",
     duration: "5 days",
-    year: 2024,
+    year: 2026,
     client: "Factory Owner",
     services: ["Epoxy Floor Coating", "Surface Grinding", "Anti-Slip Finish"],
     description: "Industrial-grade epoxy floor coating applied across entire 8,000 sq ft factory floor. Surface ground, primed, and finished with 2-component epoxy system for maximum durability.",
     challenge: "Existing floor had oil stains, cracks, and uneven surface that needed preparation before epoxy.",
     solution: "Used diamond grinding machine to remove old surface, filled cracks with epoxy filler, applied primer and two coats of industrial epoxy.",
     result: "Seamless, chemical-resistant floor that is easy to clean and maintain. Factory operational within 48 hours.",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    image: "https://images.pexels.com/photos/7031614/pexels-photo-7031614.jpeg?auto=compress&cs=tinysrgb&w=800",
     gallery: [
-      "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=800&q=80",
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&q=80"
+      "https://images.pexels.com/photos/7031413/pexels-photo-7031413.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=800&auto=format&fit=crop"
     ]
   },
   {
@@ -181,18 +181,18 @@ const projects: Project[] = [
     location: "Saddar, Karachi",
     area: "9,500 sq ft",
     duration: "18 days",
-    year: 2023,
+    year: 2026,
     client: "Plaza Owner",
     services: ["Commercial Exterior Painting", "Waterproofing", "Anti-Fungal Treatment"],
     description: "Full exterior painting of a 4-storey commercial plaza in Saddar. Surface cleaned, sealed, anti-fungal treatment applied, and finished with commercial-grade exterior paint.",
     challenge: "Active commercial area with shops open during the project requiring careful site management.",
     solution: "Used dustsheets to protect shop fronts, worked systematically floor by floor, minimized disruption to businesses.",
     result: "Plaza completely transformed. Footfall reportedly increased after the fresh new look.",
-    image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
     gallery: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&q=80",
-      "https://images.unsplash.com/photo-1586105251261-72a756497a11?w=800&q=80"
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop"
     ]
   },
   {
@@ -202,18 +202,18 @@ const projects: Project[] = [
     location: "Gulshan-e-Iqbal Block 13, Karachi",
     area: "350 sq ft",
     duration: "3 days",
-    year: 2024,
+    year: 2026,
     client: "Residential Client",
     services: ["3D Texture Work", "Decorative Painting", "Custom Wall Art"],
     description: "Fun and colorful 3D texture design created in a children's bedroom. Custom cartoon-themed texture design crafted by our specialist texture artist using specialized tools and materials.",
     challenge: "Creating a child-safe, non-toxic custom design that matched the parents' vision exactly.",
     solution: "Used child-safe, zero-VOC paints and materials. Created design template first, got approval, then executed.",
     result: "Magical bedroom transformation that the child absolutely loves. Parents shared photos widely on social media.",
-    image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80",
+    image: "https://images.pexels.com/photos/6207368/pexels-photo-6207368.jpeg?auto=compress&cs=tinysrgb&w=800",
     gallery: [
-      "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800&q=80",
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
-      "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=800&q=80"
+      "https://images.pexels.com/photos/8210463/pexels-photo-8210463.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/6207819/pexels-photo-6207819.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop"
     ]
   },
   {
@@ -223,18 +223,18 @@ const projects: Project[] = [
     location: "PECHS Block 6, Karachi",
     area: "3,500 sq ft",
     duration: "10 days",
-    year: 2024,
+    year: 2025,
     client: "Corporate Client",
     services: ["Interior Painting", "Ceiling Work", "Feature Wall", "Color Consultation"],
     description: "Complete interior painting of a 3,500 sq ft corporate office. Light neutral tones used for open work areas, accent color on reception feature wall. Work done over weekend to avoid business disruption.",
     challenge: "Tight deadline — entire office needed completion over one weekend without disturbing business operations.",
     solution: "Deployed a team of 12 painters working two shifts across Saturday and Sunday.",
     result: "Complete office interior finished in 2 days. Business resumed Monday morning with zero disruption.",
-    image: "https://images.unsplash.com/photo-1586105251261-72a756497a11?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop",
     gallery: [
-      "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=800&q=80",
-      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&q=80",
-      "https://images.unsplash.com/photo-1600885157082-b2a66d5b1e4e?w=800&q=80"
+      "https://images.pexels.com/photos/6283973/pexels-photo-6283973.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=800&auto=format&fit=crop"
     ]
   },
   {
@@ -244,18 +244,18 @@ const projects: Project[] = [
     location: "Defence Phase 2, Karachi",
     area: "All metal surfaces",
     duration: "4 days",
-    year: 2023,
+    year: 2025,
     client: "Residential Client",
     services: ["Metal Painting", "Anti-Rust Treatment", "Primer Coat", "Topcoat Finish"],
     description: "Complete anti-rust treatment and painting for main entrance gate, boundary wall grills, window grills, and iron staircase railing of a large bungalow in Defence.",
     challenge: "Heavy rust on old iron gate and grills requiring complete removal before painting.",
     solution: "Used angle grinder and wire brush to remove all rust, applied red oxide anti-rust primer, then two coats of high-gloss enamel.",
     result: "All metal surfaces rust-free and beautifully painted. Anti-rust guarantee for 3+ years.",
-    image: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&q=80",
+    image: "https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg?auto=compress&cs=tinysrgb&w=800",
     gallery: [
-      "https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=800&q=80",
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+      "https://images.pexels.com/photos/4946515/pexels-photo-4946515.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=800&auto=format&fit=crop"
     ]
   },
   {
@@ -272,11 +272,11 @@ const projects: Project[] = [
     challenge: "Fresh plaster walls requiring extra drying time and multiple primer coats to avoid patchy finish.",
     solution: "Allowed each coat full drying time, used alkali-resistant primer on fresh plaster before finish coats.",
     result: "Beautiful handover-ready home delivered on time. Client moved in directly after completion.",
-    image: "https://images.unsplash.com/photo-1600885157082-b2a66d5b1e4e?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=800&auto=format&fit=crop",
     gallery: [
-      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&q=80",
-      "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=800&q=80",
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+      "https://images.pexels.com/photos/6283973/pexels-photo-6283973.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop"
     ]
   },
   {
@@ -286,18 +286,18 @@ const projects: Project[] = [
     location: "Landhi Industrial Area, Karachi",
     area: "15,000 sq ft",
     duration: "25 days",
-    year: 2023,
+    year: 2024,
     client: "Warehouse Owner",
     services: ["Commercial Interior Painting", "Exterior Painting", "Epoxy Flooring", "Roof Waterproofing"],
     description: "Large-scale painting project for an industrial warehouse — full interior and exterior painting, epoxy floor coating throughout, and roof waterproofing to prevent monsoon damage.",
     challenge: "Massive scale project with active warehouse operations requiring phased completion.",
     solution: "Divided warehouse into 4 zones, completed one zone at a time allowing operations to continue.",
     result: "Complete warehouse transformation delivered on schedule. Operations never stopped during the project.",
-    image: "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=800&auto=format&fit=crop",
     gallery: [
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-      "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=800&q=80",
-      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&q=80"
+      "https://images.pexels.com/photos/7031614/pexels-photo-7031614.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/7031413/pexels-photo-7031413.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop"
     ]
   }
 ];
@@ -335,7 +335,7 @@ const ViewProjects: React.FC = () => {
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/80 z-10"></div>
             <img 
-              src="https://images.unsplash.com/photo-1562664377-709f2c337eb2?q=80&w=2070&auto=format&fit=crop" 
+              src="https://images.pexels.com/photos/6283973/pexels-photo-6283973.jpeg?auto=compress&cs=tinysrgb&w=1400"
               alt="Projects Hero" 
               className="w-full h-full object-cover opacity-30"
             />
@@ -426,11 +426,15 @@ const ViewProjects: React.FC = () => {
                   className="bg-white rounded-2xl overflow-hidden shadow-xl group cursor-pointer"
                   onClick={() => setSelectedProject(project)}
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-64 overflow-hidden bg-gray-200">
                     <img 
                       src={project.image} 
                       alt={project.title} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800';
+                      }}
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="bg-white/20 backdrop-blur-md p-3 rounded-full text-white">
@@ -533,6 +537,9 @@ const ViewProjects: React.FC = () => {
                   src={selectedProject.image} 
                   alt={selectedProject.title} 
                   className="w-full h-full object-cover"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800';
+                  }}
                 />
                 <button 
                   onClick={() => setSelectedProject(null)}
@@ -556,13 +563,16 @@ const ViewProjects: React.FC = () => {
                       {[selectedProject.image, ...selectedProject.gallery].map((img, idx) => (
                         <button 
                           key={idx}
-                          onClick={() => {
-                            // In a real app, this would switch the main image
-                            // For now, we'll just show the thumbnail interaction
-                          }}
                           className="w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden border-2 border-transparent hover:border-secondary transition-all"
                         >
-                          <img src={img} alt={`Gallery ${idx}`} className="w-full h-full object-cover" />
+                          <img
+                            src={img}
+                            alt={`Gallery ${idx}`}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=200';
+                            }}
+                          />
                         </button>
                       ))}
                     </div>

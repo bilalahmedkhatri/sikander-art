@@ -76,7 +76,7 @@ export const WhatsAppQuoteForm: React.FC = () => {
             `\n\n*Project Details:*\n${formState.message || 'Koi aur tafseelat nahi di gayi.'}`;
 
         // Target WhatsApp Number
-        const targetNumber = '923022911088';
+        const targetNumber = '+923022911088';
         const whatsappUrl = `https://wa.me/${targetNumber}?text=${encodeURIComponent(message)}`;
 
         // Small delay to show the redirecting state
@@ -139,7 +139,7 @@ export const WhatsAppQuoteForm: React.FC = () => {
                         value={formState.phone}
                         onChange={handleChange}
                         className={`w-full px-6 py-5 rounded-2xl bg-slate-50 border-2 focus:bg-white outline-none transition-all font-bold text-primary ${errors.phone ? 'border-red-300 focus:border-red-500' : 'border-transparent focus:border-secondary'}`}
-                        placeholder="03XX XXXXXXX"
+                        placeholder="+92 302 291 10 88"
                     />
                 </div>
             </div>
