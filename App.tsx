@@ -47,7 +47,7 @@ const App: React.FC = () => {
         }
       }, 100);
 
-    }, 1500);
+    }, 300);
     return () => clearTimeout(timer);
   }, []);
 
