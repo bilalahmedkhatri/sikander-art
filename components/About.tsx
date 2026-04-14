@@ -5,96 +5,114 @@ import { Award, ShieldCheck, Users, Clock, Target, Heart } from 'lucide-react';
 
 export const About: React.FC = () => {
   const { scrollYProgress } = useScroll();
-  const imgScale = useTransform(scrollYProgress, [0.1, 0.3], [0.95, 1]);
+  const imgScale = useTransform(scrollYProgress, [0.1, 0.4], [0.8, 1]);
+  const imgRotate = useTransform(scrollYProgress, [0.1, 0.4], [10, 0]);
 
   return (
-    <section id="about" className="py-32 bg-white overflow-hidden">
+    <section id="about" className="py-32 md:py-48 bg-[#0a0a0a] text-white overflow-hidden perspective-2000">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-20">
+        <div className="flex flex-col lg:flex-row items-center gap-24 md:gap-32">
 
-          {/* Image Side */}
+          {/* Image Side - 3D Cinematic */}
           <motion.div
-            style={{ scale: imgScale }}
-            className="w-full lg:w-1/2 relative will-change-transform"
+            style={{
+              scale: imgScale,
+              rotateY: imgRotate,
+            }}
+            className="w-full lg:w-1/2 relative will-change-transform preserve-3d"
           >
-            <div className="relative rounded-[3rem] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.15)] group">
+            <motion.div
+              initial={{ rotateY: -30, opacity: 0, x: -100 }}
+              whileInView={{ rotateY: 0, opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.8, type: "spring", damping: 25 }}
+              className="relative rounded-[5rem] overflow-hidden shadow-[0_100px_200px_-50px_rgba(0,0,0,0.8)] group preserve-3d border border-white/5"
+            >
               <img
                 src="https://images.unsplash.com/photo-1595846519845-68e298c2edd8?q=80&w=1200&auto=format&fit=crop"
                 alt="Our Painting Team"
-                className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="w-full h-[700px] object-cover transition-transform duration-[3s] group-hover:scale-110 group-hover:rotate-1 grayscale group-hover:grayscale-0"
               />
-              <div className="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-secondary/30 via-transparent to-white/5 mix-blend-overlay"></div>
 
-            {/* Floating Experience Badge */}
+              {/* Overlay Glass Layer */}
+              <div className="absolute inset-0 bg-black/10 backdrop-blur-[1px] group-hover:backdrop-blur-0 transition-all duration-1000"></div>
+            </motion.div>
+
+            {/* Experience Badge - High Fidelity 3D Glass */}
             <motion.div
-              initial={{ x: 30, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
-              className="absolute -bottom-10 -right-6 md:-right-10 bg-white p-10 rounded-[2.5rem] shadow-2xl border border-gray-100 max-w-[320px] backdrop-blur-md bg-white/90"
+              initial={{ x: 100, y: 100, opacity: 0, rotateZ: 20 }}
+              whileInView={{ x: 0, y: 0, opacity: 1, rotateZ: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 1, duration: 1.5, type: "spring", damping: 12 }}
+              className="absolute -bottom-16 -right-8 md:-right-20 bg-white/5 backdrop-blur-[40px] p-14 rounded-[4rem] shadow-[0_80px_160px_-40px_rgba(0,0,0,0.6)] border border-white/10 z-20 group preserve-3d hover:translate-z-20 transition-transform"
             >
-              <div className="flex items-center gap-6">
-                <div className="bg-secondary p-5 rounded-2xl text-white shadow-xl animate-bounce-slow">
-                  <Award className="w-10 h-10" />
-                </div>
+              <div className="absolute inset-0 bg-secondary/5 rounded-[4rem] blur-2xl group-hover:bg-secondary/10 transition-colors"></div>
+              <div className="flex items-center gap-10 relative">
+                <motion.div
+                  animate={{
+                    y: [0, -15, 0],
+                    rotateY: [0, 20, 0]
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="bg-secondary p-8 rounded-[2rem] text-white shadow-[0_20px_40px_rgba(249,115,22,0.4)]"
+                >
+                  <Award className="w-14 h-14" />
+                </motion.div>
                 <div>
-                  <p className="text-5xl font-black text-primary leading-none">15+</p>
-                  <p className="text-gray-500 text-xs font-black uppercase tracking-[0.2em] mt-2">Years of Excellence</p>
+                  <p className="text-7xl md:text-8xl font-black text-white leading-none tracking-tighter drop-shadow-2xl">15+</p>
+                  <p className="text-secondary text-[10px] font-black uppercase tracking-[0.5em] mt-5 whitespace-nowrap">Years of Mastery</p>
                 </div>
               </div>
             </motion.div>
           </motion.div>
 
           {/* Content Side */}
-          <div className="w-full lg:w-1/2">
-            <motion.span
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            >
-              OUR STORY
-            </motion.span>
+          <div className="w-full lg:w-1/2 preserve-3d">
             <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              initial={{ opacity: 0, rotateX: 90 }}
+              whileInView={{ opacity: 1, rotateX: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: "circOut" }}
+              className="text-5xl md:text-[7rem] font-serif font-black text-white leading-[0.85] mb-12 tracking-tighter"
             >
-              COLORING <span className="text-secondary italic">KARACHI</span> SINCE 2008
+              PAINTING <span className="text-secondary italic">KARACHI'S</span> VISION SINCE '08
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: 0.1, duration: 0.4, ease: "easeOut" }}
-              className="text-gray-600 text-xl mb-10 leading-relaxed font-medium"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 1 }}
+              className="text-gray-400 text-xl md:text-2xl mb-16 leading-relaxed font-medium italic opacity-80"
             >
-              At <strong className="text-primary">Sikander Art</strong>, we believe every wall is a masterpiece waiting to happen. Our mission is to combine the heritage of Pakistani craftsmanship with modern, eco-friendly materials to deliver stunning results that last.
+              At <strong className="text-white">Sikander Art</strong>, we redefine architecture through the lens of color. Our heritage is built on a decade of precision, merging traditional Pakistani craft with cutting-edge cinematic finishes.
             </motion.p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-14 mb-20">
               {[
-                { icon: ShieldCheck, title: "Licensed & Insured", desc: "Complete peace of mind for your property." },
-                { icon: Target, title: "Precision Driven", desc: "Laser-focused on the smallest details." },
-                { icon: Users, title: "Master Painters", desc: "Expert artisans trained in modern techniques." },
-                { icon: Heart, title: "Client First", desc: "Your satisfaction is our primary metric." }
+                { icon: ShieldCheck, title: "Premium Assurance", desc: "Complete peace of mind for luxury properties." },
+                { icon: Target, title: "Artisanal Focus", desc: "Obsessive attention to the finest details." },
+                { icon: Users, title: "Master Collective", desc: "Elite painters trained in high-fidelity techniques." },
+                { icon: Heart, title: "Client Intimacy", desc: "Your unique vision is our singular metric." }
               ].map((item, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: i * 0.08, duration: 0.4, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 30, rotateY: 30 }}
+                  whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 + i * 0.1, duration: 1, type: "spring" }}
+                  className="group relative preserve-3d hover:translate-z-10 transition-all duration-500"
                 >
-                  <div className="flex items-center gap-4 text-primary font-black uppercase tracking-widest text-xs">
-                    <div className="p-3 bg-secondary/10 rounded-xl group-hover:bg-secondary group-hover:text-white transition-all duration-300">
-                      <item.icon size={20} />
+                  <div className="flex items-center gap-6 text-white font-black uppercase tracking-[0.3em] text-[10px] mb-4">
+                    <div className="p-5 bg-white/5 rounded-2xl group-hover:bg-secondary group-hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] transition-all duration-500">
+                      <item.icon size={28} className="text-secondary group-hover:text-white" />
                     </div>
-                    <span>{item.title}</span>
+                    <span className="group-hover:text-secondary transition-colors">{item.title}</span>
                   </div>
-                  <p className="text-sm text-gray-500 font-medium ml-1">
+                  <p className="text-xs text-gray-500 font-bold ml-1 opacity-70 group-hover:opacity-100 transition-opacity leading-relaxed">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -104,24 +122,28 @@ export const About: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: 0.3, duration: 0.4, ease: "easeOut" }}
-              className="mt-16 flex flex-wrap gap-6"
+              viewport={{ once: true }}
+              transition={{ delay: 0.8 }}
+              className="flex flex-wrap gap-10 items-center"
             >
               <motion.a
                 href="#contact"
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(30,58,138,0.2)" }}
-                className="bg-primary text-white px-10 py-5 rounded-full font-black uppercase tracking-widest text-sm shadow-2xl inline-flex items-center gap-3 transition-all"
+                whileHover={{ scale: 1.05, translateZ: 20 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-secondary text-white px-12 py-6 rounded-3xl font-black uppercase tracking-[0.3em] text-[10px] shadow-[0_30px_60px_-15px_rgba(249,115,22,0.4)] inline-flex items-center gap-5 transition-all border border-white/10"
               >
-                Let's Talk Colors <Target size={18} />
+                Start Your Masterwork <Target size={20} />
               </motion.a>
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-4">
+
+              <div className="flex items-center gap-5 border-l border-white/10 pl-10">
+                <div className="flex -space-x-5">
                   {[1, 2, 3].map(i => (
-                    <img key={i} className="w-12 h-12 rounded-full border-4 border-white object-cover" src={`https://i.pravatar.cc/150?u=${i}`} alt="Client" />
+                    <img key={i} className="w-14 h-14 rounded-full border-[3px] border-[#0a0a0a] object-cover shadow-2xl" src={`https://i.pravatar.cc/150?u=${i + 10}`} alt="Client" />
                   ))}
                 </div>
-                <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">1k+ Happy Clients</p>
+                <div className="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">
+                  1000+ <br /> <span className="text-white/20">Successes</span>
+                </div>
               </div>
             </motion.div>
           </div>

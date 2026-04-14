@@ -112,7 +112,7 @@ const policySections: PolicySection[] = [
       "Company: Sikander Arts",
       "Location: Karachi, Pakistan",
       "Phone: +92 302 291 10 88",
-      "Email: sikanderpaint@example.com",
+      "Email: bilal_azeemlab@gmail.com",
       "WhatsApp: +92 3XX XXXXXXX",
       "Working Hours: Monday to Saturday, 9:00 AM to 7:00 PM"
     ]
@@ -132,7 +132,7 @@ const PrivacyPolicy: React.FC = () => {
         <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-primary text-white overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-secondary/20 z-0"></div>
-          
+
           <div className="container mx-auto px-4 relative z-10 text-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -142,7 +142,7 @@ const PrivacyPolicy: React.FC = () => {
             >
               <ShieldCheck size={32} />
             </motion.div>
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "circOut" }}
@@ -150,7 +150,7 @@ const PrivacyPolicy: React.FC = () => {
             >
               Privacy <span className="text-secondary">Policy</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -210,7 +210,7 @@ const PrivacyPolicy: React.FC = () => {
             </div>
 
             {/* CTA Section */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

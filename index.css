@@ -1,3 +1,115 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .perspective-500 {
+    perspective: 500px;
+  }
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+  .perspective-3000 {
+    perspective: 3000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .translate-z-0 {
+    transform: translateZ(0);
+  }
+  .translate-z-2 {
+    transform: translateZ(2px);
+  }
+  .translate-z-5 {
+    transform: translateZ(5px);
+  }
+  .translate-z-10 {
+    transform: translateZ(10px);
+  }
+  .translate-z-15 {
+    transform: translateZ(15px);
+  }
+  .translate-z-20 {
+    transform: translateZ(20px);
+  }
+  .translate-z-25 {
+    transform: translateZ(25px);
+  }
+  .translate-z-30 {
+    transform: translateZ(30px);
+  }
+  .translate-z-40 {
+    transform: translateZ(40px);
+  }
+  .translate-z-50 {
+    transform: translateZ(50px);
+  }
+  .translate-z-100 {
+    transform: translateZ(100px);
+  }
+  .translate-z-150 {
+    transform: translateZ(150px);
+  }
+  .translate-z--20 {
+    transform: translateZ(-20px);
+  }
+  .translate-z--50 {
+    transform: translateZ(-50px);
+  }
+  .rotate-x-20 {
+    transform: rotateX(20deg);
+  }
+  .rotate-y-12 {
+    transform: rotateY(12deg);
+  }
+  .map-dark-filter {
+    filter: grayscale(1) invert(1) contrast(1.2) brightness(0.8);
+  }
+
+  .perspective-800 {
+    perspective: 800px;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .perspective-1200 {
+    perspective: 1200px;
+  }
+
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+
+  .blur-small {
+    filter: blur(2px);
+  }
+
+  .blur-medium {
+    filter: blur(6px);
+  }
+
+  .blur-large {
+    filter: blur(8px);
+  }
+
+  .text-shadow-thin {
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+  }
+
+  .text-shadow-glow {
+    text-shadow: 0px 2px 10px rgba(255,255,255,0.3);
+  }
+
+  .text-shadow-glow-dark {
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+  }
+}

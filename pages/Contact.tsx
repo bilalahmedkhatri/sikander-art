@@ -149,7 +149,7 @@ const Contact: React.FC = () => {
                       </div>
                       <div>
                         <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Email</p>
-                        <a href="mailto:sikanderpaint@example.com" className="text-lg font-bold text-gray-800 hover:text-secondary transition-colors break-all">sikanderpaint@example.com</a>
+                        <a href="mailto:bilal_azeemlab@gmail.com" className="text-lg font-bold text-gray-800 hover:text-secondary transition-colors break-all">bilal_azeemlab@gmail.com</a>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
