@@ -44,74 +44,175 @@ const services = [
 
 export const Services: React.FC = () => {
   return (
-    <section id="services" className="py-20 md:py-32 bg-slate-50 overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <motion.span
-            initial={{ opacity: 0, letterSpacing: '0.1em' }}
-            whileInView={{ opacity: 1, letterSpacing: '0.3em' }}
-            viewport={{ once: true }}
-            className="text-secondary font-black uppercase text-sm block mb-4"
-          >
-            OUR EXPERTISE
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-4xl md:text-6xl font-serif font-black text-primary mt-2 mb-8"
-          >
-            Professional Painting Services
-          </motion.h2>
+    <section id="services" className="py-24 md:py-32 bg-[#050505] text-white relative overflow-hidden">
+      {/* Cinematic Background Lighting */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-secondary/10 blur-[150px] rounded-full" />
+        <div className="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-secondary/5 blur-[150px] rounded-full" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center max-w-4xl mx-auto mb-24">
           <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: '80px' }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="flex justify-center mb-6"
+          >
+            <span className="px-6 py-2 rounded-full border border-secondary/30 bg-secondary/5 text-secondary text-xs font-black tracking-[0.5em] uppercase">
+              The Sikander Art Standards
+            </span>
+          </motion.div>
+          
+          <div className="relative inline-block perspective-1000">
+            <motion.h2
+              initial={{ opacity: 0, rotateX: -30, y: 30 }}
+              whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-6xl md:text-8xl font-black mb-8 tracking-tighter leading-none"
+            >
+              PREMIUM <span className="text-secondary">FINISHES</span>
+            </motion.h2>
+          </div>
+          
+          <motion.div
+            initial={{ width: 0, opacity: 0 }}
+            whileInView={{ width: '120px', opacity: 1 }}
             viewport={{ once: true }}
-            className="h-1 bg-secondary mx-auto mb-8"
+            transition={{ duration: 1.2, delay: 0.5 }}
+            className="h-1.5 bg-secondary mx-auto mb-10 shadow-[0_0_25px_rgba(249,115,22,1)]"
           />
+          
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
-            className="text-gray-600 text-lg leading-relaxed font-medium"
+            viewport={{ once: true }}
+            transition={{ delay: 0.7, duration: 1 }}
+            className="text-gray-400 text-xl font-medium max-w-2xl mx-auto leading-relaxed"
           >
-            We combine artisanal craftsmanship with modern techniques to deliver superior results for every project type in Karachi.
+            We don't just paint walls; we sculpt atmospheres. Our artisanal techniques 
+            deliver unmatched depth and cinematic durability.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 perspective-2000"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
-              className="group bg-white rounded-[2rem] overflow-hidden shadow-xl hover:-translate-y-4 hover:shadow-2xl transition-all duration-300 card-3d-hover will-change-transform"
+              variants={{
+                hidden: { 
+                  opacity: 0, 
+                  y: 150,
+                  rotateX: 45,
+                  scale: 0.8,
+                  filter: 'blur(20px)',
+                },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  rotateX: 0,
+                  scale: 1,
+                  filter: 'blur(0px)',
+                  transition: {
+                    type: "spring",
+                    damping: 20,
+                    stiffness: 50,
+                    delay: index * 0.2,
+                    duration: 1.2
+                  }
+                }
+              }}
+              whileHover={{ 
+                y: -25,
+                rotateY: 8,
+                rotateX: -8,
+                scale: 1.05,
+                transition: { duration: 0.4, ease: "easeOut" }
+              }}
+              className="group relative h-full preserve-3d"
             >
-              <div className="h-48 overflow-hidden relative">
-                <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors"></div>
-                <div className="absolute top-6 left-6 w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary shadow-2xl group-hover:bg-secondary group-hover:text-white transition-all duration-300 transform group-hover:rotate-12">
-                  {service.icon}
+              {/* Cinematic Shine/Glow Parent */}
+              <div className="relative bg-[#0d0d0d] border border-white/5 rounded-[2.5rem] overflow-hidden h-full flex flex-col backdrop-blur-sm transition-all duration-500 group-hover:border-secondary/50 group-hover:shadow-[0_0_100px_rgba(249,115,22,0.2)] group-hover:translate-z-20 preserve-3d">
+                
+                {/* Moving Light Beam on Hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10">
+                  <motion.div 
+                    animate={{ 
+                      x: ['-200%', '200%'],
+                      opacity: [0, 1, 0]
+                    }}
+                    transition={{ 
+                      duration: 2.5, 
+                      repeat: Infinity, 
+                      ease: "linear",
+                      repeatDelay: 1
+                    }}
+                    className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/[0.03] to-transparent skew-x-25"
+                  />
                 </div>
-              </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-black text-primary mb-4 uppercase tracking-tighter">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed font-medium">{service.description}</p>
-                <motion.a
-                  href="#contact"
-                  whileHover={{ x: 10 }}
-                  className="inline-flex items-center mt-8 text-secondary font-black uppercase tracking-widest text-xs hover:text-orange-700 transition-colors"
-                >
-                  Learn More <span className="ml-2 text-xl">&rarr;</span>
-                </motion.a>
+
+                {/* Service Image Section */}
+                <div className="relative h-64 overflow-hidden">
+                  <motion.img 
+                    src={service.img} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover transition-transform duration-1000 scale-110 group-hover:scale-100 group-hover:rotate-1" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-80" />
+                  
+                  {/* Icon Badge - Cinematic Pop */}
+                  <div className="absolute -bottom-6 right-10 z-20 translate-z-40">
+                    <motion.div 
+                      whileHover={{ scale: 1.1, rotate: 10 }}
+                      className="w-20 h-20 bg-secondary rounded-2xl flex items-center justify-center text-white shadow-[0_20px_40px_rgba(249,115,22,0.4)] relative overflow-hidden group/icon"
+                    >
+                      <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover/icon:translate-x-full transition-transform duration-700" />
+                      {service.icon}
+                    </motion.div>
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="p-10 pt-16 flex-grow flex flex-col">
+                  <motion.h3 
+                    className="text-2xl font-black text-white mb-4 tracking-tighter uppercase group-hover:text-secondary transition-colors duration-300 translate-z-25"
+                  >
+                    {service.title}
+                  </motion.h3>
+                  
+                  <p className="text-gray-400 font-medium leading-relaxed mb-auto group-hover:text-gray-200 transition-colors duration-300 translate-z-10">
+                    {service.description}
+                  </p>
+                  
+                  <div className="mt-10 pt-6 border-t border-white/5 flex items-center justify-between">
+                    <button className="flex items-center gap-3 text-secondary font-black tracking-widest text-[10px] uppercase group/btn">
+                      <span>Explore Finish</span>
+                      <motion.div 
+                        whileHover={{ x: 5 }}
+                        className="w-8 h-8 rounded-full border border-secondary/30 flex items-center justify-center group-hover/btn:bg-secondary group-hover/btn:text-white transition-all duration-300"
+                      >
+                        <span className="text-lg">→</span>
+                      </motion.div>
+                    </button>
+                    
+                    <span className="text-[10px] font-black text-white/5 uppercase tracking-[0.3em] group-hover:text-secondary/10 transition-colors">
+                      Series 0{index + 1}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Laser Edge Interaction */}
+                <div className="absolute top-0 left-0 w-1/2 h-[2px] bg-gradient-to-r from-transparent to-secondary opacity-0 group-hover:opacity-100 group-hover:left-full transition-all duration-1000 -translate-x-full pointer-events-none" />
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

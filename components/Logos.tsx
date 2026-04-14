@@ -27,12 +27,11 @@ export const Logo1: React.FC<LogoProps> = ({ isSolidNav = true }) => {
             {/* 3D Shadows - Vibrant Paint Layers */}
             {/* Top Red Layer */}
             <motion.span
-                className="absolute top-0 left-0 text-2xl font-serif font-black tracking-tighter uppercase z-10 text-red-500"
+                className={`absolute top-0 left-0 text-2xl font-serif font-black tracking-tighter uppercase z-10 text-red-500 text-shadow-thin`}
                 variants={{
                     rest: { y: 0, x: 0, opacity: 0 },
                     hover: { y: -4, x: -4, opacity: 1 }
                 }}
-                style={{ textShadow: "1px 1px 0px rgba(0,0,0,0.2)" }}
             >
                 SIKANDER <span className="text-red-500">ART</span>
             </motion.span>
@@ -72,9 +71,8 @@ export const Logo1: React.FC<LogoProps> = ({ isSolidNav = true }) => {
 export const Logo2: React.FC<LogoProps> = ({ isSolidNav = true }) => {
     return (
         <motion.div
-            className="flex flex-col cursor-pointer"
+            className="flex flex-col cursor-pointer perspective-1000"
             whileHover="hover"
-            style={{ perspective: '1000px' }}
         >
             <motion.div
                 variants={{
@@ -82,15 +80,13 @@ export const Logo2: React.FC<LogoProps> = ({ isSolidNav = true }) => {
                     hover: { rotateX: 360 }
                 }}
                 transition={{ duration: 0.8, ease: "anticipate" }}
-                style={{ transformStyle: 'preserve-3d' }}
-                className="relative"
+                className="relative preserve-3d"
             >
                 {/* Text with vibrant gradient */}
                 <span className={`text-2xl font-serif font-black tracking-tighter uppercase bg-clip-text ${isSolidNav ? 'text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 relative z-10' : 'text-transparent bg-gradient-to-r from-blue-700 via-purple-600 to-orange-500 drop-shadow-sm relative z-10'}`}>
                     SIKANDER ART
                 </span>
-                {/* Shadow behind for depth when rotating */}
-                <span className={`absolute top-[2px] left-0 text-2xl font-serif font-black tracking-tighter uppercase -z-10 ${isSolidNav ? 'text-black/50' : 'text-black/20'}`} style={{ filter: 'blur(2px)' }}>
+                <span className={`absolute top-[2px] left-0 text-2xl font-serif font-black tracking-tighter uppercase -z-10 ${isSolidNav ? 'text-black/50' : 'text-black/20'} blur-small`}>
                     SIKANDER ART
                 </span>
             </motion.div>
@@ -120,7 +116,7 @@ export const Logo3: React.FC<LogoProps> = ({ isSolidNav = true }) => {
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
             >
-                <span className={`text-2xl font-serif font-black tracking-tighter uppercase ${isSolidNav ? 'text-white' : 'text-gray-900'} relative z-10`} style={{ textShadow: isSolidNav ? "0px 2px 10px rgba(255,255,255,0.3)" : "0px 2px 4px rgba(0,0,0,0.1)" }}>
+                <span className={`text-2xl font-serif font-black tracking-tighter uppercase ${isSolidNav ? 'text-white text-shadow-glow' : 'text-gray-900 text-shadow-glow-dark'} relative z-10`}>
                     SIKANDER <span className="text-secondary">ART</span>
                 </span>
 
@@ -137,11 +133,10 @@ export const Logo3: React.FC<LogoProps> = ({ isSolidNav = true }) => {
             </motion.div>
 
             <motion.div
-                className={`absolute bottom-4 left-[5%] right-[5%] h-3 rounded-[100%] z-0 ${isSolidNav ? 'bg-gradient-to-r from-cyan-500 via-pink-500 to-yellow-500' : 'bg-gradient-to-r from-cyan-600 via-pink-600 to-yellow-600'}`}
-                style={{ filter: "blur(6px)" }}
+                className={`absolute bottom-4 left-[5%] right-[5%] h-3 rounded-[100%] z-0 ${isSolidNav ? 'bg-gradient-to-r from-cyan-500 via-pink-500 to-yellow-500' : 'bg-gradient-to-r from-cyan-600 via-pink-600 to-yellow-600'} blur-medium`}
                 variants={{
                     rest: { scaleX: 0.8, opacity: 0 },
-                    hover: { scaleX: 1, opacity: 0.5, y: 8, filter: "blur(8px)" }
+                    hover: { scaleX: 1, opacity: 0.5, y: 8, filter: "blur(8px)" } // filter property here is actually a motion variant, but blur-medium is static
                 }}
             />
             <span className={`hidden md:block text-[10px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors ${isSolidNav ? 'text-pink-200' : 'text-pink-600'}`}>
@@ -173,7 +168,7 @@ export const Logo4: React.FC<LogoProps> = ({ isSolidNav = true }) => {
             whileHover="hover"
             initial="rest"
         >
-            <div className="flex" style={{ perspective: '800px' }}>
+            <div className="flex perspective-800">
                 {text1.map((char, i) => (
                     <motion.span
                         key={i}
@@ -270,10 +265,9 @@ export const Logo5: React.FC<LogoProps> = ({ isSolidNav = true }) => {
 
     return (
         <motion.div
-            className="flex flex-col cursor-pointer relative"
+            className="flex flex-col cursor-pointer relative perspective-1200"
             whileHover="hover"
             initial="rest"
-            style={{ perspective: '1200px' }}
         >
             {/* Main Rotating Container (From Logo 2) */}
             <motion.div
@@ -379,8 +373,7 @@ export const Logo5: React.FC<LogoProps> = ({ isSolidNav = true }) => {
 
             {/* Base Aura Shadow (From Logo 3) */}
             <motion.div
-                className={`absolute bottom-[20%] left-0 right-0 h-4 rounded-[100%] z-0 pointer-events-none ${isSolidNav ? 'bg-gradient-to-r from-cyan-500 via-pink-500 to-yellow-500' : 'bg-gradient-to-r from-cyan-600 via-pink-600 to-yellow-600'}`}
-                style={{ filter: "blur(8px)" }}
+                className={`absolute bottom-[20%] left-0 right-0 h-4 rounded-[100%] z-0 pointer-events-none ${isSolidNav ? 'bg-gradient-to-r from-cyan-500 via-pink-500 to-yellow-500' : 'bg-gradient-to-r from-cyan-600 via-pink-600 to-yellow-600'} blur-large`}
                 variants={{
                     rest: { scaleX: 0.5, opacity: 0 },
                     hover: { scaleX: 1, opacity: 0.6, y: 12, filter: "blur(12px)" }

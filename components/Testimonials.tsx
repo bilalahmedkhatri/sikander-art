@@ -49,94 +49,183 @@ export const Testimonials: React.FC = () => {
   };
 
   return (
-    <section className="py-32 bg-white overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-24">
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-secondary font-black uppercase tracking-[0.4em] text-sm block mb-4"
+    <section className="py-32 bg-[#0a0a0a] overflow-hidden relative">
+      {/* Cinematic Background Lighting */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-secondary/10 rounded-full blur-[180px] -mr-96 -mt-96 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[150px] -ml-72 -mb-72 pointer-events-none" />
+
+      <div className="container mx-auto px-4 relative">
+        <div className="text-center mb-32 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block"
           >
-            TESTIMONIALS
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="text-4xl md:text-6xl font-serif font-black text-primary leading-[1]"
-          >
-            What Our Clients Say
-          </motion.h2>
+          </motion.div>
+          <div className="relative inline-block perspective-2000">
+            <motion.h2
+              initial={{ opacity: 0, rotateX: 45, y: 50 }}
+              whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 1.2,
+                type: "spring",
+                damping: 20,
+                stiffness: 80
+              }}
+              className="text-6xl md:text-9xl font-serif font-black text-white leading-[1] mb-8 tracking-tighter preserve-3d"
+            >
+              Voices of <br />
+              <span className="text-secondary drop-shadow-[0_10px_30px_rgba(249,115,22,0.3)]">Satisfaction</span>
+            </motion.h2>
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: "100%" }}
+              transition={{ delay: 0.8, duration: 1.5, ease: "circOut" }}
+              className="absolute -bottom-4 left-0 h-1 bg-gradient-to-r from-secondary via-secondary/50 to-transparent rounded-full shadow-[0_0_30px_rgba(249,115,22,0.6)]"
+            />
+          </div>
         </div>
 
-        <div className="max-w-5xl mx-auto relative">
-          <div className="absolute -top-20 left-0 text-slate-100/50 -z-10 transform scale-[2.5] select-none">
+        <div className="max-w-6xl mx-auto relative">
+          <div className="absolute -top-32 left-0 text-white/5 -z-10 transform scale-[3] select-none opacity-20">
             <Quote size={200} />
           </div>
 
-          <div className="relative z-10 min-h-[400px] flex items-center justify-center">
+          {/* Laser Progress Bar */}
+          <div className="absolute top-0 left-0 right-0 h-[3px] bg-white/5 backdrop-blur-sm rounded-full overflow-hidden z-20 border border-white/10">
+            <motion.div
+              key={currentIndex}
+              initial={{ x: "-100%" }}
+              animate={{ x: "0%" }}
+              transition={{ duration: 8, ease: "linear" }}
+              className="h-full bg-gradient-to-r from-transparent via-secondary to-secondary shadow-[0_0_40px_rgba(249,115,22,1)]"
+            >
+              <div className="absolute right-0 top-0 bottom-0 w-32 bg-white blur-xl opacity-40"></div>
+            </motion.div>
+          </div>
+
+          <div className="relative z-10 min-h-[600px] flex items-center justify-center pt-10 perspective-3000">
             <AnimatePresence mode="wait" initial={false} custom={direction}>
               <motion.div
                 key={currentIndex}
                 custom={direction}
-                initial={{ opacity: 0, x: direction > 0 ? 50 : -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction > 0 ? -50 : 50 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="text-center px-4 md:px-20 will-change-transform"
+                initial={{
+                  opacity: 0,
+                  x: direction > 0 ? 300 : -300,
+                  rotateY: direction > 0 ? 60 : -60,
+                  z: -500,
+                  scale: 0.8,
+                  filter: "blur(15px)"
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                  rotateY: 0,
+                  z: 0,
+                  scale: 1,
+                  filter: "blur(0px)"
+                }}
+                exit={{
+                  opacity: 0,
+                  x: direction > 0 ? -300 : 300,
+                  rotateY: direction > 0 ? -60 : 60,
+                  z: -500,
+                  scale: 0.8,
+                  filter: "blur(15px)"
+                }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="text-center px-4 md:px-24 will-change-transform preserve-3d"
               >
-                <div className="mb-10 flex justify-center gap-2">
+                {/* Five Stars - High Fidelity Landing */}
+                <div className="mb-16 flex justify-center gap-4">
                   {[...Array(5)].map((_, i) => (
                     <motion.div
                       key={i}
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: i * 0.1 }}
+                      initial={{ scale: 0, rotateZ: -180, y: -50 }}
+                      animate={{ scale: 1, rotateZ: 0, y: 0 }}
+                      transition={{
+                        delay: i * 0.1 + 0.5,
+                        type: "spring",
+                        damping: 12,
+                        stiffness: 200
+                      }}
                     >
-                      <Star className="text-secondary fill-current w-8 h-8" />
+                      <Star className="text-secondary fill-current w-12 h-12 md:w-14 md:h-14 drop-shadow-[0_0_20px_rgba(249,115,22,0.8)]" />
                     </motion.div>
                   ))}
                 </div>
 
-                <p className="text-2xl md:text-4xl text-gray-800 italic font-serif leading-[1.4] mb-12 tracking-tight">
+                <motion.p
+                  initial={{ opacity: 0, y: 40, rotateX: 20 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                  transition={{ delay: 0.6, duration: 1 }}
+                  className="text-3xl md:text-7xl text-white/90 italic font-serif leading-[1.1] mb-20 tracking-tighter px-4 preserve-3d"
+                  style={{ textShadow: '0 20px 40px rgba(0,0,0,0.5)' }}
+                >
                   "{testimonials[currentIndex].content}"
-                </p>
+                </motion.p>
 
-                <div className="flex flex-col items-center">
-                  <div className="relative mb-6">
-                    <div className="absolute inset-0 bg-secondary rounded-full blur-md opacity-30 animate-pulse"></div>
-                    <img
-                      src={testimonials[currentIndex].image}
-                      alt={testimonials[currentIndex].name}
-                      className="relative w-24 h-24 rounded-full object-cover border-4 border-white shadow-2xl"
-                    />
-                  </div>
-                  <h4 className="text-2xl font-black text-primary uppercase tracking-tighter">{testimonials[currentIndex].name}</h4>
-                  <p className="text-secondary font-black text-xs uppercase tracking-[0.2em] mt-1">{testimonials[currentIndex].role}</p>
+                <div className="flex flex-col items-center preserve-3d">
+                  <motion.div
+                    initial={{ scale: 0, rotate: -45, opacity: 0 }}
+                    animate={{ scale: 1, rotate: 0, opacity: 1 }}
+                    transition={{ delay: 0.8, type: "spring", damping: 15 }}
+                    className="relative mb-10"
+                    whileHover={{ scale: 1.1, rotateY: 15 }}
+                  >
+                    <div className="absolute inset-0 bg-secondary rounded-full blur-3xl opacity-20 animate-pulse"></div>
+                    <div className="relative group/avatar">
+                      <div className="absolute -inset-2 bg-gradient-to-tr from-secondary to-transparent rounded-full animate-spin-slow opacity-50"></div>
+                      <img
+                        src={testimonials[currentIndex].image}
+                        alt={testimonials[currentIndex].name}
+                        className="relative w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4 border-white/10 shadow-[0_50px_80px_-20px_rgba(0,0,0,0.8)] transition-all duration-700"
+                      />
+                    </div>
+                  </motion.div>
+                  <motion.h4
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 1 }}
+                    className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4"
+                  >
+                    {testimonials[currentIndex].name}
+                  </motion.h4>
+                  <motion.p
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 1.1 }}
+                    className="text-secondary font-black text-xs md:text-sm uppercase tracking-[0.6em]"
+                  >
+                    {testimonials[currentIndex].role}
+                  </motion.p>
                 </div>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          <div className="flex justify-center gap-8 mt-16">
+          <div className="flex justify-center gap-16 mt-32">
             <motion.button
-              whileHover={{ scale: 1.2, x: -5 }}
-              whileTap={{ scale: 0.8 }}
+              whileHover={{ scale: 1.15, rotateY: -25, x: -15, translateZ: 50 }}
+              whileTap={{ scale: 0.9 }}
               onClick={handlePrev}
-              className="p-5 rounded-2xl bg-slate-50 text-primary hover:bg-secondary hover:text-white transition-all shadow-lg"
+              className="group relative p-10 rounded-full bg-white/5 text-white overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/10 backdrop-blur-xl transition-all duration-500 preserve-3d"
               aria-label="Previous testimonial"
             >
-              <ChevronLeft size={28} />
+              <div className="absolute inset-0 bg-secondary translate-y-[101%] group-hover:translate-y-0 transition-transform duration-700 ease-productive" />
+              <ChevronLeft className="relative z-10 w-10 h-10 md:w-12 md:h-12 drop-shadow-lg" />
             </motion.button>
             <motion.button
-              whileHover={{ scale: 1.2, x: 5 }}
-              whileTap={{ scale: 0.8 }}
+              whileHover={{ scale: 1.15, rotateY: 25, x: 15, translateZ: 50 }}
+              whileTap={{ scale: 0.9 }}
               onClick={handleNext}
-              className="p-5 rounded-2xl bg-slate-50 text-primary hover:bg-secondary hover:text-white transition-all shadow-lg"
+              className="group relative p-10 rounded-full bg-white/5 text-white overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/10 backdrop-blur-xl transition-all duration-500 preserve-3d"
               aria-label="Next testimonial"
             >
-              <ChevronRight size={28} />
+              <div className="absolute inset-0 bg-secondary translate-y-[101%] group-hover:translate-y-0 transition-transform duration-700 ease-productive" />
+              <ChevronRight className="relative z-10 w-10 h-10 md:w-12 md:h-12 drop-shadow-lg" />
             </motion.button>
           </div>
         </div>
