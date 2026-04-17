@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import {
   Filter,
   MapPin,
@@ -324,10 +324,12 @@ const ViewProjects: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>View Projects | Sikander Arts – Painting Projects Karachi</title>
-        <meta name="description" content="View all completed painting projects by Sikander Arts in Karachi. Interior, exterior, texture, waterproofing, epoxy, wood polish and more." />
-      </Helmet>
+      <SEO
+        title="Completed Painting Projects Karachi | Sikander Arts Portfolio"
+        description="Browse completed painting projects by Sikander Arts across Karachi, including house painting, exterior coatings, waterproofing, texture work, epoxy flooring, wood polish, and commercial painting."
+        keywords="painting projects Karachi, completed painting work Karachi, house painting portfolio Karachi, commercial painting projects Karachi, waterproofing projects Karachi, epoxy flooring projects Karachi"
+        url="https://sikanderart.com/view-projects"
+      />
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
