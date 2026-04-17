@@ -40,81 +40,15 @@ export const Hero: React.FC = () => {
     <section
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20 bg-[#050505] perspective-2000"
+      className="relative h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20 bg-[#fbfbfb] perspective-2000"
       id="home"
     >
-      {/* Dynamic Background */}
-      <motion.div
-        initial={{ scale: 1.2, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.6 }}
-        transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
-        style={{ y: y1 }}
-        className="absolute inset-0 z-0 overflow-hidden"
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#050505] via-primary/40 to-secondary/10 z-10"></div>
-        <img
-          src="https://images.unsplash.com/photo-1562664377-709f2c337eb2?q=80&w=2070&auto=format&fit=crop"
-          alt="Modern Painted Interior"
-          className="w-full h-full object-cover grayscale"
-        />
-        <div className="absolute inset-0 z-[5] opacity-20 mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-      </motion.div>
-
-      {/* 3D Floating Objects - High Fidelity */}
-      <div className="absolute inset-0 z-10 pointer-events-none hidden lg:block overflow-hidden transform-style-3d">
-        {floatingElements.map((el, idx) => (
-          <motion.div
-            key={idx}
-            className={`absolute ${el.color} drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]`}
-            style={{
-              top: el.top,
-              left: el.left,
-              right: el.right,
-              rotateX,
-              rotateY
-            }}
-            initial={{ opacity: 0, scale: 0, z: -500 }}
-            animate={{
-              opacity: 1,
-              scale: [1, 1.1, 1],
-              y: [0, -60, 0],
-              z: [0, 100, 0],
-              rotateZ: el.rotate,
-            }}
-            transition={{
-              opacity: { delay: 1.5 + idx * 0.3, duration: 2 },
-              scale: { duration: el.duration, repeat: Infinity, ease: "easeInOut" },
-              y: { duration: el.duration * 1.1, repeat: Infinity, ease: "easeInOut" },
-              z: { duration: el.duration * 1.3, repeat: Infinity, ease: "easeInOut" },
-              rotateZ: { duration: el.duration * 2, repeat: Infinity, ease: "linear" }
-            }}
-          >
-            <div className="relative group">
-              <div className="absolute inset-0 bg-secondary/10 blur-3xl rounded-full opacity-50 group-hover:opacity-100 transition-opacity" />
-              {el.icon}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
       {/* Content with 3D Mouse Tilt */}
       <div className="container mx-auto px-4 z-20 relative flex flex-col items-center justify-center h-full transform-style-3d">
         <motion.div
           style={{ opacity, rotateX, rotateY }}
           className="max-w-6xl mx-auto text-center will-change-transform"
         >
-          <motion.div
-            initial={{ scale: 0, opacity: 0, y: 50, rotateX: -45 }}
-            animate={{ scale: 1, opacity: 1, y: 0, rotateX: 0 }}
-            transition={{ type: "spring", damping: 15, stiffness: 150, delay: 0.8 }}
-            className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-3xl border border-white/10 text-secondary text-[10px] sm:text-xs font-black uppercase tracking-[0.6em] px-10 py-4 rounded-full mb-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border-b-secondary/40"
-          >
-            <Sparkles size={16} className="text-secondary animate-pulse" />
-            <span className="bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-              Karachi's Platinum Rated Artisans
-            </span>
-          </motion.div>
-
           <div className="relative mb-14 overflow-visible transform-style-3d">
             <motion.h1
               initial={{ y: 200, opacity: 0, rotateX: 90 }}
@@ -127,9 +61,9 @@ export const Hero: React.FC = () => {
                 damping: 30,
                 stiffness: 40
               }}
-              className="text-6xl sm:text-6xl md:text-[7rem] lg:text-[9rem] font-serif font-black text-white leading-[0.8] tracking-tighter drop-shadow-[0_30px_30px_rgba(0,0,0,0.5)]"
+              className="text-6xl sm:text-5xl md:text-[4rem] lg:text-[6rem] font-serif font-black text-grey-100 leading-[0.8] tracking-tighter drop-shadow-[0_30px_30px_rgba(0,0,0,0.5)]"
             >
-              <span className="block mb-4">MASTER</span>
+              <span className="block mb-4 text-black">MASTER</span>
               <span className="block mb-4">THE <span className="text-secondary italic">ART</span></span>
               <span className="block">OF <span className="text-secondary">LIVING</span></span>
             </motion.h1>
@@ -150,8 +84,8 @@ export const Hero: React.FC = () => {
             transition={{ delay: 2, duration: 1 }}
             className="mb-20"
           >
-            <h2 className="text-lg sm:text-2xl md:text-3xl font-black text-blue-100/60 uppercase tracking-[0.3em] max-w-4xl mx-auto leading-relaxed italic">
-              Bespoke Interior & <span className="text-white border-b-4 border-secondary/60">Exterior</span> Excellence
+            <h2 className="text-lg sm:text-2xl md:text-3xl font-black text-grey-100 uppercase tracking-[0.3em] max-w-4xl mx-auto leading-relaxed italic">
+              Bespoke Interior & <span className="text-secondary border-b-4 border-secondary">Exterior</span> Excellence
             </h2>
           </motion.div>
 
@@ -169,7 +103,7 @@ export const Hero: React.FC = () => {
                   translateZ: 50
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative bg-white text-primary px-12 py-6 md:px-16 md:py-8 rounded-3xl font-black text-sm md:text-2xl transition-all shadow-2xl flex items-center justify-center gap-6 overflow-hidden min-w-[250px] md:min-w-[320px] transform-style-3d"
+                className="group relative bg-white text-gray-700 px-12 py-6 md:px-16 md:py-8 rounded-3xl font-black text-sm md:text-2xl transition-all shadow-2xl flex items-center justify-center gap-6 overflow-hidden min-w-[250px] md:min-w-[320px] transform-style-3d"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 <PaintRoller size={28} className="text-secondary group-hover:rotate-[25deg] transition-transform duration-500" />
@@ -200,22 +134,6 @@ export const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 2 }}
-        className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 text-white z-20 flex flex-col items-center gap-3"
-      >
-        <span className="text-[10px] font-black uppercase tracking-[0.5em] opacity-40">Scroll</span>
-        <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center p-1.5">
-          <motion.div
-            animate={{ y: [0, 15, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="w-1.5 h-1.5 bg-secondary rounded-full shadow-[0_0_10px_#df6311]"
-          />
-        </div>
-      </motion.div>
     </section>
   );
 };

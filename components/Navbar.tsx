@@ -56,14 +56,14 @@ export const Navbar: React.FC = () => {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-700 perspective-2000 ${isSolidNav
-        ? 'bg-primary/95 backdrop-blur-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] py-3'
-        : 'bg-transparent py-8'
+        ? 'bg-grey/80 backdrop-blur-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] py-3'
+        : 'bg-transparent py-5'
         }`}
     >
       {/* Laser Bottom Glow */}
       <AnimatePresence>
         {scrolled && (
-          <motion.div 
+          <motion.div
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
             exit={{ scaleX: 0, opacity: 0 }}
@@ -79,7 +79,7 @@ export const Navbar: React.FC = () => {
             to="/"
             className="flex items-center gap-3 group relative"
           >
-            <motion.div 
+            <motion.div
               whileHover={{ rotateY: 15, rotateX: -10, z: 50 }}
               className="flex items-center gap-3 mr-2 sm:mr-4 transform-gpu transition-transform duration-500"
             >
@@ -100,7 +100,7 @@ export const Navbar: React.FC = () => {
                   initial={{ opacity: 0, y: -20, rotateX: -45 }}
                   animate={{ opacity: 1, y: 0, rotateX: 0 }}
                   transition={{ delay: idx * 0.1 + 0.5, type: "spring", damping: 15 }}
-                  className={`text-[11px] font-black transition-all relative group flex items-center gap-2 py-2 uppercase tracking-[0.25em] ${isSolidNav ? 'text-gray-200' : 'text-white'
+                  className={`text-[11px] font-black transition-all relative group flex items-center gap-2 py-2 uppercase tracking-[0.25em] ${isSolidNav ? 'text-gray-900' : 'text-black'
                     } hover:text-secondary`}
                 >
                   {link.name === 'Calculator' && <Calculator size={14} className="text-secondary animate-pulse" />}
@@ -128,7 +128,7 @@ export const Navbar: React.FC = () => {
           {/* Mobile Menu Button - 3D */}
           <motion.button
             whileTap={{ scale: 0.8, rotate: 90 }}
-            className="lg:hidden text-white p-3 bg-white/5 border border-white/10 rounded-xl backdrop-blur-3xl shadow-2xl"
+            className="lg:hidden text-grey-900 p-3 bg-black/20 border border-white/10 rounded-xl backdrop-blur-3xl shadow-2xl"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -155,7 +155,7 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, rotateX: 0 }}
             exit={{ opacity: 0, rotateX: -90 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-x-0 top-[64px] lg:hidden bg-primary/98 backdrop-blur-3xl border-t border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.5)] overflow-hidden z-40 h-[calc(100vh-64px)]"
+            className="fixed inset-x-0 top-[64px] lg:hidden bg-secondary/90 backdrop-blur-5xl border-t border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.5)] overflow-hidden z-40 h-[calc(100vh-64px)]"
           >
             <div className="flex flex-col p-10 space-y-8 h-full justify-center perspective-2000">
               {navLinks.map((link, i) => (
@@ -168,7 +168,7 @@ export const Navbar: React.FC = () => {
                     initial={{ opacity: 0, x: -50, rotateY: 45 }}
                     animate={{ opacity: 1, x: 0, rotateY: 0 }}
                     transition={{ delay: 0.2 + i * 0.1 }}
-                    className="text-white text-4xl font-black hover:text-secondary px-6 py-4 rounded-2xl hover:bg-white/5 transition-all flex items-center gap-8 group"
+                    className="text-gray-800 text-4xl font-black hover:text-secondary px-6 py-4 rounded-2xl hover:bg-white/5 transition-all flex items-center gap-8 group"
                   >
                     <span className="text-secondary/20 font-serif italic text-2xl group-hover:text-secondary group-hover:opacity-100 transition-all">0{i + 1}</span>
                     <span className="tracking-tighter uppercase">{link.name}</span>
@@ -182,7 +182,7 @@ export const Navbar: React.FC = () => {
                   transition={{ delay: 0.8 }}
                   className="bg-secondary text-white text-center py-6 rounded-2xl font-black text-xl shadow-[0_20px_40px_-10px_rgba(249,115,22,0.5)] active:scale-95 transition-transform mt-12 uppercase tracking-[0.3em] relative overflow-hidden group"
                 >
-                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                   GET FREE QUOTE
                 </motion.div>
               </Link>

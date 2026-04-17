@@ -35,15 +35,15 @@ const About: React.FC = () => {
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-slate-50">
           <div className="container mx-auto px-4 text-center relative z-10">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-serif font-black text-primary mb-6 tracking-tighter"
+              className="text-4xl md:text-6xl lg:text-7xl font-serif font-black text-gray-800 mb-6 tracking-tighter"
             >
               About <span className="text-secondary">Sikander Arts</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -58,7 +58,7 @@ const About: React.FC = () => {
         <section className="py-20 md:py-32">
           <div className="container mx-auto px-4">
             <div className="flex flex-col lg:flex-row items-center gap-16">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -69,14 +69,14 @@ const About: React.FC = () => {
                   <div className="absolute inset-0 bg-primary/10"></div>
                 </div>
               </motion.div>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 className="w-full lg:w-1/2"
               >
                 <span className="text-secondary font-black uppercase tracking-[0.3em] text-sm block mb-4">WHO WE ARE</span>
-                <h2 className="text-4xl md:text-5xl font-serif font-black text-primary mb-8 tracking-tight">
+                <h2 className="text-4xl md:text-5xl font-serif font-black text-gray-800 mb-8 tracking-tight">
                   Masters of <span className="text-secondary">Color & Finish</span>
                 </h2>
                 <p className="text-gray-600 text-lg leading-relaxed mb-8 font-medium">
@@ -94,7 +94,7 @@ const About: React.FC = () => {
         <section className="py-20 md:py-32 bg-slate-50">
           <div className="container mx-auto px-4">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -105,14 +105,14 @@ const About: React.FC = () => {
                   <div className="absolute inset-0 bg-secondary/10"></div>
                 </div>
               </motion.div>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 className="w-full lg:w-1/2"
               >
                 <span className="text-secondary font-black uppercase tracking-[0.3em] text-sm block mb-4">OUR STORY</span>
-                <h2 className="text-4xl md:text-5xl font-serif font-black text-primary mb-8 tracking-tight">
+                <h2 className="text-4xl md:text-5xl font-serif font-black text-gray-800 mb-8 tracking-tight">
                   A Decade of <span className="text-secondary">Excellence</span>
                 </h2>
                 <p className="text-gray-600 text-lg leading-relaxed mb-8 font-medium">
@@ -127,7 +127,7 @@ const About: React.FC = () => {
         </section>
 
         {/* Stats Bar */}
-        <section className="py-20 bg-primary text-white relative overflow-hidden">
+        <section className="py-20 bg-[#fbfbfb] text-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
@@ -151,26 +151,26 @@ const About: React.FC = () => {
         <section className="py-20 md:py-32">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <motion.div 
+              <motion.div
                 whileHover={{ y: -10 }}
                 className="bg-white p-10 rounded-[2.5rem] shadow-xl border border-gray-100"
               >
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-gray-800 mb-6">
                   <Target size={32} />
                 </div>
-                <h3 className="text-2xl font-black text-primary mb-4 uppercase tracking-tight">Our Mission</h3>
+                <h3 className="text-2xl font-black text-gray-800 mb-4 uppercase tracking-tight">Our Mission</h3>
                 <p className="text-gray-600 leading-relaxed font-medium">
                   To provide the highest quality painting services in Karachi, ensuring customer satisfaction through transparency, reliability, and superior craftsmanship.
                 </p>
               </motion.div>
-              <motion.div 
+              <motion.div
                 whileHover={{ y: -10 }}
                 className="bg-white p-10 rounded-[2.5rem] shadow-xl border border-gray-100"
               >
                 <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary mb-6">
                   <Star size={32} />
                 </div>
-                <h3 className="text-2xl font-black text-primary mb-4 uppercase tracking-tight">Our Vision</h3>
+                <h3 className="text-2xl font-black text-gray-800 mb-4 uppercase tracking-tight">Our Vision</h3>
                 <p className="text-gray-600 leading-relaxed font-medium">
                   To be Pakistan's leading painting contractor, known for innovation, eco-friendly practices, and setting new standards in the finishing industry.
                 </p>
@@ -184,7 +184,7 @@ const About: React.FC = () => {
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <span className="text-secondary font-black uppercase tracking-[0.3em] text-sm block mb-4">WHY CHOOSE US</span>
-              <h2 className="text-4xl md:text-5xl font-serif font-black text-primary tracking-tight">The Sikander Difference</h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-black text-gray-800 tracking-tight">The Sikander Difference</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {[
@@ -217,7 +217,7 @@ const About: React.FC = () => {
         <section className="py-20 md:py-32">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-serif font-black text-primary tracking-tight">Our Core Values</h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-black text-gray-800 tracking-tight">Our Core Values</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
@@ -232,12 +232,12 @@ const About: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="bg-white p-8 rounded-[2rem] shadow-xl text-center group hover:bg-primary transition-colors duration-300"
+                  className="bg-white p-8 rounded-[2rem] shadow-xl text-center group hover:bg-[#fbfbfb] transition-colors duration-300"
                 >
-                  <div className="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-white/10 group-hover:text-white transition-colors">
+                  <div className="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center text-gray-800 mb-6 group-hover:bg-white/10 group-hover:text-white transition-colors">
                     <val.icon size={32} />
                   </div>
-                  <h3 className="text-xl font-black text-primary uppercase tracking-widest group-hover:text-white transition-colors">{val.title}</h3>
+                  <h3 className="text-xl font-black text-gray-800 uppercase tracking-widest group-hover:text-white transition-colors">{val.title}</h3>
                 </motion.div>
               ))}
             </div>
@@ -247,11 +247,11 @@ const About: React.FC = () => {
         {/* Areas We Serve */}
         <section className="py-20 bg-slate-100">
           <div className="container mx-auto px-4 text-center">
-            <h3 className="text-2xl font-black text-primary uppercase tracking-widest mb-10">Areas We Serve in Karachi</h3>
+            <h3 className="text-2xl font-black text-gray-800 uppercase tracking-widest mb-10">Areas We Serve in Karachi</h3>
             <div className="flex flex-wrap justify-center gap-4">
               {[
-                "DHA", "Clifton", "Gulshan-e-Iqbal", "North Nazimabad", "PECHS", "Korangi", 
-                "Bahria Town Karachi", "Malir", "Saddar", "Nazimabad", "FB Area", "Landhi", 
+                "DHA", "Clifton", "Gulshan-e-Iqbal", "North Nazimabad", "PECHS", "Korangi",
+                "Bahria Town Karachi", "Malir", "Saddar", "Nazimabad", "FB Area", "Landhi",
                 "Defence", "Scheme 33"
               ].map((area, i) => (
                 <motion.span
@@ -272,7 +272,7 @@ const About: React.FC = () => {
         {/* CTA */}
         <section className="py-20 bg-white text-center">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl md:text-5xl font-serif font-black text-primary mb-8 tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-serif font-black text-gray-800 mb-8 tracking-tight">
               Ready to Start Your Project?
             </h2>
             <Link to="/contact">

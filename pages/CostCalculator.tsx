@@ -228,16 +228,16 @@ const CostCalculator: React.FC = () => {
 
       <div className="min-h-screen bg-gray-50 pb-20">
         {/* Hero Section */}
-        <section className="bg-primary pt-32 pb-20 text-white text-center px-4 mb-10">
+        <section className="bg-[#fbfbfb] pt-32 pb-20 text-white text-center px-4 mb-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="container mx-auto max-w-4xl"
           >
-            <h1 className="text-3xl md:text-5xl font-serif font-bold mb-4">Painting Cost Calculator</h1>
-            <p className="text-lg text-gray-200 mb-6">Get an instant estimate for your painting project in Karachi — free, fast, and accurate</p>
-            <div className="inline-block bg-white/10 backdrop-blur px-4 py-2 rounded-full text-sm font-medium border border-white/20">
+            <h1 className="text-3xl md:text-5xl font-serif text-gray-800 font-bold mb-4">Painting Cost Calculator</h1>
+            <p className="text-lg text-gray-500 mb-6">Get an instant estimate for your painting project in Karachi — free, fast, and accurate</p>
+            <div className="inline-block bg-gray-600/10 text-black backdrop-blur px-4 py-2 rounded-full text-sm font-medium border border-white/20">
               <span className="text-secondary mr-2">Note:</span> This is an estimated cost. Final price confirmed after free site visit.
             </div>
           </motion.div>
@@ -271,7 +271,7 @@ const CostCalculator: React.FC = () => {
                 <div className="space-y-8">
                   {/* Step 1: Service Type */}
                   <div>
-                    <h3 className="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-gray-700 mb-4 flex items-center gap-2">
                       <PaintBucket size={20} className="text-secondary" /> Service Type
                     </h3>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -280,7 +280,7 @@ const CostCalculator: React.FC = () => {
                           key={type}
                           onClick={() => setState({ ...state, serviceType: type })}
                           className={`p-3 rounded-xl text-sm font-medium text-left transition-all border ${state.serviceType === type
-                            ? 'bg-primary text-white border-primary shadow-lg'
+                            ? 'bg-secondary/80 text-white border-black shadow-lg'
                             : 'bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100'
                             }`}
                         >
@@ -292,7 +292,7 @@ const CostCalculator: React.FC = () => {
 
                   {/* Step 2: Property Type */}
                   <div>
-                    <h3 className="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-gray-700 mb-4 flex items-center gap-2">
                       <Building2 size={20} className="text-secondary" /> Property Type
                     </h3>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -301,7 +301,7 @@ const CostCalculator: React.FC = () => {
                           key={type}
                           onClick={() => setState({ ...state, propertyType: type })}
                           className={`p-3 rounded-xl text-sm font-medium text-left transition-all border ${state.propertyType === type
-                            ? 'bg-primary text-white border-primary shadow-lg'
+                            ? 'bg-secondary/80 text-white border-black shadow-lg'
                             : 'bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100'
                             }`}
                         >
@@ -313,7 +313,7 @@ const CostCalculator: React.FC = () => {
 
                   {/* Step 3: Room Dimensions */}
                   <div>
-                    <h3 className="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-gray-700 mb-4 flex items-center gap-2">
                       <Ruler size={20} className="text-secondary" /> Room Dimensions
                     </h3>
                     <div className="space-y-4">
@@ -437,7 +437,7 @@ const CostCalculator: React.FC = () => {
 
                   {/* Step 4: Paint Quality */}
                   <div>
-                    <h3 className="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-gray-700 mb-4 flex items-center gap-2">
                       <CheckCircle2 size={20} className="text-secondary" /> Paint & Quality
                     </h3>
 
@@ -491,7 +491,7 @@ const CostCalculator: React.FC = () => {
 
                   {/* Step 5: Options */}
                   <div>
-                    <h3 className="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-gray-700 mb-4 flex items-center gap-2">
                       <Layers size={20} className="text-secondary" /> Additional Options
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -577,7 +577,7 @@ const CostCalculator: React.FC = () => {
 
                   {/* Step 6: Location */}
                   <div>
-                    <h3 className="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-gray-700 mb-4 flex items-center gap-2">
                       <MapPin size={20} className="text-secondary" /> Location in Karachi
                     </h3>
                     <select
@@ -618,7 +618,7 @@ const CostCalculator: React.FC = () => {
               >
                 {result ? (
                   <>
-                    <div className="bg-primary text-white rounded-2xl shadow-2xl p-6 md:p-8 overflow-hidden relative">
+                    <div className="bg-[#fbfbfb] text-white rounded-2xl shadow-2xl p-6 md:p-8 overflow-hidden relative">
                       <div className="absolute top-0 right-0 p-4 opacity-10">
                         <Calculator size={150} />
                       </div>
@@ -690,7 +690,7 @@ const CostCalculator: React.FC = () => {
                     </div>
 
                     <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
-                      <h3 className="font-bold text-primary mb-4 flex items-center gap-2">
+                      <h3 className="font-bold text-gray-700 mb-4 flex items-center gap-2">
                         <CheckCircle2 size={20} className="text-green-500" /> What's Included?
                       </h3>
                       <ul className="space-y-2 text-sm text-gray-600 mb-6">

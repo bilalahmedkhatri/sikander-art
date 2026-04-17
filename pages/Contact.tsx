@@ -83,7 +83,7 @@ const Contact: React.FC = () => {
 
       <div className="bg-slate-50 min-h-screen">
         {/* Hero Section */}
-        <section className="pt-32 pb-20 bg-primary text-white relative overflow-hidden">
+        <section className="pt-32 pb-20 bg-[#fbfbfb] text-gray-900 relative overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
           <div className="container mx-auto px-4 relative z-10 text-center">
             <motion.h1
@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-medium"
+              className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-medium"
             >
               Get in touch with Karachi's most trusted painting contractor
             </motion.p>
@@ -116,7 +116,7 @@ const Contact: React.FC = () => {
                 className="w-full lg:w-1/3 space-y-8"
               >
                 <div className="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100">
-                  <h3 className="text-xl font-black text-primary uppercase tracking-widest mb-8">Contact Information</h3>
+                  <h3 className="text-xl font-black text-gray-700 uppercase tracking-widest mb-8">Contact Information</h3>
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
                       <div className="bg-secondary/10 p-3 rounded-xl text-secondary">
@@ -170,20 +170,20 @@ const Contact: React.FC = () => {
                   </div>
 
                   <div className="mt-8 flex gap-4">
-                    <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                    <Link to="https://web.facebook.com/khaskhelipaintservice" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-[#fbfbfb] hover:text-white transition-colors">
                       <Facebook size={20} />
-                    </a>
-                    <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                    </Link>
+                    <Link to="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-[#fbfbfb] hover:text-white transition-colors">
                       <Instagram size={20} />
-                    </a>
-                    <a
-                      href="https://wa.me/923022911088"
+                    </Link>
+                    <Link
+                      to="https://wa.me/923022911088"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-green-500 hover:text-white transition-colors"
                     >
                       <MessageCircle size={20} />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
@@ -196,7 +196,7 @@ const Contact: React.FC = () => {
                 className="w-full lg:w-2/3"
               >
                 <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-gray-100">
-                  <h3 className="text-3xl font-black text-primary uppercase tracking-tighter mb-2">Send Us a Message</h3>
+                  <h3 className="text-3xl font-black text-gray-700 uppercase tracking-tighter mb-2">Send Us a Message</h3>
                   <p className="text-gray-500 text-sm font-medium mb-8 flex items-center gap-2">
                     <MessageCircle size={16} className="text-green-500" />
                     Form submit hone par WhatsApp par redirect ho jayega
@@ -211,7 +211,7 @@ const Contact: React.FC = () => {
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
-                          className={`w-full px-6 py-4 rounded-xl bg-slate-50 border-2 ${errors.name ? 'border-red-400' : 'border-transparent'} focus:border-secondary focus:bg-white outline-none transition-all font-bold text-primary`}
+                          className={`w-full px-6 py-4 rounded-xl bg-slate-50 border-2 ${errors.name ? 'border-red-400' : 'border-transparent'} focus:border-secondary focus:bg-white outline-none transition-all font-bold text-gray-600`}
                           placeholder="Your Name"
                         />
                         {errors.name && <p className="text-red-500 text-xs font-bold ml-1">{errors.name}</p>}
@@ -223,7 +223,7 @@ const Contact: React.FC = () => {
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className={`w-full px-6 py-4 rounded-xl bg-slate-50 border-2 ${errors.phone ? 'border-red-400' : 'border-transparent'} focus:border-secondary focus:bg-white outline-none transition-all font-bold text-primary`}
+                          className={`w-full px-6 py-4 rounded-xl bg-slate-50 border-2 ${errors.phone ? 'border-red-400' : 'border-transparent'} focus:border-secondary focus:bg-white outline-none transition-all font-bold text-gray-600`}
                           placeholder="Your Phone"
                         />
                         {errors.phone && <p className="text-red-500 text-xs font-bold ml-1">{errors.phone}</p>}
@@ -237,7 +237,7 @@ const Contact: React.FC = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full px-6 py-4 rounded-xl bg-slate-50 border-2 ${errors.email ? 'border-red-400' : 'border-transparent'} focus:border-secondary focus:bg-white outline-none transition-all font-bold text-primary`}
+                        className={`w-full px-6 py-4 rounded-xl bg-slate-50 border-2 ${errors.email ? 'border-red-400' : 'border-transparent'} focus:border-secondary focus:bg-white outline-none transition-all font-bold text-gray-600`}
                         placeholder="Your Email (Optional)"
                       />
                       {errors.email && <p className="text-red-500 text-xs font-bold ml-1">{errors.email}</p>}
@@ -249,7 +249,7 @@ const Contact: React.FC = () => {
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className="w-full px-6 py-4 rounded-xl bg-slate-50 border-2 border-transparent focus:border-secondary focus:bg-white outline-none transition-all font-bold text-primary appearance-none"
+                        className="w-full px-6 py-4 rounded-xl bg-slate-50 border-2 border-transparent focus:border-secondary focus:bg-white outline-none transition-all font-bold text-gray-600 appearance-none"
                       >
                         <option>Interior Painting</option>
                         <option>Exterior Painting</option>
@@ -269,7 +269,7 @@ const Contact: React.FC = () => {
                         rows={5}
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full px-6 py-4 rounded-xl bg-slate-50 border-2 border-transparent focus:border-secondary focus:bg-white outline-none transition-all font-bold text-primary resize-none"
+                        className="w-full px-6 py-4 rounded-xl bg-slate-50 border-2 border-transparent focus:border-secondary focus:bg-white outline-none transition-all font-bold text-gray-600 resize-none"
                         placeholder="Tell us about your project..."
                       ></textarea>
                     </div>
@@ -294,19 +294,6 @@ const Contact: React.FC = () => {
               </motion.div>
             </div>
           </div>
-        </section>
-
-        {/* Map Section */}
-        <section className="h-96 w-full bg-gray-200 relative">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.324882103323!2d67.05663731500355!3d24.86073430032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e06651d4bbf%3A0x9cf92f44555a0c23!2sKarachi%2C%20Pakistan!5e0!3m2!1sen!2s!4v1626294770062!5m2!1sen!2s"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen={true}
-            loading="lazy"
-            title="Sikander Art Karachi Office"
-          ></iframe>
         </section>
       </div>
     </>

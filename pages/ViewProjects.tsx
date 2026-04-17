@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { 
-  Filter, 
-  MapPin, 
-  Calendar, 
-  Maximize2, 
-  X, 
-  ArrowRight, 
-  CheckCircle2, 
-  Clock, 
-  Ruler, 
+import SEO from '../components/SEO';
+import {
+  Filter,
+  MapPin,
+  Calendar,
+  Maximize2,
+  X,
+  ArrowRight,
+  CheckCircle2,
+  Clock,
+  Ruler,
   User,
   Paintbrush,
   ChevronRight
@@ -318,31 +318,33 @@ const ViewProjects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const filteredProjects = activeCategory === 'All' 
-    ? projects 
+  const filteredProjects = activeCategory === 'All'
+    ? projects
     : projects.filter(p => p.category === activeCategory);
 
   return (
     <>
-      <Helmet>
-        <title>View Projects | Sikander Arts – Painting Projects Karachi</title>
-        <meta name="description" content="View all completed painting projects by Sikander Arts in Karachi. Interior, exterior, texture, waterproofing, epoxy, wood polish and more." />
-      </Helmet>
+      <SEO
+        title="Completed Painting Projects Karachi | Sikander Arts Portfolio"
+        description="Browse completed painting projects by Sikander Arts across Karachi, including house painting, exterior coatings, waterproofing, texture work, epoxy flooring, wood polish, and commercial painting."
+        keywords="painting projects Karachi, completed painting work Karachi, house painting portfolio Karachi, commercial painting projects Karachi, waterproofing projects Karachi, epoxy flooring projects Karachi"
+        url="https://sikanderart.com/view-projects"
+      />
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <section className="relative bg-primary pt-32 pb-20 overflow-hidden">
+        <section className="relative bg-[#fbfbfb] pt-32 pb-20 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/80 z-10"></div>
-            <img 
+            <img
               src="https://images.pexels.com/photos/6283973/pexels-photo-6283973.jpeg?auto=compress&cs=tinysrgb&w=1400"
-              alt="Projects Hero" 
+              alt="Projects Hero"
               className="w-full h-full object-cover opacity-30"
             />
           </div>
-          
+
           <div className="container mx-auto px-4 relative z-20 text-center">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -350,7 +352,7 @@ const ViewProjects: React.FC = () => {
             >
               Our Completed Projects
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -370,7 +372,7 @@ const ViewProjects: React.FC = () => {
               { label: "Happy Clients", value: "1000+" },
               { label: "Expert Painters", value: "50+" }
             ].map((stat, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -392,15 +394,14 @@ const ViewProjects: React.FC = () => {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`relative px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-base font-bold transition-all ${
-                  activeCategory === cat 
-                    ? 'text-white bg-secondary shadow-lg' 
-                    : 'text-gray-600 hover:bg-gray-200 bg-white'
-                }`}
+                className={`relative px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-base font-bold transition-all ${activeCategory === cat
+                  ? 'text-white bg-secondary shadow-lg'
+                  : 'text-gray-600 hover:bg-gray-200 bg-white'
+                  }`}
               >
                 {cat}
                 {activeCategory === cat && (
-                  <motion.div 
+                  <motion.div
                     layoutId="activeTab"
                     className="absolute bottom-0 left-0 right-0 h-1 bg-orange-700 rounded-full mx-4 mb-2 opacity-30"
                   />
@@ -410,7 +411,7 @@ const ViewProjects: React.FC = () => {
           </div>
 
           {/* Projects Grid */}
-          <motion.div 
+          <motion.div
             layout
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
@@ -427,9 +428,9 @@ const ViewProjects: React.FC = () => {
                   onClick={() => setSelectedProject(project)}
                 >
                   <div className="relative h-64 overflow-hidden bg-gray-200">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
+                    <img
+                      src={project.image}
+                      alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
                       onError={(e) => {
@@ -444,18 +445,18 @@ const ViewProjects: React.FC = () => {
                     <div className="absolute top-4 left-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
                       {project.category}
                     </div>
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur text-primary text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur bg-gray-700 text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                       {project.year}
                     </div>
                   </div>
-                  
+
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-primary mb-2 line-clamp-1">{project.title}</h3>
+                    <h3 className="text-xl font-bold bg-gray-700 mb-2 line-clamp-1">{project.title}</h3>
                     <div className="flex items-center text-gray-500 text-sm mb-4">
                       <MapPin size={14} className="mr-1 text-secondary" />
                       {project.location}
                     </div>
-                    
+
                     <div className="grid grid-cols-2 gap-4 mb-4 text-sm text-gray-600 bg-gray-50 p-3 rounded-lg">
                       <div className="flex items-center">
                         <Ruler size={14} className="mr-2 text-primary" />
@@ -480,7 +481,7 @@ const ViewProjects: React.FC = () => {
                       )}
                     </div>
 
-                    <button className="w-full bg-primary text-white py-3 rounded-xl font-bold text-sm uppercase tracking-wider hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 group-hover:bg-secondary">
+                    <button className="w-full bg-[#fbfbfb] text-white py-3 rounded-xl font-bold text-sm uppercase tracking-wider hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 group-hover:bg-secondary">
                       View Details <ArrowRight size={16} />
                     </button>
                   </div>
@@ -491,21 +492,21 @@ const ViewProjects: React.FC = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-primary py-20 text-white">
+        <section className="bg-[#fbfbfb] py-20 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">Impressed With Our Work?</h2>
             <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
               Get a free site visit and quote for your project anywhere in Karachi
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className="bg-secondary hover:bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-2xl flex items-center justify-center gap-2"
               >
                 Get a Free Quote <ArrowRight size={20} />
               </Link>
-              <Link 
-                to="/portfolio" 
+              <Link
+                to="/portfolio"
                 className="bg-white/10 hover:bg-white/20 backdrop-blur text-white px-8 py-4 rounded-full font-bold text-lg transition-all border border-white/20 flex items-center justify-center gap-2"
               >
                 View Our Portfolio <Paintbrush size={20} />
@@ -518,14 +519,14 @@ const ViewProjects: React.FC = () => {
       {/* Project Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
             onClick={() => setSelectedProject(null)}
           >
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -533,15 +534,15 @@ const ViewProjects: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative h-64 md:h-96">
-                <img 
-                  src={selectedProject.image} 
-                  alt={selectedProject.title} 
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800';
                   }}
                 />
-                <button 
+                <button
                   onClick={() => setSelectedProject(null)}
                   className="absolute top-4 right-4 bg-white/20 backdrop-blur hover:bg-white text-white hover:text-black p-2 rounded-full transition-all"
                 >
@@ -561,7 +562,7 @@ const ViewProjects: React.FC = () => {
                     {/* Gallery Thumbnails */}
                     <div className="flex gap-4 overflow-x-auto pb-2">
                       {[selectedProject.image, ...selectedProject.gallery].map((img, idx) => (
-                        <button 
+                        <button
                           key={idx}
                           className="w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden border-2 border-transparent hover:border-secondary transition-all"
                         >
@@ -578,7 +579,7 @@ const ViewProjects: React.FC = () => {
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-bold text-primary mb-4">Project Overview</h3>
+                      <h3 className="text-xl font-bold bg-gray-700 mb-4">Project Overview</h3>
                       <p className="text-gray-600 leading-relaxed">{selectedProject.description}</p>
                     </div>
 
@@ -589,7 +590,7 @@ const ViewProjects: React.FC = () => {
                         </h4>
                         <p className="text-red-700/80 text-sm">{selectedProject.challenge}</p>
                       </div>
-                      
+
                       <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
                         <h4 className="font-bold text-blue-800 mb-2 flex items-center gap-2">
                           <Paintbrush size={18} /> The Solution
@@ -608,7 +609,7 @@ const ViewProjects: React.FC = () => {
 
                   <div className="space-y-8">
                     <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                      <h3 className="font-bold text-primary mb-6 uppercase tracking-wider text-sm">Project Details</h3>
+                      <h3 className="font-bold bg-gray-700 mb-6 uppercase tracking-wider text-sm">Project Details</h3>
                       <div className="space-y-4">
                         <div className="flex items-start gap-3">
                           <MapPin className="text-secondary mt-1" size={18} />
@@ -649,7 +650,7 @@ const ViewProjects: React.FC = () => {
                     </div>
 
                     <div>
-                      <h3 className="font-bold text-primary mb-4 uppercase tracking-wider text-sm">Services Provided</h3>
+                      <h3 className="font-bold bg-gray-700 mb-4 uppercase tracking-wider text-sm">Services Provided</h3>
                       <div className="flex flex-wrap gap-2">
                         {selectedProject.services.map((service, idx) => (
                           <span key={idx} className="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg text-xs font-medium border border-gray-200">
@@ -659,8 +660,8 @@ const ViewProjects: React.FC = () => {
                       </div>
                     </div>
 
-                    <Link 
-                      to="/contact" 
+                    <Link
+                      to="/contact"
                       className="w-full bg-secondary hover:bg-orange-600 text-white py-4 rounded-xl font-bold text-center transition-all shadow-xl block"
                     >
                       Get a Similar Quote

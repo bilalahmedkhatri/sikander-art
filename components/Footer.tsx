@@ -6,9 +6,9 @@ import { Logo5 } from './Logos';
 
 export const Footer: React.FC = () => {
 
-  const [email, setEmail] = useState('bilal_azeemlab@gmail.com');
+  const [email, setEmail] = useState('ghulamsikandar13@gmail.com');
   return (
-    <footer className="bg-[#050505] text-white pt-32 pb-12 relative overflow-hidden perspective-2000">
+    <footer className="bg-[#fbfbfb] text-gray-900 pt-32 pb-12 relative overflow-hidden perspective-2000">
       {/* Cinematic Background Elements */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_rgba(249,115,22,0.1),transparent_70%)]"></div>
@@ -44,15 +44,15 @@ export const Footer: React.FC = () => {
                 <motion.a
                   key={i}
                   href={social.href}
-                  whileHover={{ 
-                    scale: 1.1, 
-                    rotateY: 20, 
+                  whileHover={{
+                    scale: 1.1,
+                    rotateY: 20,
                     rotateX: -10,
                     translateZ: 20,
                     backgroundColor: "rgba(249, 115, 22, 0.2)"
                   }}
                   whileTap={{ scale: 0.9 }}
-                  className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center transition-all text-white shadow-xl relative group transform-style-3d backdrop-blur-md"
+                  className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center transition-all text-gray-500 shadow-xl relative group transform-style-3d backdrop-blur-md"
                   title={social.name}
                 >
                   <social.icon size={24} className="group-hover:text-secondary group-hover:drop-shadow-[0_0_8px_rgba(249,115,22,0.8)] transition-all" />
@@ -84,7 +84,7 @@ export const Footer: React.FC = () => {
                 <li key={item.name} className="perspective-sm">
                   <Link
                     to={item.path}
-                    className="text-gray-400 hover:text-white hover:translate-x-4 hover:translate-z-4 transition-all flex items-center gap-4 group font-black uppercase text-xs tracking-[0.2em] transform-style-3d"
+                    className="text-gray-400 hover:text-secondary hover:translate-x-4 hover:translate-z-4 transition-all flex items-center gap-4 group font-black uppercase text-xs tracking-[0.2em] transform-style-3d"
                   >
                     <div className="w-0 h-0.5 bg-secondary group-hover:w-8 transition-all shadow-[0_0_10px_rgba(249,115,22,1)]"></div>
                     {item.name}
@@ -118,9 +118,9 @@ export const Footer: React.FC = () => {
                   <div className="group-hover:translate-x-2 transition-transform duration-300">
                     <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">{item.title}</p>
                     {item.link ? (
-                      <a href={item.link} className="text-xl font-bold text-white hover:text-secondary transition-colors break-all whitespace-pre-wrap">{item.value}</a>
+                      <a href={item.link} className="text-xl font-bold text-gray-700 hover:text-secondary transition-colors break-all whitespace-pre-wrap">{item.value}</a>
                     ) : (
-                      <p className="text-xl font-bold text-white">{item.value}</p>
+                      <p className="text-xl font-bold text-gray-700">{item.value}</p>
                     )}
                   </div>
                 </li>
@@ -159,13 +159,13 @@ export const Footer: React.FC = () => {
           </motion.div>
         </div>
 
-        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-10">
+        <div className="border-t border-white/5 sm:pt-5 pt-12 flex flex-col md:flex-row justify-between items-center gap-10">
           <p className="text-gray-500 text-xs font-black tracking-[0.3em] uppercase text-center md:text-left">
             &copy; {new Date().getFullYear()} SIKANDER ART PAINTING CONTRACTORS. ALL RIGHTS RESERVED.
           </p>
           <div className="flex gap-10 text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">
-            <Link to="/privacy-policy" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Terms of Service</Link>
+            <Link to="/privacy-policy" className="hover:text-secondary transition-colors underline decoration-secondary/30 underline-offset-4">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-secondary transition-colors underline decoration-secondary/30 underline-offset-4">Terms of Service</Link>
           </div>
         </div>
       </div>

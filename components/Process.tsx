@@ -27,7 +27,7 @@ const steps = [
 
 export const Process: React.FC = () => {
   return (
-    <section id="process" className="py-32 bg-[#0a0a0a] overflow-hidden relative">
+    <section id="process" className="py-32 bg-[#fbfbfb] text-gray-900 overflow-hidden relative">
       {/* Cinematic Background Lighting */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[150px] -ml-64 -mt-64 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[180px] -mr-72 -mb-72 pointer-events-none" />
@@ -52,7 +52,7 @@ export const Process: React.FC = () => {
                 damping: 20,
                 stiffness: 80
               }}
-              className="text-5xl md:text-8xl font-serif font-black text-white leading-[1] mb-8 tracking-tighter preserve-3d"
+              className="text-4xl md:text-6xl text-gray-800 font-serif font-black leading-[1] mb-8 tracking-tighter preserve-3d"
             >
               Our Simple <br />
               <span className="text-secondary drop-shadow-[0_10px_30px_rgba(249,115,22,0.3)]">4-Step Process</span>
@@ -124,7 +124,7 @@ export const Process: React.FC = () => {
 
                 {/* Step Numbering - High Fidelity Shadow */}
                 <div
-                  className="absolute -top-6 -right-6 text-9xl font-serif font-black text-white/5 select-none pointer-events-none group-hover:text-secondary/[0.08] transition-all duration-1000 translate-z-10"
+                  className="absolute -top-6 -right-6 text-9xl font-serif font-black text-gray-300 select-none pointer-events-none group-hover:text-secondary/[0.08] transition-all duration-1000 translate-z-10"
                 >
                   0{index + 1}
                 </div>
@@ -142,12 +142,12 @@ export const Process: React.FC = () => {
                 </motion.div>
 
                 <h3
-                  className="text-3xl font-black text-white mb-6 tracking-tighter group-hover:text-secondary transition-colors duration-500 translate-z-25"
+                  className="text-3xl font-black text-gray-800 mb-6 tracking-tighter group-hover:text-secondary transition-colors duration-500 translate-z-25"
                 >
                   {step.title}
                 </h3>
                 <p
-                  className="text-gray-400 leading-relaxed font-light text-lg mb-4 opacity-70 group-hover:opacity-100 transition-opacity duration-500 translate-z-15"
+                  className="text-gray-500 leading-relaxed font-light text-lg mb-4 opacity-70 group-hover:opacity-100 transition-opacity duration-500 translate-z-15"
                 >
                   {step.desc}
                 </p>

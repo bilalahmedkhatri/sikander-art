@@ -1,18 +1,21 @@
 import React from 'react';
-import { Navbar } from '../components/Navbar';
-import { Footer } from '../components/Footer';
 import { Logo1, Logo2, Logo3, Logo4, Logo5 } from '../components/Logos';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 
 const LogoDemo: React.FC = () => {
     return (
+        <>
+            <SEO
+                title="Sikander Arts Logo Demo | Brand Animation Showcase Karachi"
+                description="Explore the Sikander Arts logo animation showcase featuring premium branding motion concepts and visual identity presentation for our Karachi painting and finishing brand."
+                keywords="Sikander Arts logo demo, logo animation showcase Karachi, brand identity design Karachi, visual branding demo, Sikander Arts brand presentation"
+                url="https://sikanderart.com/logo-demo"
+            />
+
         <div className="min-h-screen bg-gray-50 font-sans text-gray-800">
-            <Helmet>
-                <title>Sikander Art | Logo Animations Demo</title>
-            </Helmet>
 
             {/* Hero section styling applied for testing light text */}
-            <div className="bg-primary py-20 px-4">
+            <div className="bg-[#fbfbfb] py-20 px-4">
                 <div className="max-w-6xl mx-auto">
                     <h1 className="text-4xl text-white font-serif font-bold mb-12 text-center">3D Logo Animations (Solid Nav Background)</h1>
 
@@ -118,6 +121,7 @@ const LogoDemo: React.FC = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

@@ -1,7 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Services as ServicesSection } from './components/Services';
@@ -70,42 +68,40 @@ const App: React.FC = () => {
   }
 
   return (
-    <HelmetProvider>
-      <Router>
-        <ScrollToTop />
-        <div className="font-sans text-gray-800 bg-white overflow-x-hidden selection:bg-secondary selection:text-white">
-          <Navbar />
-          <main>
-            <Routes>
-              <Route path="/" element={
-                <>
-                  <Hero />
-                  <ServicesSection />
-                  <AboutSection />
-                  <WhyChooseUs />
-                  <GallerySection />
-                  <Process />
-                  <Testimonials />
-                  <ContactSection />
-                </>
-              } />
-              <Route path="/services" element={<Services />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/view-projects" element={<ViewProjects />} />
-              <Route path="/calculate-cost" element={<CostCalculator />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-of-service" element={<TermsOfService />} />
-              <Route path="/logo-demo" element={<LogoDemo />} />
-            </Routes>
-          </main>
-          <Footer />
-          <FloatingActions />
-        </div>
-      </Router>
-    </HelmetProvider>
+    <Router>
+      <ScrollToTop />
+      <div className="font-sans text-gray-800 bg-white overflow-x-hidden selection:bg-secondary selection:text-white">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Hero />
+                <ServicesSection />
+                <AboutSection />
+                <WhyChooseUs />
+                <GallerySection />
+                <Process />
+                <Testimonials />
+                <ContactSection />
+              </>
+            } />
+            <Route path="/services" element={<Services />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/view-projects" element={<ViewProjects />} />
+            <Route path="/calculate-cost" element={<CostCalculator />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/logo-demo" element={<LogoDemo />} />
+          </Routes>
+        </main>
+        <Footer />
+        <FloatingActions />
+      </div>
+    </Router>
   );
 };
 

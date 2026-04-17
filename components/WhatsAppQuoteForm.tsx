@@ -127,7 +127,7 @@ export const WhatsAppQuoteForm: React.FC = () => {
                         name="name"
                         value={formState.name}
                         onChange={handleChange}
-                        className={`w-full px-6 py-5 rounded-2xl bg-slate-50 border-2 focus:bg-white outline-none transition-all font-bold text-primary ${errors.name ? 'border-red-300 focus:border-red-500' : 'border-transparent focus:border-secondary'}`}
+                        className={`w-full px-6 py-5 rounded-2xl bg-slate-50 border-2 focus:bg-white outline-none transition-all font-bold text-gray-700 ${errors.name ? 'border-red-300 focus:border-red-500' : 'border-transparent focus:border-secondary'}`}
                         placeholder="e.g. Ali Ahmed"
                     />
                 </div>
@@ -138,7 +138,7 @@ export const WhatsAppQuoteForm: React.FC = () => {
                         name="phone"
                         value={formState.phone}
                         onChange={handleChange}
-                        className={`w-full px-6 py-5 rounded-2xl bg-slate-50 border-2 focus:bg-white outline-none transition-all font-bold text-primary ${errors.phone ? 'border-red-300 focus:border-red-500' : 'border-transparent focus:border-secondary'}`}
+                        className={`w-full px-6 py-5 rounded-2xl bg-slate-50 border-2 focus:bg-white outline-none transition-all font-bold text-gray-700 ${errors.phone ? 'border-red-300 focus:border-red-500' : 'border-transparent focus:border-secondary'}`}
                         placeholder="+92 302 291 10 88"
                     />
                 </div>
@@ -151,7 +151,7 @@ export const WhatsAppQuoteForm: React.FC = () => {
                     name="email"
                     value={formState.email}
                     onChange={handleChange}
-                    className={`w-full px-6 py-5 rounded-2xl bg-slate-50 border-2 focus:bg-white outline-none transition-all font-bold text-primary ${errors.email ? 'border-red-300 focus:border-red-500' : 'border-transparent focus:border-secondary'}`}
+                    className={`w-full px-6 py-5 rounded-2xl bg-slate-50 border-2 focus:bg-white outline-none transition-all font-bold text-gray-700 ${errors.email ? 'border-red-300 focus:border-red-500' : 'border-transparent focus:border-secondary'}`}
                     placeholder="ali@example.com (Optional)"
                 />
             </div>
@@ -164,7 +164,7 @@ export const WhatsAppQuoteForm: React.FC = () => {
                         value={formState.service}
                         onChange={handleChange}
                         aria-label="Service Needed"
-                        className="w-full px-6 py-5 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-secondary focus:bg-white outline-none transition-all font-bold text-primary appearance-none cursor-pointer"
+                        className="w-full px-6 py-5 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-secondary focus:bg-white outline-none transition-all font-bold text-gray-700 appearance-none cursor-pointer"
                     >
                         {Object.keys(SERVICE_PRICES).map((service) => (
                             <option key={service} value={service}>{service}</option>
@@ -217,7 +217,7 @@ export const WhatsAppQuoteForm: React.FC = () => {
                                     <span className="font-black text-primary">Rs {estimate.overhead.toLocaleString()}</span>
                                 </div>
                                 <div className="border-t-2 border-dashed border-secondary/30 pt-3 flex justify-between items-center">
-                                    <span className="text-primary font-black uppercase tracking-wider text-xs">Estimated Total</span>
+                                    <span className="text-gray-700 font-black uppercase tracking-wider text-xs">Estimated Total</span>
                                     <span className="text-2xl font-black text-secondary">Rs {estimate.total.toLocaleString()}</span>
                                 </div>
                             </div>
@@ -234,7 +234,7 @@ export const WhatsAppQuoteForm: React.FC = () => {
                     rows={4}
                     value={formState.message}
                     onChange={handleChange}
-                    className="w-full px-6 py-5 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-secondary focus:bg-white outline-none transition-all font-bold text-primary resize-none"
+                    className="w-full px-6 py-5 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-secondary focus:bg-white outline-none transition-all font-bold text-gray-700 resize-none"
                     placeholder="Apni jagah ke baare mein batayen... jaise kitne kamre hain, konsi manzil hai, koi khaas rang ya design chahiye?"
                 ></textarea>
             </div>
@@ -244,7 +244,7 @@ export const WhatsAppQuoteForm: React.FC = () => {
                 disabled={isRedirecting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className={`w-full bg-primary hover:bg-blue-900 text-white font-black py-6 rounded-2xl transition-all shadow-2xl flex items-center justify-center gap-3 uppercase tracking-[0.2em] text-sm ${isRedirecting ? 'opacity-75 cursor-not-allowed' : ''}`}
+                className={`w-full  bg-green-500 hover:bg-green-600 text-white font-black py-6 rounded-2xl transition-all shadow-2xl flex items-center justify-center gap-3 uppercase tracking-[0.2em] text-sm ${isRedirecting ? 'opacity-75 cursor-not-allowed' : ''}`}
             >
                 {isRedirecting ? (
                     'Opening WhatsApp...'

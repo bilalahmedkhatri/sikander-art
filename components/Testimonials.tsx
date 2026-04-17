@@ -49,7 +49,7 @@ export const Testimonials: React.FC = () => {
   };
 
   return (
-    <section className="py-32 bg-[#0a0a0a] overflow-hidden relative">
+    <section className="py-32 bg-[#fbfbfb] overflow-hidden relative">
       {/* Cinematic Background Lighting */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-secondary/10 rounded-full blur-[180px] -mr-96 -mt-96 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[150px] -ml-72 -mb-72 pointer-events-none" />
@@ -74,7 +74,7 @@ export const Testimonials: React.FC = () => {
                 damping: 20,
                 stiffness: 80
               }}
-              className="text-6xl md:text-9xl font-serif font-black text-white leading-[1] mb-8 tracking-tighter preserve-3d"
+              className="text-4xl md:text-6xl font-serif font-black text-gray-800 leading-[1] mb-8 tracking-tighter preserve-3d"
             >
               Voices of <br />
               <span className="text-secondary drop-shadow-[0_10px_30px_rgba(249,115,22,0.3)]">Satisfaction</span>
@@ -152,7 +152,7 @@ export const Testimonials: React.FC = () => {
                         stiffness: 200
                       }}
                     >
-                      <Star className="text-secondary fill-current w-12 h-12 md:w-14 md:h-14 drop-shadow-[0_0_20px_rgba(249,115,22,0.8)]" />
+                      <Star className="text-secondary fill-current w-6 h-6 md:w-8 md:h-8 drop-shadow-[0_0_20px_rgba(249,115,22,0.8)]" />
                     </motion.div>
                   ))}
                 </div>
@@ -161,7 +161,7 @@ export const Testimonials: React.FC = () => {
                   initial={{ opacity: 0, y: 40, rotateX: 20 }}
                   animate={{ opacity: 1, y: 0, rotateX: 0 }}
                   transition={{ delay: 0.6, duration: 1 }}
-                  className="text-3xl md:text-7xl text-white/90 italic font-serif leading-[1.1] mb-20 tracking-tighter px-4 preserve-3d"
+                  className="text-2xl md:text-4xl text-gray-600/90 italic font-serif leading-[1.1] mb-20 tracking-tighter px-4 preserve-3d"
                   style={{ textShadow: '0 20px 40px rgba(0,0,0,0.5)' }}
                 >
                   "{testimonials[currentIndex].content}"
@@ -189,7 +189,7 @@ export const Testimonials: React.FC = () => {
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 1 }}
-                    className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4"
+                    className="text-4xl md:text-5xl font-black text-gray-700 uppercase tracking-tighter mb-4"
                   >
                     {testimonials[currentIndex].name}
                   </motion.h4>
@@ -197,7 +197,7 @@ export const Testimonials: React.FC = () => {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 1.1 }}
-                    className="text-secondary font-black text-xs md:text-sm uppercase tracking-[0.6em]"
+                    className="text-secondary font-black text-xs md:text-sm uppercase tracking-[0.5em]"
                   >
                     {testimonials[currentIndex].role}
                   </motion.p>

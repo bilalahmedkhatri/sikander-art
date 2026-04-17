@@ -96,7 +96,7 @@ const Services: React.FC = () => {
         url="https://sikanderart.com/services"
       />
 
-      <div className="bg-[#050505] min-h-screen text-white relative overflow-hidden">
+      <div className="bg-[#fbfbfb] min-h-screen text-gray-800 relative overflow-hidden">
         {/* Cinematic Background Lighting */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-secondary/10 blur-[150px] rounded-full translate-x-1/2 -translate-y-1/2" />
@@ -116,7 +116,7 @@ const Services: React.FC = () => {
                 Artisanal Expertise
               </span>
             </motion.div>
-            
+
             <motion.h1
               initial={{ opacity: 0, rotateX: -30, y: 30 }}
               animate={{ opacity: 1, rotateX: 0, y: 0 }}
@@ -125,14 +125,14 @@ const Services: React.FC = () => {
             >
               CRAFTING <span className="text-secondary italic">PERFECTION</span>
             </motion.h1>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 1 }}
               className="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-medium"
             >
-              Elevating Karachi's architecture through cinematic finishes and master-class painting solutions. 
+              Elevating Karachi's architecture through cinematic finishes and master-class painting solutions.
               We don't just paint; we sculpt atmospheres.
             </motion.p>
           </div>
@@ -148,33 +148,33 @@ const Services: React.FC = () => {
                   initial={{ opacity: 0, y: 150, rotateX: 45, scale: 0.8, filter: 'blur(20px)' }}
                   whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1, filter: 'blur(0px)' }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ 
+                  transition={{
                     type: "spring",
                     damping: 20,
                     stiffness: 50,
                     delay: index * 0.15,
                     duration: 1.2
                   }}
-                  whileHover={{ 
-                    y: -20, 
+                  whileHover={{
+                    y: -20,
                     rotateY: 5,
                     rotateX: -5,
                     scale: 1.05,
                     zIndex: 20,
                     transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
                   }}
-                  className="group relative flex flex-col h-full bg-[#0d0d0d] rounded-[2.5rem] border border-white/5 overflow-hidden transition-all duration-500 hover:border-secondary/40 hover:shadow-[0_40px_100px_rgba(249,115,22,0.15)] preserve-3d"
+                  className="group relative flex flex-col h-full bg-white rounded-[2.5rem] border border-white/5 overflow-hidden transition-all duration-500 hover:border-secondary/40 hover:shadow-[0_40px_100px_rgba(249,115,22,0.15)] preserve-3d"
                 >
                   {/* Moving Light Beam on Hover */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10">
-                    <motion.div 
-                      animate={{ 
+                    <motion.div
+                      animate={{
                         x: ['-200%', '200%'],
                         opacity: [0, 1, 0]
                       }}
-                      transition={{ 
-                        duration: 3, 
-                        repeat: Infinity, 
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
                         ease: "linear",
                         repeatDelay: 1
                       }}
@@ -190,10 +190,10 @@ const Services: React.FC = () => {
                       className="w-full h-full object-cover transition-transform duration-1000 scale-110 group-hover:scale-100"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-90" />
-                    
+
                     {/* Icon badge over image - Cinematic Pop */}
-                    <div className="absolute -bottom-6 right-10 z-20">
-                      <motion.div 
+                    <div className="absolute bottom-3 right-10 z-20">
+                      <motion.div
                         whileHover={{ scale: 1.1, rotate: 10 }}
                         className="w-20 h-20 bg-secondary rounded-2xl flex items-center justify-center text-white shadow-[0_20px_40px_rgba(249,115,22,0.4)] relative overflow-hidden group/icon"
                       >
@@ -201,7 +201,7 @@ const Services: React.FC = () => {
                         {service.icon}
                       </motion.div>
                     </div>
-                    
+
                     {/* ID badge */}
                     <div className="absolute top-6 left-6 bg-white/10 backdrop-blur-md text-white text-[10px] font-black px-4 py-2 rounded-full border border-white/10 tracking-widest uppercase">
                       Finish 0{service.id}
@@ -210,17 +210,17 @@ const Services: React.FC = () => {
 
                   {/* Content */}
                   <div className="p-10 pt-16 flex-grow flex flex-col">
-                    <h3 className="text-2xl font-black text-white mb-5 uppercase tracking-tighter group-hover:text-secondary transition-colors duration-300">
+                    <h3 className="text-2xl font-black text-gray-800 mb-5 uppercase tracking-tighter group-hover:text-secondary transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <p className="text-gray-400 font-medium leading-relaxed mb-auto group-hover:text-gray-300 transition-colors duration-300">
+                    <p className="text-gray-400 font-medium leading-relaxed mb-auto group-hover:text-gray-500 transition-colors duration-300">
                       {service.description}
                     </p>
-                    
+
                     <div className="mt-10 pt-6 border-t border-white/5 flex items-center justify-between">
                       <Link to="/contact" className="flex items-center gap-3 text-secondary font-black tracking-[0.3em] text-[10px] uppercase group/btn">
                         <span>Initiate Project</span>
-                        <motion.div 
+                        <motion.div
                           whileHover={{ x: 5 }}
                           className="w-8 h-8 rounded-full border border-secondary/30 flex items-center justify-center group-hover/btn:bg-secondary group-hover/btn:text-white transition-all duration-300"
                         >
@@ -245,17 +245,17 @@ const Services: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="max-w-5xl mx-auto rounded-[4rem] bg-gradient-to-br from-[#111] to-[#050505] p-20 border border-white/5 relative overflow-hidden group shadow-[0_50px_100px_rgba(0,0,0,0.5)]"
+              className="max-w-5xl mx-auto rounded-[4rem] bg-gradient-to-br from-[#111] to-[#fbfbfb] p-20 border border-white/5 relative overflow-hidden group shadow-[0_50px_100px_rgba(0,0,0,0.5)]"
             >
               {/* Background Glow */}
               <div className="absolute -top-40 -left-40 w-96 h-96 bg-secondary/10 blur-[120px] rounded-full group-hover:bg-secondary/20 transition-all duration-700" />
-              
+
               <div className="relative z-10 space-y-10">
                 <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter leading-none">
                   TRANSFORM YOUR <br /> <span className="text-secondary italic">PERSPECTIVE</span>
                 </h2>
-                <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-medium leading-relaxed">
-                  Join the elite clients in Karachi who trust Sikander Arts for 
+                <p className="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto font-medium leading-relaxed">
+                  Join the elite clients in Karachi who trust Sikander Arts for
                   unmatched cinematic finishes.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

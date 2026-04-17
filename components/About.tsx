@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Award, ShieldCheck, Users, Clock, Target, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const About: React.FC = () => {
   const { scrollYProgress } = useScroll();
@@ -9,7 +10,7 @@ export const About: React.FC = () => {
   const imgRotate = useTransform(scrollYProgress, [0.1, 0.4], [10, 0]);
 
   return (
-    <section id="about" className="py-32 md:py-48 bg-[#0a0a0a] text-white overflow-hidden perspective-2000">
+    <section id="about" className="py-32 md:py-48 bg-[#fbfbfb] text-gray-900 overflow-hidden perspective-2000">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-24 md:gap-32">
 
@@ -31,7 +32,7 @@ export const About: React.FC = () => {
               <img
                 src="https://images.unsplash.com/photo-1595846519845-68e298c2edd8?q=80&w=1200&auto=format&fit=crop"
                 alt="Our Painting Team"
-                className="w-full h-[700px] object-cover transition-transform duration-[3s] group-hover:scale-110 group-hover:rotate-1 grayscale group-hover:grayscale-0"
+                className="w-full h-[750px] object-cover transition-transform duration-[3s] group-hover:scale-110 group-hover:rotate-1 grayscale group-hover:grayscale-0"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-secondary/30 via-transparent to-white/5 mix-blend-overlay"></div>
 
@@ -64,8 +65,8 @@ export const About: React.FC = () => {
                   <Award className="w-14 h-14" />
                 </motion.div>
                 <div>
-                  <p className="text-7xl md:text-8xl font-black text-white leading-none tracking-tighter drop-shadow-2xl">15+</p>
-                  <p className="text-secondary text-[10px] font-black uppercase tracking-[0.5em] mt-5 whitespace-nowrap">Years of Mastery</p>
+                  <p className="text-7xl md:text-8xl font-black text-gray-800 leading-none tracking-tighter drop-shadow-2xl">15+</p>
+                  <p className="text-gray-900 text-[14px] font-black uppercase tracking-[0.2em] mt-5 whitespace-nowrap">Years of Mastery</p>
                 </div>
               </div>
             </motion.div>
@@ -78,7 +79,7 @@ export const About: React.FC = () => {
               whileInView={{ opacity: 1, rotateX: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, ease: "circOut" }}
-              className="text-5xl md:text-[7rem] font-serif font-black text-white leading-[0.85] mb-12 tracking-tighter"
+              className="text-4xl md:text-6xl font-serif font-black text-gray-900 leading-[0.85] mb-12 tracking-tighter"
             >
               PAINTING <span className="text-secondary italic">KARACHI'S</span> VISION SINCE '08
             </motion.h2>
@@ -86,9 +87,9 @@ export const About: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 1 }}
-              className="text-gray-400 text-xl md:text-2xl mb-16 leading-relaxed font-medium italic opacity-80"
+              className="text-gray-500 text-xl md:text-2xl mb-16 leading-relaxed font-medium italic opacity-80"
             >
-              At <strong className="text-white">Sikander Art</strong>, we redefine architecture through the lens of color. Our heritage is built on a decade of precision, merging traditional Pakistani craft with cutting-edge cinematic finishes.
+              At <Link to="https://sikanderart.com/" className="font-black text-secondary">Sikander Art</Link>, we redefine architecture through the lens of color. Our heritage is built on a decade of precision, merging traditional Pakistani craft with cutting-edge cinematic finishes.
             </motion.p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-14 mb-20">
@@ -106,13 +107,13 @@ export const About: React.FC = () => {
                   transition={{ delay: 0.5 + i * 0.1, duration: 1, type: "spring" }}
                   className="group relative preserve-3d hover:translate-z-10 transition-all duration-500"
                 >
-                  <div className="flex items-center gap-6 text-white font-black uppercase tracking-[0.3em] text-[10px] mb-4">
+                  <div className="flex items-center gap-6 text-gra-700 font-black uppercase tracking-[0.3em] text-[12px] mb-4">
                     <div className="p-5 bg-white/5 rounded-2xl group-hover:bg-secondary group-hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] transition-all duration-500">
                       <item.icon size={28} className="text-secondary group-hover:text-white" />
                     </div>
                     <span className="group-hover:text-secondary transition-colors">{item.title}</span>
                   </div>
-                  <p className="text-xs text-gray-500 font-bold ml-1 opacity-70 group-hover:opacity-100 transition-opacity leading-relaxed">
+                  <p className="text-xs text-gray-600 font-bold ml-1 opacity-70 group-hover:opacity-100 transition-opacity leading-relaxed">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -130,21 +131,11 @@ export const About: React.FC = () => {
                 href="#contact"
                 whileHover={{ scale: 1.05, translateZ: 20 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-secondary text-white px-12 py-6 rounded-3xl font-black uppercase tracking-[0.3em] text-[10px] shadow-[0_30px_60px_-15px_rgba(249,115,22,0.4)] inline-flex items-center gap-5 transition-all border border-white/10"
+                className="bg-secondary text-white px-12 py-6 rounded-3xl font-black uppercase tracking-[0.2em] text-[12px] shadow-[0_30px_60px_-15px_rgba(249,115,22,0.4)] inline-flex items-center gap-5 transition-all border border-white/10"
               >
                 Start Your Masterwork <Target size={20} />
               </motion.a>
 
-              <div className="flex items-center gap-5 border-l border-white/10 pl-10">
-                <div className="flex -space-x-5">
-                  {[1, 2, 3].map(i => (
-                    <img key={i} className="w-14 h-14 rounded-full border-[3px] border-[#0a0a0a] object-cover shadow-2xl" src={`https://i.pravatar.cc/150?u=${i + 10}`} alt="Client" />
-                  ))}
-                </div>
-                <div className="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">
-                  1000+ <br /> <span className="text-white/20">Successes</span>
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>

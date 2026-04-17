@@ -10,7 +10,7 @@ const stats = [
 
 export const WhyChooseUs: React.FC = () => {
   return (
-    <section id="why-us" className="relative py-32 bg-[#050505] text-white overflow-hidden">
+    <section id="why-us" className="relative py-32 bg-[#fbfbfb] text-gray-900 overflow-hidden">
       {/* Cinematic Background Lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-secondary/5 rounded-full blur-[150px] pointer-events-none" />
 
@@ -27,7 +27,7 @@ export const WhyChooseUs: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-4xl mx-auto mb-24 relative">
+        <div className="text-center max-w-4xl mx-auto mb-20 relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -41,7 +41,7 @@ export const WhyChooseUs: React.FC = () => {
               whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="text-5xl md:text-8xl font-serif font-black mb-8 tracking-tighter leading-[1] preserve-3d"
+              className="text-4xl md:text-6xl font-serif font-black mb-8 tracking-tighter leading-[1] preserve-3d"
             >
               The <span className="text-secondary">Sikander</span> <br />
               Arts Difference
@@ -53,7 +53,7 @@ export const WhyChooseUs: React.FC = () => {
               className="absolute -bottom-4 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent blur-[1px]"
             />
           </div>
-          <p className="text-gray-400 text-lg md:text-xl mt-12 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
+          <p className="text-gray-500 text-xl md:text-2xl mt-12 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
             We don't just paint walls; we architect atmosphere through transparency, obsessive quality, and absolute reliability.
           </p>
         </div>
@@ -96,19 +96,19 @@ export const WhyChooseUs: React.FC = () => {
               className="relative p-12 rounded-[3.5rem] bg-white/[0.03] backdrop-blur-2xl border border-white/5 transition-all duration-700 group cursor-default overflow-hidden text-center preserve-3d"
             >
               {/* Cinematic Glare Effect */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
 
               <div className="relative z-10 preserve-3d">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5, translateZ: -50 }}
                   whileInView={{ opacity: 1, scale: 1, translateZ: 0 }}
                   transition={{ delay: index * 0.2 + 0.4, duration: 1, type: "spring" }}
-                  className="text-5xl md:text-8xl font-black text-secondary mb-6 tracking-tighter drop-shadow-[0_10px_30px_rgba(249,115,22,0.4)] translate-z-30"
+                  className="text-4xl md:text-6xl font-black text-gray-800 mb-6 tracking-tighter drop-shadow-[0_10px_30px_rgba(249,115,22,0.4)] translate-z-30"
                 >
                   {stat.value}
                 </motion.div>
                 <div
-                  className="text-gray-400 font-bold uppercase tracking-[0.4em] text-[9px] md:text-[10px] opacity-40 group-hover:opacity-100 group-hover:text-white transition-all duration-500 translate-z-10"
+                  className="text-secondary font-bold uppercase tracking-[0.4em] text-[12px] md:text-[10px] opacity-40 group-hover:opacity-100 group-hover:text-gray-800 transition-all duration-500 translate-z-10"
                 >
                   {stat.label}
                 </div>

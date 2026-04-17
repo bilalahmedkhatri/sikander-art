@@ -69,24 +69,24 @@ const Portfolio: React.FC = () => {
 
       <div className="bg-slate-50 min-h-screen">
         {/* Hero */}
-        <section className="pt-32 pb-20 bg-primary text-white text-center relative overflow-hidden">
+        <section className="pt-32 pb-20 bg-[#fbfbfb] text-gray-800 text-center relative overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
           <div className="container mx-auto px-4 relative z-10">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-6xl font-serif font-black mb-4 tracking-tighter"
             >
               Our Full Portfolio – <span className="text-secondary">Sikander Arts</span>
             </motion.h1>
-            <p className="text-lg md:text-xl text-gray-300 font-medium">Explore our complete collection of masterpiece painting projects across Karachi</p>
+            <p className="text-lg md:text-xl text-gray-500 font-medium">Explore our complete collection of masterpiece painting projects across Karachi</p>
           </div>
         </section>
 
         {/* Featured Project */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -100,7 +100,7 @@ const Portfolio: React.FC = () => {
               </div>
               <div className="lg:w-1/2 p-10 md:p-16 flex flex-col justify-center">
                 <span className="text-secondary font-black uppercase tracking-[0.3em] text-xs mb-4 block">LATEST MASTERPIECE</span>
-                <h2 className="text-3xl md:text-4xl font-serif font-black text-primary mb-6 leading-tight">{featuredProject.title}</h2>
+                <h2 className="text-3xl md:text-4xl font-serif font-black text-gray-800 mb-6 leading-tight">{featuredProject.title}</h2>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {featuredProject.services.map((service, i) => (
                     <span key={i} className="bg-slate-100 text-gray-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
@@ -115,9 +115,9 @@ const Portfolio: React.FC = () => {
                   <span className="flex items-center gap-2"><MapPin size={16} className="text-secondary" /> {featuredProject.location}</span>
                   <span className="flex items-center gap-2"><Calendar size={16} className="text-secondary" /> {featuredProject.year}</span>
                 </div>
-                <button 
+                <button
                   onClick={() => setSelectedProject(featuredProject)}
-                  className="self-start bg-primary text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-xs shadow-xl hover:bg-blue-900 transition-colors flex items-center gap-2"
+                  className="self-start bg-[#fbfbfb] text-gray-800 px-8 py-4 rounded-full font-black uppercase tracking-widest text-xs shadow-xl hover:bg-secondary transition-colors flex items-center gap-2"
                 >
                   View Full Details <ArrowRight size={16} />
                 </button>
@@ -153,7 +153,7 @@ const Portfolio: React.FC = () => {
                         {project.year}
                       </span>
                     </div>
-                    <h3 className="text-xl font-black text-primary mb-4 leading-tight group-hover:text-secondary transition-colors">
+                    <h3 className="text-xl font-black text-gray-800 mb-4 leading-tight group-hover:text-secondary transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-gray-500 text-sm line-clamp-2 mb-6 font-medium">
@@ -170,7 +170,7 @@ const Portfolio: React.FC = () => {
         </section>
 
         {/* Stats Section */}
-        <section className="py-20 bg-primary text-white relative overflow-hidden">
+        <section className="py-20 bg-[#fbfbfb] text-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
@@ -193,7 +193,7 @@ const Portfolio: React.FC = () => {
         {/* CTA */}
         <section className="py-20 bg-white text-center">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-5xl font-serif font-black text-primary mb-8 tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-serif font-black text-gray-800 mb-8 tracking-tight">
               Like What You See? Let's Work Together
             </h2>
             <Link to="/contact">
@@ -225,9 +225,9 @@ const Portfolio: React.FC = () => {
                 className="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[2.5rem] shadow-2xl relative"
                 onClick={(e) => e.stopPropagation()}
               >
-                <button 
+                <button
                   onClick={() => setSelectedProject(null)}
-                  className="absolute top-6 right-6 bg-white/80 hover:bg-white p-2 rounded-full text-primary z-10 transition-colors shadow-lg"
+                  className="absolute top-6 right-6 bg-white/80 hover:bg-white p-2 rounded-full text-gray-800 z-10 transition-colors shadow-lg"
                 >
                   <X size={24} />
                 </button>
@@ -254,7 +254,7 @@ const Portfolio: React.FC = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                     <div className="md:col-span-2">
-                      <h3 className="text-xl font-black text-primary uppercase tracking-widest mb-4">Project Overview</h3>
+                      <h3 className="text-xl font-black text-gray-800 uppercase tracking-widest mb-4">Project Overview</h3>
                       <p className="text-gray-600 leading-relaxed font-medium text-lg">
                         {selectedProject.description}
                       </p>
@@ -268,9 +268,9 @@ const Portfolio: React.FC = () => {
                         <h4 className="text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Year</h4>
                         <p className="text-gray-800 font-bold flex items-center gap-2"><Calendar size={18} className="text-secondary" /> {selectedProject.year}</p>
                       </div>
-                      
+
                       <Link to="/contact" onClick={() => setSelectedProject(null)}>
-                        <button className="w-full mt-6 bg-primary text-white py-4 rounded-xl font-black uppercase tracking-widest text-xs shadow-xl hover:bg-blue-900 transition-colors">
+                        <button className="w-full mt-6 bg-[#fbfbfb] text-white py-4 rounded-xl font-black uppercase tracking-widest text-xs shadow-xl hover:bg-blue-900 transition-colors">
                           Get Quote for Similar
                         </button>
                       </Link>

@@ -57,10 +57,10 @@ export const Logo1: React.FC<LogoProps> = ({ isSolidNav = true }) => {
             </motion.span>
 
             {/* Subtitles */}
-            <span className={`hidden md:block text-[10px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors relative z-20 ${isSolidNav ? 'text-blue-200' : 'text-blue-600'}`}>
+            <span className={`hidden md:block text-[10px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors relative z-20 ${isSolidNav ? 'text-black' : 'text-blue-600'}`}>
                 Professional Painting Contractors
             </span>
-            <span className={`block md:hidden text-[8px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors relative z-20 ${isSolidNav ? 'text-blue-200' : 'text-blue-600'}`}>
+            <span className={`block md:hidden text-[8px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors relative z-20 ${isSolidNav ? 'text-black' : 'text-blue-600'}`}>
                 Painting
             </span>
         </motion.div>
@@ -90,10 +90,10 @@ export const Logo2: React.FC<LogoProps> = ({ isSolidNav = true }) => {
                     SIKANDER ART
                 </span>
             </motion.div>
-            <span className={`hidden md:block text-[10px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors ${isSolidNav ? 'text-purple-200' : 'text-purple-700'}`}>
+            <span className={`hidden md:block text-[10px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors ${isSolidNav ? 'text-black' : 'text-purple-700'}`}>
                 Professional Painting Contractors
             </span>
-            <span className={`block md:hidden text-[8px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors ${isSolidNav ? 'text-purple-200' : 'text-purple-700'}`}>
+            <span className={`block md:hidden text-[8px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors ${isSolidNav ? 'text-black' : 'text-purple-700'}`}>
                 Painting
             </span>
         </motion.div>
@@ -139,10 +139,10 @@ export const Logo3: React.FC<LogoProps> = ({ isSolidNav = true }) => {
                     hover: { scaleX: 1, opacity: 0.5, y: 8, filter: "blur(8px)" } // filter property here is actually a motion variant, but blur-medium is static
                 }}
             />
-            <span className={`hidden md:block text-[10px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors ${isSolidNav ? 'text-pink-200' : 'text-pink-600'}`}>
+            <span className={`hidden md:block text-[10px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors ${isSolidNav ? 'text-black' : 'text-pink-600'}`}>
                 Professional Painting Contractors
             </span>
-            <span className={`block md:hidden text-[8px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors ${isSolidNav ? 'text-pink-200' : 'text-pink-600'}`}>
+            <span className={`block md:hidden text-[8px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors ${isSolidNav ? 'text-black' : 'text-pink-600'}`}>
                 Painting
             </span>
         </motion.div>
@@ -241,10 +241,10 @@ export const Logo4: React.FC<LogoProps> = ({ isSolidNav = true }) => {
                     );
                 })}
             </div>
-            <span className={`hidden md:block text-[10px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors ${isSolidNav ? 'text-blue-200' : 'text-gray-500'}`}>
+            <span className={`hidden md:block text-[10px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors ${isSolidNav ? 'text-black' : 'text-gray-500'}`}>
                 Professional Painting Contractors
             </span>
-            <span className={`block md:hidden text-[8px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors ${isSolidNav ? 'text-blue-200' : 'text-gray-500'}`}>
+            <span className={`block md:hidden text-[8px] font-bold uppercase tracking-[0.2em] -mt-1 transition-colors ${isSolidNav ? 'text-black' : 'text-gray-500'}`}>
                 Painting
             </span>
         </motion.div>
@@ -291,7 +291,7 @@ export const Logo5: React.FC<LogoProps> = ({ isSolidNav = true }) => {
                             }
                         }}
                     >
-                        <span className="relative z-20 text-white">{char}</span>
+                        <span className="relative z-20 text-grey">{char}</span>
 
                         {/* Rainbow Layer 1 (Logo 1 + Logo 4 colors) */}
                         {char !== ' ' && (
@@ -381,7 +381,7 @@ export const Logo5: React.FC<LogoProps> = ({ isSolidNav = true }) => {
             />
 
             <motion.span
-                className="hidden md:block text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] -mt-1 relative z-40 text-white"
+                className="hidden md:block text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] -mt-1 relative z-40 text-grey-500"
                 variants={{
                     rest: { opacity: 0.8, y: 0, letterSpacing: "0.2em" },
                     hover: { opacity: 1, y: 5, letterSpacing: "0.3em", color: isSolidNav ? "#df6311" : "#df6311" } // Shifts to purple tint
@@ -391,10 +391,10 @@ export const Logo5: React.FC<LogoProps> = ({ isSolidNav = true }) => {
                 Professional Painting Contractors
             </motion.span>
             <motion.span
-  className="block md:hidden text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.2em] -mt-1 relative z-40 text-white"
->
-  Professional Painting Contractors
-</motion.span>
+                className="block md:hidden text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.2em] -mt-1 relative z-40 text-black"
+            >
+                Professional Painting Contractors
+            </motion.span>
         </motion.div>
     );
 };
