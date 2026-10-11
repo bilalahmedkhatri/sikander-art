@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /logo-demo
 
 # Sitemap location
 Sitemap: https://sikanderart.com/sitemap.xml

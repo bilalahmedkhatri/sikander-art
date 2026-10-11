@@ -1,3 +1,4 @@
+import { responsiveImageProps } from '../utils/Images';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -113,7 +114,7 @@ export const Gallery: React.FC = () => {
                 initial={{ scale: 1.3 }}
                 whileHover={{ scale: 1.15 }}
                 transition={{ duration: 1.5, ease: "circOut" }}
-                src={project.img}
+                {...responsiveImageProps(project.img, { sizes: '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw' })}
                 alt={project.title}
                 className="w-full h-full object-cover transition-transform duration-1000 opacity-80 group-hover:opacity-100"
               />
@@ -177,7 +178,7 @@ export const Gallery: React.FC = () => {
                       initial={{ scale: 1.4 }}
                       whileInView={{ scale: 1 }}
                       transition={{ duration: 2.5 }}
-                      src={item.before}
+                      {...responsiveImageProps(item.before, { sizes: '(min-width: 1024px) 50vw, 100vw' })}
                       className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 opacity-60 group-hover:opacity-80"
                       alt="Before"
                     />
@@ -188,7 +189,7 @@ export const Gallery: React.FC = () => {
                       initial={{ scale: 1.4 }}
                       whileInView={{ scale: 1 }}
                       transition={{ duration: 2.5, delay: 0.2 }}
-                      src={item.after}
+                      {...responsiveImageProps(item.after, { sizes: '(min-width: 1024px) 50vw, 100vw' })}
                       className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 opacity-80 group-hover:opacity-100"
                       alt="After"
                     />
@@ -264,7 +265,7 @@ export const Gallery: React.FC = () => {
                   return project ? (
                     <>
                       <div className="lg:w-2/3 h-full relative overflow-hidden">
-                        <img src={project.img} alt={project.title} className="w-full h-full object-cover" />
+                        <img {...responsiveImageProps(project.img, { sizes: '(min-width: 1024px) 80vw, 100vw', loading: 'eager', width: 1200 })} alt={project.title} className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent"></div>
                       </div>
                       <div className="lg:w-1/3 p-16 flex flex-col justify-center bg-[#111] relative">

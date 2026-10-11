@@ -1,3 +1,4 @@
+import { responsiveImageProps } from '../utils/Images';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -184,7 +185,7 @@ const Services: React.FC = () => {
                   {/* Image */}
                   <div className="relative h-64 overflow-hidden">
                     <motion.img
-                      src={service.image}
+                      {...responsiveImageProps(service.image, { sizes: '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw' })}
                       alt={service.title}
                       className="w-full h-full object-cover transition-transform duration-1000 scale-110 group-hover:scale-100"
                     />

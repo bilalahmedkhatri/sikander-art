@@ -1,3 +1,4 @@
+import { responsiveImageProps } from '../utils/Images';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
@@ -142,7 +143,7 @@ const Gallery: React.FC = () => {
                     onClick={() => openLightbox(index)}
                   >
                     <img
-                      src={item.image}
+                      {...responsiveImageProps(item.image, { sizes: '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw' })}
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
@@ -206,7 +207,7 @@ const Gallery: React.FC = () => {
                   key={filteredItems[currentIndex].id}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  src={filteredItems[currentIndex].image}
+                  {...responsiveImageProps(filteredItems[currentIndex].image, { sizes: '(min-width: 1024px) 80vw, 100vw', loading: 'eager', width: 1200 })}
                   alt={filteredItems[currentIndex].title}
                   className="w-full h-full object-contain rounded-lg shadow-2xl"
                 />

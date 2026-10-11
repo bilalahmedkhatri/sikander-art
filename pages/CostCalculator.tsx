@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
@@ -8,7 +8,8 @@ import {
   PROPERTY_TYPES,
   LOCATION_GROUPS
 } from '@/utils/CalculatorProperties';
-import { RATES } from '@/utils/Rates';
+import { calculatePaintingCost, initialCalculatorState, type CalculatorState, type RoomDimension } from '@/utils/CalculatePaintingCost';
+import calculatorGuide from '@/utils/CalculatorGuide.json';
 import {
   Calculator,
   Ruler,
@@ -27,70 +28,16 @@ import {
   MessageCircle
 } from 'lucide-react';
 
-// --- Types ---
-interface RoomDimension {
-  id: number;
-  name: string;
-  length: number;
-  width: number;
-  height: number;
-  includesWallDesigning: boolean;
-  designingWalls: number;
-}
-
-interface CalculatorState {
-  serviceType: string;
-  propertyType: string;
-  rooms: RoomDimension[];
-  paintRequired: boolean;
-  paintQuality: string;
-  coats: number;
-  includesCeiling: boolean;
-  includesDoors: number;
-  includesWindows: number;
-  includesWoodwork: boolean;
-  includesPutty: boolean;
-  includesPrimer: boolean;
-  includesRoof: boolean;
-  location: string;
-}
-
-interface CostBreakdown {
-  laborCost: number;
-  materialCost: number;
-  puttyCharge: number;
-  primerCharge: number;
-  woodworkCharge: number;
-  doorsCharge: number;
-  windowsCharge: number;
-  wallDesigningCharge: number;
-  roofCharge: number;
-  totalArea: number;
-  totalCost: number;
-  minCost: number;
-  maxCost: number;
-}
-
 const CostCalculator: React.FC = () => {
   const [step, setStep] = useState(1);
-  const [state, setState] = useState<CalculatorState>({
-    serviceType: 'Interior Painting',
-    propertyType: 'House / Bungalow',
-    rooms: [{ id: 1, name: 'Living Room', length: 12, width: 10, height: 10, includesWallDesigning: false, designingWalls: 1 }],
-    paintRequired: true,
-    paintQuality: 'good',
-    coats: 2,
-    includesCeiling: true,
-    includesDoors: 0,
-    includesWindows: 0,
-    includesWoodwork: false,
-    includesPutty: true,
-    includesPrimer: true,
-    includesRoof: false,
-    location: 'gulshan_e_iqbal'
-  });
-
-  const [result, setResult] = useState<CostBreakdown | null>(null);
+  const [state, setState] = useState<CalculatorState>(initialCalculatorState);
+  const [hasCalculated, setHasCalculated] = useState(false);
+  const calculation = useMemo(() => {
+    try { return { result: calculatePaintingCost(state), error: '' }; }
+    catch (error) { return { result: null, error: error instanceof Error ? error.message : 'Check your inputs.' }; }
+  }, [state]);
+  const result = hasCalculated ? calculation.result : null;
+  const error = hasCalculated ? calculation.error : '';
 
   const handleRoomChange = (id: number, field: keyof RoomDimension, value: any) => {
     setState(prev => ({
@@ -116,95 +63,11 @@ const CostCalculator: React.FC = () => {
     }
   };
 
-  const calculateCost = () => {
-    let totalWallArea = 0;
-    let totalWallDesigningArea = 0;
-
-    state.rooms.forEach(room => {
-      const perimeter = 2 * (Number(room.length) + Number(room.width));
-      const wallArea = perimeter * Number(room.height);
-      const ceilingArea = state.includesCeiling ? (Number(room.length) * Number(room.width)) : 0;
-      totalWallArea += wallArea + ceilingArea;
-
-      // Wall designing: each designing wall = length * height (assuming all walls same length avg)
-      if (room.includesWallDesigning && room.designingWalls > 0) {
-        const avgWallLength = (Number(room.length) + Number(room.width)) / 2;
-        const designingArea = avgWallLength * Number(room.height) * Number(room.designingWalls);
-        totalWallDesigningArea += designingArea;
-      }
-    });
-
-    const doorsArea = state.includesDoors * 21;
-    const windowsArea = state.includesWindows * 12;
-    const netPaintableArea = Math.max(0, totalWallArea - doorsArea - windowsArea);
-
-    const quality = state.paintQuality as 'standard' | 'good' | 'premium';
-    const loc = state.location as keyof typeof RATES.locationMultiplier;
-
-    const locMultiplier = RATES.locationMultiplier[loc] || 1.0;
-    const coatMult = RATES.coatMultiplier[state.coats as 1 | 2] || 1.0;
-
-    const laborRate = RATES.labor[quality] * locMultiplier;
-    const materialRate = state.paintRequired ? (RATES.material[quality] * locMultiplier) : 0;
-
-    const laborCost = netPaintableArea * laborRate * coatMult;
-    const materialCost = netPaintableArea * materialRate * coatMult;
-
-    const puttyCharge = state.includesPutty ? (netPaintableArea * RATES.putty * locMultiplier) : 0;
-    const primerCharge = state.includesPrimer ? (netPaintableArea * RATES.primer * locMultiplier) : 0;
-
-    const doorsCharge = state.includesWoodwork ? (state.includesDoors * RATES.door * locMultiplier) : 0;
-    const windowsCharge = state.includesWoodwork ? (state.includesWindows * RATES.window * locMultiplier) : 0;
-    const woodworkCharge = doorsCharge + windowsCharge;
-
-    const wallDesigningCharge = totalWallDesigningArea * RATES.wallDesigning * locMultiplier;
-
-    const subtotal = laborCost + materialCost + puttyCharge + primerCharge + woodworkCharge + wallDesigningCharge;
-    const roofCharge = state.includesRoof ? (subtotal * 0.05) : 0;
-    const totalCost = subtotal + roofCharge;
-
-    setResult({
-      laborCost,
-      materialCost,
-      puttyCharge,
-      primerCharge,
-      woodworkCharge,
-      doorsCharge,
-      windowsCharge,
-      wallDesigningCharge,
-      roofCharge,
-      totalArea: netPaintableArea,
-      totalCost,
-      minCost: totalCost * 0.9,
-      maxCost: totalCost * 1.1
-    });
-  };
-
-  useEffect(() => {
-    if (result) {
-      calculateCost();
-    }
-  }, [state]);
-
+  const calculateCost = () => setHasCalculated(true);
   const resetCalculator = () => {
-    setResult(null);
+    setHasCalculated(false);
     setStep(1);
-    setState({
-      serviceType: 'Interior Painting',
-      propertyType: 'House / Bungalow',
-      rooms: [{ id: 1, name: 'Living Room', length: 12, width: 10, height: 10, includesWallDesigning: false, designingWalls: 1 }],
-      paintRequired: true,
-      paintQuality: 'good',
-      coats: 2,
-      includesCeiling: true,
-      includesDoors: 0,
-      includesWindows: 0,
-      includesWoodwork: false,
-      includesPutty: true,
-      includesPrimer: true,
-      includesRoof: false,
-      location: 'gulshan_e_iqbal'
-    });
+    setState(initialCalculatorState());
   };
 
   // Build WhatsApp message with estimate details
@@ -215,9 +78,28 @@ const CostCalculator: React.FC = () => {
       `🏠 Property: ${state.propertyType}\n` +
       `📐 Total Area: ${Math.round(result.totalArea).toLocaleString()} sq ft\n` +
       `💰 Estimated Cost: Rs. ${Math.round(result.totalCost).toLocaleString()}\n\n` +
+      `Location: ${state.location.replaceAll('_', ' ')}\n` +
+      `Rooms: ${state.rooms.map(room => `${room.name} ${room.length}×${room.width}×${room.height} ft`).join('; ')}\n` +
+      `Quality: ${state.paintQuality}; Coats: ${state.coats}; Paint: ${state.paintRequired ? (state.materialMode === 'packs' ? 'whole-pack pricing' : 'area-based estimate') : 'supplied by customer'}\n` +
+      `Ceiling: ${state.includesCeiling}; Putty: ${state.includesPutty}; Primer: ${state.includesPrimer}; Woodwork: ${state.includesWoodwork}\n` +
+      `Paint quantity: ${result.requiredLitres.toFixed(2)} L; ${result.packCount} packs (${state.packSize} L each); coverage ${state.coverage} sq ft/L/coat; waste ${state.wastagePercent}%\n` +
+      `Labour: Rs. ${Math.round(result.laborCost)}; material: Rs. ${Math.round(result.materialCost)}; wastage: Rs. ${Math.round(result.wastageCost)}\n` +
+      `Doors/windows selected: ${state.includesWoodwork ? `${state.includesDoors}/${state.includesWindows}` : 'none'}; woodwork: Rs. ${Math.round(result.woodworkCharge)}\n` +
+      `Putty: Rs. ${Math.round(result.puttyCharge)}; primer: Rs. ${Math.round(result.primerCharge)}; texture: Rs. ${Math.round(result.wallDesigningCharge)}\n` +
+      `Minimum job: Rs. ${state.minimumJobCharge}; ${state.materialMode === 'packs' && state.paintRequired ? `supplier pack price: Rs. ${state.packPrice}` : 'area material pricing'}\n` +
+      `Roof: Rs. ${Math.round(result.roofCharge)}; scaffolding: Rs. ${Math.round(result.scaffoldingCharge)}; minimum adjustment: Rs. ${Math.round(result.minimumTopUp)}\n\n` +
       `Barae meherbani mazeed tafseelat batayen aur is quote ko confirm karein. Shukriya!`;
     return `https://wa.me/923022911088?text=${encodeURIComponent(msg)}`;
   };
+
+  const numericField = (field: 'coverage' | 'wastagePercent' | 'packSize' | 'packPrice' | 'scaffoldingCharge' | 'minimumJobCharge', label: string, min = 0) => (
+    <label className="block text-sm font-medium text-gray-700">
+      {label}
+      <input type="number" min={min} step="0.1" value={Number.isFinite(state[field]) ? state[field] : ''}
+        onChange={e => setState({ ...state, [field]: e.target.value === '' ? NaN : Number(e.target.value) })}
+        className="mt-2 w-full p-3 rounded-lg border border-gray-300 text-gray-800 focus:ring-2 focus:ring-secondary" />
+    </label>
+  );
 
   return (
     <>
@@ -328,15 +210,16 @@ const CostCalculator: React.FC = () => {
                           <div className="flex justify-between items-center mb-3">
                             <span className="font-bold text-sm text-gray-500 uppercase">Room {idx + 1}</span>
                             {state.rooms.length > 1 && (
-                              <button onClick={() => removeRoom(room.id)} className="text-red-400 hover:text-red-600">
+                              <button aria-label={`Remove room ${idx + 1}`} onClick={() => removeRoom(room.id)} className="text-red-400 hover:text-red-600">
                                 <Trash2 size={18} />
                               </button>
                             )}
                           </div>
                           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                             <div className="md:col-span-1">
-                              <label className="block text-xs font-bold text-gray-400 mb-1">Room Name</label>
+                              <label className="block text-xs font-bold text-gray-400 mb-1" htmlFor={`room-${room.id}-name`}>Room Name</label>
                               <select
+                                id={`room-${room.id}-name`}
                                 value={room.name}
                                 onChange={(e) => handleRoomChange(room.id, 'name', e.target.value)}
                                 className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-secondary focus:border-transparent outline-none"
@@ -345,49 +228,36 @@ const CostCalculator: React.FC = () => {
                               </select>
                             </div>
                             <div>
-                              <label className="block text-xs font-bold text-gray-400 mb-1">Length (ft)</label>
+                              <label className="block text-xs font-bold text-gray-400 mb-1" htmlFor={`room-${room.id}-length`}>Length (ft)</label>
                               <input
                                 type="number"
+                                id={`room-${room.id}-length`}
                                 value={room.length}
                                 onChange={(e) => handleRoomChange(room.id, 'length', e.target.value)}
                                 className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-secondary outline-none"
                               />
                             </div>
                             <div>
-                              <label className="block text-xs font-bold text-gray-400 mb-1">Width (ft)</label>
+                              <label className="block text-xs font-bold text-gray-400 mb-1" htmlFor={`room-${room.id}-width`}>Width (ft)</label>
                               <input
                                 type="number"
+                                id={`room-${room.id}-width`}
                                 value={room.width}
                                 onChange={(e) => handleRoomChange(room.id, 'width', e.target.value)}
                                 className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-secondary outline-none"
                               />
                             </div>
                             <div>
-                              <label className="block text-xs font-bold text-gray-400 mb-1">Height (ft)</label>
+                              <label className="block text-xs font-bold text-gray-400 mb-1" htmlFor={`room-${room.id}-height`}>Height (ft)</label>
                               <input
                                 type="number"
+                                id={`room-${room.id}-height`}
                                 value={room.height}
                                 onChange={(e) => handleRoomChange(room.id, 'height', e.target.value)}
                                 className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-secondary outline-none"
                               />
                             </div>
                           </div>
-
-                          {/* Roof Section */}
-                          {/* <div className="mt-3 pt-3 border-t border-gray-200">
-                            <label className="flex items-center justify-between cursor-pointer">
-                              <span className="text-sm font-medium text-gray-700 flex items-center gap-2">
-                                <Home size={15} className="text-secondary" />
-                                Include Roof Paint? <span className="ml-1 text-xs text-orange-500 font-bold">(+5% on total)</span>
-                              </span>
-                              <input
-                                type="checkbox"
-                                checked={state.includesRoof}
-                                onChange={(e) => setState({ ...state, includesRoof: e.target.checked })}
-                                className="w-5 h-5 text-secondary rounded focus:ring-secondary"
-                              />
-                            </label>
-                          </div> */}
 
                           {/* Wall Designing Section */}
                           <div className="mt-3 pt-3 border-t border-gray-200">
@@ -465,12 +335,12 @@ const CostCalculator: React.FC = () => {
                       </label>
                     </div>
 
-                    {state.paintRequired && (
+                    {(
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {[
-                          { id: 'standard', label: 'Standard', sub: 'Economy / Local Brands (Approx Rs. 4,500/Drum)' },
-                          { id: 'good', label: 'Good', sub: 'Berger Elegance / Diamond (Approx Rs. 5,500/Gallon)' },
-                          { id: 'premium', label: 'Premium', sub: 'Dulux / Nippon (Approx Rs. 8,000+/Gallon)' }
+                          { id: 'standard', label: 'Standard', sub: 'Economy / Local Brands' },
+                          { id: 'good', label: 'Good', sub: 'Berger / Diamond grade' },
+                          { id: 'premium', label: 'Premium', sub: 'Dulux / Nippon grade' }
                         ].map((q) => (
                           <button
                             key={q.id}
@@ -496,6 +366,10 @@ const CostCalculator: React.FC = () => {
                       <Layers size={20} className="text-secondary" /> Additional Options
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <label className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer">
+                        <span className="text-sm font-medium text-gray-700">Include Roof / Chhat (+5%)?</span>
+                        <input type="checkbox" checked={state.includesRoof} onChange={e => setState({ ...state, includesRoof: e.target.checked })} className="w-5 h-5 text-secondary rounded" />
+                      </label>
                       <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                         <span className="text-sm font-medium text-gray-700">Number of Coats</span>
                         <div className="flex bg-white rounded-lg p-1 border border-gray-200">
@@ -554,19 +428,19 @@ const CostCalculator: React.FC = () => {
                       {state.includesWoodwork && (
                         <>
                           <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                            <span className="text-sm font-medium text-gray-700">Number of Doors</span>
+                            <label htmlFor="door-count" className="text-sm font-medium text-gray-700">Number of Doors</label>
                             <input
                               type="number"
-                              value={state.includesDoors}
+                              id="door-count" min="0" step="1" value={state.includesDoors}
                               onChange={(e) => setState({ ...state, includesDoors: Number(e.target.value) })}
                               className="w-20 p-1 rounded border border-gray-300 text-sm text-center"
                             />
                           </div>
                           <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                            <span className="text-sm font-medium text-gray-700">Number of Windows</span>
+                            <label htmlFor="window-count" className="text-sm font-medium text-gray-700">Number of Windows</label>
                             <input
                               type="number"
-                              value={state.includesWindows}
+                              id="window-count" min="0" step="1" value={state.includesWindows}
                               onChange={(e) => setState({ ...state, includesWindows: Number(e.target.value) })}
                               className="w-20 p-1 rounded border border-gray-300 text-sm text-center"
                             />
@@ -577,11 +451,35 @@ const CostCalculator: React.FC = () => {
                   </div>
 
                   {/* Step 6: Location */}
+                  <fieldset className="space-y-4">
+                    <legend className="text-lg font-bold text-gray-700 mb-3">Paint Quantity &amp; Project Charges</legend>
+                    {state.paintRequired && <>
+                      <p className="text-sm text-gray-600">Coverage, 10% wastage and 4-litre packs are example inputs. Use your selected product specifications. Quantities cover wall/ceiling finish paint only.</p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {numericField('coverage', 'Coverage (sq ft/litre/coat)', 0.1)}
+                        {numericField('wastagePercent', 'Wastage allowance (%)')}
+                        {numericField('packSize', 'Pack size (litres)', 0.1)}
+                        <label className="block text-sm font-medium text-gray-700">Material pricing
+                          <select value={state.materialMode} onChange={e => setState({ ...state, materialMode: e.target.value as 'area' | 'packs' })} className="mt-2 w-full p-3 rounded-lg border border-gray-300 text-gray-800">
+                            <option value="area">Area-based estimate</option><option value="packs">Whole-pack price</option>
+                          </select>
+                        </label>
+                        {state.materialMode === 'packs' && numericField('packPrice', 'Supplier price per pack (PKR)', 0.1)}
+                      </div>
+                      <p className="text-sm text-gray-600">Whole-pack pricing replaces the area-based material charge. In area mode, wastage is a separate percentage of paint material cost.</p>
+                    </>}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {numericField('scaffoldingCharge', 'Scaffolding allowance (PKR)')}
+                      {numericField('minimumJobCharge', 'Minimum job amount (PKR)')}
+                    </div>
+                    <p className="text-sm text-gray-600">Enter agreed project amounts; zero means no allowance. The minimum only tops up smaller estimates. Roof adds 5% to the painting subtotal, before scaffolding.</p>
+                  </fieldset>
                   <div>
                     <h3 className="text-lg font-bold text-gray-700 mb-4 flex items-center gap-2">
                       <MapPin size={20} className="text-secondary" /> Location in Karachi
                     </h3>
                     <select
+                      aria-label="Location in Karachi"
                       value={state.location}
                       onChange={(e) => setState({ ...state, location: e.target.value })}
                       className="w-full p-4 rounded-xl border border-gray-300 text-gray-700 font-medium focus:ring-2 focus:ring-secondary outline-none"
@@ -605,12 +503,13 @@ const CostCalculator: React.FC = () => {
                   >
                     Calculate My Cost
                   </button>
+                  {error && <p role="alert" className="text-red-700 bg-red-50 p-4 rounded-lg">{error}</p>}
                 </div>
               </motion.div>
             </div>
 
             {/* RIGHT COLUMN - RESULTS */}
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5" id="painting-estimate" aria-live="polite">
               <motion.div
                 initial={{ x: 50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -619,7 +518,7 @@ const CostCalculator: React.FC = () => {
               >
                 {result ? (
                   <>
-                    <div className="bg-[#fbfbfb] text-white rounded-2xl shadow-2xl p-6 md:p-8 overflow-hidden relative">
+                    <div className="bg-slate-900 text-white rounded-2xl shadow-2xl p-6 md:p-8 overflow-hidden relative">
                       <div className="absolute top-0 right-0 p-4 opacity-10">
                         <Calculator size={150} />
                       </div>
@@ -642,6 +541,11 @@ const CostCalculator: React.FC = () => {
                             <span className="text-gray-300">Material Cost</span>
                             <span className="font-medium">Rs. {Math.round(result.materialCost).toLocaleString()}</span>
                           </div>
+                          {[
+                            ['Paint wastage / extra packs', result.wastageCost],
+                            ['Scaffolding', result.scaffoldingCharge],
+                            ['Minimum-job adjustment', result.minimumTopUp],
+                          ].map(([label, amount]) => <div key={label} className="flex justify-between gap-4"><span className="text-gray-300">{label}</span><span className="font-medium whitespace-nowrap">Rs. {Math.round(Number(amount)).toLocaleString()}</span></div>)}
                           {/* Always list important bases below */}
                           <div className="flex justify-between">
                             <span className="text-gray-300">Putty Work</span>
@@ -672,6 +576,13 @@ const CostCalculator: React.FC = () => {
                         </div>
 
                         <div className="h-px bg-white/20 my-4"></div>
+                        {state.paintRequired && <div className="bg-white/10 p-3 rounded-lg text-sm space-y-1">
+                          <p>Finish paint: {result.baseLitres.toFixed(2)} L</p>
+                          <p>Wastage: {result.wastageLitres.toFixed(2)} L</p>
+                          <p>Required: {result.requiredLitres.toFixed(2)} L</p>
+                          <p>Purchase: {result.packCount} packs × {state.packSize} L = {result.purchaseLitres.toFixed(2)} L</p>
+                          <p className="text-blue-200 text-xs">{state.materialMode === 'area' ? 'Pack quantity is informative; the area material estimate is charged.' : 'Whole packs are charged; wastage only adds cost when another pack is needed.'}</p>
+                        </div>}
 
                         <div className="flex justify-between items-end">
                           <span className="text-lg font-bold text-secondary">Estimated Total</span>
@@ -701,15 +612,15 @@ const CostCalculator: React.FC = () => {
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-1.5"></span>
-                          Premium quality paints & materials
+                          {state.paintRequired ? `${state.paintQuality} grade finish paint estimate` : 'Finish paint supplied by customer'}
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-1.5"></span>
-                          Surface preparation & sanding
+                          Selected preparation: {state.includesPutty ? 'putty' : 'no putty'}, {state.includesPrimer ? 'primer' : 'no primer'}
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-1.5"></span>
-                          Post-painting cleanup
+                          Other work and final inclusions confirmed after site visit
                         </li>
                       </ul>
 
@@ -754,6 +665,10 @@ const CostCalculator: React.FC = () => {
               </motion.div>
             </div>
           </div>
+          <section className="mt-16 bg-white p-6 md:p-8 rounded-2xl border border-gray-200" aria-label="Painting rates and calculator guide">
+            {calculatorGuide.map(section => <div key={section.heading} className="mb-7 last:mb-0"><h2 className="text-xl font-bold text-gray-800 mb-3">{section.heading}</h2><p className="text-gray-600 leading-relaxed">{section.text}</p></div>)}
+            <div className="flex flex-wrap gap-5 mt-6"><Link to="/services" className="text-gray-800 underline">Painting services in Karachi</Link><Link to="/contact" className="text-gray-800 underline">Request a project quotation</Link></div>
+          </section>
         </div>
       </div>
     </>

@@ -1,35 +1,27 @@
 # Sikander Arts
 
-> Karachi's trusted professional painting contractor offering interior, exterior, texture, waterproofing, wood polish, epoxy flooring, and commercial painting services.
+> Painting contractor in Karachi, Pakistan. This website describes painting services, provides an online painting cost calculator, and offers contact details for project quotations.
 
-Sikander Arts is a professional painting company based in Karachi, Pakistan, founded in 2014. With 10+ years of experience, 500+ completed projects, and 1000+ happy clients, we are one of Karachi's most respected painting contractors.
+Sikander Arts provides interior and exterior painting, texture and decorative finishes, waterproofing, wood polish, metal painting, commercial painting, and epoxy floor coating. Contact the team to confirm the scope and availability for a particular property or location.
 
-## Services
-- Interior Wall Painting (residential and commercial)
-- Exterior Building Painting (weather-resistant, UV-protective)
-- Texture & Decorative Painting (Venetian plaster, 3D effects)
-- Waterproofing Services (roof, bathroom, basement)
-- Wood Painting & Polish (doors, furniture, lacquer)
-- Steel & Metal Painting (anti-rust, gates, grills)
-- Commercial & Industrial Painting (factories, plazas, hospitals)
-- Epoxy Floor Coating (garages, warehouses)
-- Stucco & Plaster Work
-- Free Color Consultation
+The painting cost calculator provides a provisional estimate of painter charges, labour and materials using room dimensions in feet, paint quality, coats, location and selected extras. It uses configured estimates rather than a live market-price feed. Coverage, litres, wastage and whole-pack material pricing are available with editable example inputs; a chosen pack price replaces the area-based material charge. Optional roof work adds 5% of the painting subtotal. Scaffolding and minimum-job adjustment are separate. Door/window deductions apply only when woodwork is selected. Its formula is based on room wall and optional ceiling area; selecting a service name does not introduce a separate pricing formula for waterproofing, epoxy flooring or wood polish. These services require a project-specific quotation. The displayed estimate and range are not a confirmed quotation or a guarantee of final cost.
 
-## Service Areas in Karachi
-DHA, Clifton, Gulshan-e-Iqbal, North Nazimabad, PECHS, Korangi, Bahria Town Karachi, Malir, Saddar, Nazimabad, FB Area, Landhi, Defence, Scheme 33
+Phone and WhatsApp: +92 302 291 1088. Location: Kharadar, Karachi, Pakistan. Published business hours: Monday to Saturday, 9:00 AM to 7:00 PM Pakistan time. Consult the contact page for current details and request a site visit to confirm pricing.
 
-## Contact
-- Phone/WhatsApp: +92 302 291 1088
-- Address: Kharadar, Karachi, Pakistan
-- Hours: Monday–Saturday, 9:00 AM – 7:00 PM
-- Website: https://sikanderart.com
+## Painting services and estimates
 
-## Pages
-- Homepage: https://sikanderart.com
-- Services: https://sikanderart.com/services
-- Portfolio: https://sikanderart.com/portfolio
-- Gallery: https://sikanderart.com/gallery
-- About: https://sikanderart.com/about
-- Contact: https://sikanderart.com/contact
-- Cost Calculator: https://sikanderart.com/calculate-cost
+- [Painting contractor in Karachi](https://sikanderart.com/): Overview of Sikander Arts and its painting services.
+- [Painting services](https://sikanderart.com/services): Interior painting, exterior painting, texture work, waterproofing, wood polish, metal painting and epoxy coating services.
+- [Painting cost calculator](https://sikanderart.com/calculate-cost): Online wall painting estimate with labour and material breakdown. Useful for planning paint labour costs in Karachi; final painter charges must be confirmed after reviewing the property and scope.
+- [Contact and project quotation](https://sikanderart.com/contact): Phone, WhatsApp, location, business hours and site-visit enquiries.
+
+## Business and project information
+
+- [About Sikander Arts](https://sikanderart.com/about): Business background and working approach.
+- [Portfolio](https://sikanderart.com/portfolio): Published project information; contact the team to confirm details relevant to a similar job.
+- [Gallery](https://sikanderart.com/gallery): Visual examples of painting and decorative finishes.
+
+## Site policies
+
+- [Privacy policy](https://sikanderart.com/privacy-policy): Information about handling visitor details.
+- [Terms of service](https://sikanderart.com/terms-of-service): Published website and service terms.

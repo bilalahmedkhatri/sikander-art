@@ -1,3 +1,4 @@
+import { responsiveImageProps } from '../utils/Images';
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -64,7 +65,7 @@ const About: React.FC = () => {
                 className="w-full lg:w-1/2"
               >
                 <div className="relative rounded-[3rem] overflow-hidden shadow-2xl">
-                  <img src="https://images.pexels.com/photos/5691597/pexels-photo-5691597.jpeg" alt="Team at work" className="w-full h-[500px] object-cover" />
+                  <img {...responsiveImageProps("https://images.pexels.com/photos/5691597/pexels-photo-5691597.jpeg", { sizes: '(min-width: 1024px) 50vw, 100vw' })} alt="Team at work" className="w-full h-[500px] object-cover" />
                   <div className="absolute inset-0 bg-primary/10"></div>
                 </div>
               </motion.div>
@@ -100,7 +101,7 @@ const About: React.FC = () => {
                 className="w-full lg:w-1/2"
               >
                 <div className="relative rounded-[3rem] overflow-hidden shadow-2xl">
-                  <img src="https://images.pexels.com/photos/994164/pexels-photo-994164.jpeg" alt="Our Journey" className="w-full h-[500px] object-cover" />
+                  <img {...responsiveImageProps("https://images.pexels.com/photos/994164/pexels-photo-994164.jpeg", { sizes: '(min-width: 1024px) 50vw, 100vw' })} alt="Our Journey" className="w-full h-[500px] object-cover" />
                   <div className="absolute inset-0 bg-secondary/10"></div>
                 </div>
               </motion.div>

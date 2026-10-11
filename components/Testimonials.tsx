@@ -1,3 +1,4 @@
+import { responsiveImageProps } from '../utils/Images';
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -179,7 +180,7 @@ export const Testimonials: React.FC = () => {
                     <div className="relative group/avatar">
                       <div className="absolute -inset-2 bg-gradient-to-tr from-secondary to-transparent rounded-full animate-spin-slow opacity-50"></div>
                       <img
-                        src={testimonials[currentIndex].image}
+                        {...responsiveImageProps(testimonials[currentIndex].image, { sizes: '(min-width: 768px) 224px, 160px', width: 320 })}
                         alt={testimonials[currentIndex].name}
                         className="relative w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4 border-white/10 shadow-[0_50px_80px_-20px_rgba(0,0,0,0.8)] transition-all duration-700"
                       />

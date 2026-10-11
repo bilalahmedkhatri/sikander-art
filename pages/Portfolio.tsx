@@ -1,3 +1,4 @@
+import { responsiveImageProps } from '../utils/Images';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -92,7 +93,7 @@ const Portfolio: React.FC = () => {
               className="bg-white rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100 flex flex-col lg:flex-row"
             >
               <div className="lg:w-1/2 relative min-h-[400px]">
-                <img src={featuredProject.image} alt={featuredProject.title} className="absolute inset-0 w-full h-full object-cover" />
+                <img {...responsiveImageProps(featuredProject.image, { sizes: '(min-width: 1024px) 50vw, 100vw' })} alt={featuredProject.title} className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute top-6 left-6 bg-secondary text-white px-4 py-2 rounded-full font-black uppercase tracking-widest text-xs shadow-lg flex items-center gap-2">
                   <Star size={14} fill="white" /> Featured Project
                 </div>
@@ -141,7 +142,7 @@ const Portfolio: React.FC = () => {
                   onClick={() => setSelectedProject(project)}
                 >
                   <div className="h-64 overflow-hidden relative">
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <img {...responsiveImageProps(project.image, { sizes: '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw' })} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <span className="text-white font-black uppercase tracking-widest border-2 border-white px-6 py-3 rounded-full">View Project</span>
                     </div>
@@ -232,7 +233,7 @@ const Portfolio: React.FC = () => {
                 </button>
 
                 <div className="h-64 md:h-96 relative">
-                  <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
+                  <img {...responsiveImageProps(selectedProject.image, { sizes: '(min-width: 1024px) 80vw, 100vw', loading: 'eager', width: 1200 })} alt={selectedProject.title} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-8 left-8 md:left-12 text-white">
                     <span className="bg-secondary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-3 inline-block">

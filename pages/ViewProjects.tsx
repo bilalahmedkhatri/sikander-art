@@ -1,3 +1,4 @@
+import { responsiveImageProps } from '../utils/Images';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -337,7 +338,7 @@ const ViewProjects: React.FC = () => {
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/80 z-10"></div>
             <img
-              src="https://images.pexels.com/photos/6283973/pexels-photo-6283973.jpeg?auto=compress&cs=tinysrgb&w=1400"
+              {...responsiveImageProps("https://images.pexels.com/photos/6283973/pexels-photo-6283973.jpeg?auto=compress&cs=tinysrgb&w=1400", { sizes: '100vw', loading: 'eager', width: 1200 })}
               alt="Projects Hero"
               className="w-full h-full object-cover opacity-30"
             />
@@ -429,11 +430,11 @@ const ViewProjects: React.FC = () => {
                 >
                   <div className="relative h-64 overflow-hidden bg-gray-200">
                     <img
-                      src={project.image}
+                      {...responsiveImageProps(project.image, { sizes: '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw' })}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      loading="lazy"
                       onError={(e) => {
+                        (e.target as HTMLImageElement).removeAttribute('srcset');
                         (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800';
                       }}
                     />
@@ -535,11 +536,12 @@ const ViewProjects: React.FC = () => {
             >
               <div className="relative h-64 md:h-96">
                 <img
-                  src={selectedProject.image}
+                  {...responsiveImageProps(selectedProject.image, { sizes: '(min-width: 1024px) 80vw, 100vw', loading: 'eager', width: 1200 })}
                   alt={selectedProject.title}
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800';
+                    (e.target as HTMLImageElement).removeAttribute('srcset');
+                        (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800';
                   }}
                 />
                 <button
@@ -567,11 +569,12 @@ const ViewProjects: React.FC = () => {
                           className="w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden border-2 border-transparent hover:border-secondary transition-all"
                         >
                           <img
-                            src={img}
+                            {...responsiveImageProps(img, { sizes: '96px', loading: 'eager', width: 320 })}
                             alt={`Gallery ${idx}`}
                             className="w-full h-full object-cover"
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=200';
+                              (e.target as HTMLImageElement).removeAttribute('srcset');
+                        (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=200';
                             }}
                           />
                         </button>

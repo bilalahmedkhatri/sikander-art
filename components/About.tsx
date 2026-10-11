@@ -1,3 +1,4 @@
+import { responsiveImageProps } from '../utils/Images';
 
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -30,7 +31,7 @@ export const About: React.FC = () => {
               className="relative rounded-[5rem] overflow-hidden shadow-[0_100px_200px_-50px_rgba(0,0,0,0.8)] group preserve-3d border border-white/5"
             >
               <img
-                src="https://images.unsplash.com/photo-1595846519845-68e298c2edd8?q=80&w=1200&auto=format&fit=crop"
+                {...responsiveImageProps("https://images.unsplash.com/photo-1595846519845-68e298c2edd8?q=80&w=1200&auto=format&fit=crop", { sizes: '(min-width: 1024px) 50vw, 100vw' })}
                 alt="Our Painting Team"
                 className="w-full h-[750px] object-cover transition-transform duration-[3s] group-hover:scale-110 group-hover:rotate-1 grayscale group-hover:grayscale-0"
               />

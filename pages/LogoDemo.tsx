@@ -6,6 +6,7 @@ const LogoDemo: React.FC = () => {
     return (
         <>
             <SEO
+                robots="noindex, follow"
                 title="Sikander Arts Logo Demo | Brand Animation Showcase Karachi"
                 description="Explore the Sikander Arts logo animation showcase featuring premium branding motion concepts and visual identity presentation for our Karachi painting and finishing brand."
                 keywords="Sikander Arts logo demo, logo animation showcase Karachi, brand identity design Karachi, visual branding demo, Sikander Arts brand presentation"

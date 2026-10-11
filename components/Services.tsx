@@ -1,3 +1,4 @@
+import { responsiveImageProps } from '../utils/Images';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -149,7 +150,7 @@ export const Services: React.FC = () => {
                 {/* Service Image Section */}
                 <div className="relative h-64 overflow-hidden">
                   <motion.img
-                    src={service.img}
+                    {...responsiveImageProps(service.img, { sizes: '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw' })}
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-1000 scale-110 group-hover:scale-100 group-hover:rotate-1"
                   />

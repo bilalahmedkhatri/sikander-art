@@ -7,6 +7,7 @@ interface SEOProps {
   url?: string;
   image?: string;
   schemaType?: string;
+  robots?: string;
 }
 
 const SITE_URL = 'https://sikanderart.com';
@@ -83,6 +84,7 @@ const SEO = ({
   url = SITE_URL,
   image = DEFAULT_IMAGE,
   schemaType = 'LocalBusiness',
+  robots = 'index, follow',
 }: SEOProps) => {
   useEffect(() => {
     const canonicalUrl = normalizeUrl(url);
@@ -93,7 +95,7 @@ const SEO = ({
 
     upsertMetaByName('description', description);
     upsertMetaByName('keywords', keywords);
-    upsertMetaByName('robots', 'index, follow');
+    upsertMetaByName('robots', robots);
     upsertMetaByName('author', 'Sikander Arts');
     upsertMetaByName('language', 'English');
 
@@ -171,7 +173,7 @@ const SEO = ({
     };
 
     upsertJsonLd(schema);
-  }, [description, image, keywords, schemaType, title, url]);
+  }, [description, image, keywords, robots, schemaType, title, url]);
 
   return null;
 };

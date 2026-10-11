@@ -97,9 +97,6 @@ export const Navbar: React.FC = () => {
                 to={link.path}
               >
                 <motion.div
-                  initial={{ opacity: 0, y: -20, rotateX: -45 }}
-                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{ delay: idx * 0.1 + 0.5, type: "spring", damping: 15 }}
                   className={`text-[11px] font-black transition-all relative group flex items-center gap-2 py-2 uppercase tracking-[0.25em] ${isSolidNav ? 'text-gray-900' : 'text-black'
                     } hover:text-secondary`}
                 >
@@ -111,9 +108,6 @@ export const Navbar: React.FC = () => {
             ))}
             <Link to="/contact">
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.2 }}
                 whileHover={{ scale: 1.05, y: -2, rotateY: 10 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-secondary text-white px-8 py-3.5 rounded-xl font-black text-xs transition-all shadow-2xl flex items-center gap-3 group overflow-hidden relative uppercase tracking-[0.2em]"
