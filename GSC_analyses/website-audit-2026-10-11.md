@@ -127,7 +127,7 @@ Separate functional findings from source/live UI:
 
 Project/team/testimonial images reference Pexels/Unsplash, while project captions describe named Karachi jobs. Verify which work/photos are authentic. Use genuine photographs and documented case studies; label inspiration imagery transparently when retaining it.
 
-LocalBusiness JSON-LD appears in both static HTML and the dynamically injected SEO script. Consolidate the business entity with a stable `@id`; add appropriate page/breadcrumb/service entities as needed. Business schema email is `bilal_azeemlab@gmail.com`, whereas visible contact email is `ghulamsikandar13@gmail.com`. Verify and align official details. Verify physical location/coordinates, service areas, experience, project counts and review totals.
+LocalBusiness JSON-LD appears in both static HTML and the dynamically injected SEO script. Consolidate the business entity with a stable `@id`; add appropriate page/breadcrumb/service entities as needed. Business schema email is `bilal_azeemlab@gmail.com`, whereas visible contact email is `bilal_azeemlab@gmail.com`. Verify and align official details. Verify physical location/coordinates, service areas, experience, project counts and review totals.
 
 The hardcoded 4.9 rating/150 reviews requires substantiation. Google does not grant review stars for self-serving LocalBusiness reviews; do not promise stars by adding or adjusting aggregateRating. The LocalBusiness image/logo URLs and two favicon sizes referenced by HTML are absent from local `public/`; verify the deployed responses and add real assets if needed. Production broken-asset status was not established.
 

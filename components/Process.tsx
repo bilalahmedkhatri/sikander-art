@@ -46,12 +46,7 @@ export const Process: React.FC = () => {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                type: "spring",
-                damping: 20,
-                stiffness: 80
-              }}
+              transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="text-4xl md:text-6xl text-gray-800 font-serif font-black leading-[1] mb-8 tracking-tighter preserve-3d"
             >
               Our Simple <br />
@@ -103,7 +98,7 @@ export const Process: React.FC = () => {
                 whileHover={{
                   y: -6,
                 }}
-                className="bg-white/[0.03]  p-12 rounded-[3.5rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)] relative group border border-white/5 transition-colors duration-700 overflow-visible text-center preserve-3d"
+                className="bg-white/[0.03]  p-12 rounded-[3.5rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)] relative group border border-white/5 transition-colors duration-700 overflow-visible text-center preserve-3d" transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
               >
                 {/* Internal Orbital Background Accent */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-3xl -mr-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
@@ -118,7 +113,7 @@ export const Process: React.FC = () => {
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
-                  transition={{ delay: index * 0.2 + 0.4, duration: 0.6, type: "spring" }}
+                  transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   className="relative w-28 h-28 bg-gradient-to-br from-secondary via-secondary/80 to-orange-700 text-white rounded-[2.5rem] flex items-center justify-center mb-10 mx-auto shadow-[0_20px_50px_-10px_rgba(249,115,22,0.4)] transition-colors duration-700"
                 >
                   <div className="absolute inset-0 bg-white opacity-20 blur-xl scale-75 group-hover:scale-125 transition-transform duration-1000"></div>

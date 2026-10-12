@@ -29,12 +29,7 @@ export const Contact: React.FC = () => {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{
-                  duration: 0.6,
-                  type: "spring",
-                  damping: 20,
-                  stiffness: 80
-                }}
+                transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 className="text-4xl md:text-6xl font-serif font-black text-gray-800 leading-[1] mb-10 tracking-tighter preserve-3d"
               >
                 Let's Color <br />
@@ -49,7 +44,7 @@ export const Contact: React.FC = () => {
             <div className="space-y-10 mb-16">
               {[
                 { icon: Phone, title: "Quantum Line", info: "+92 302 291 10 88", href: "tel: +92 302 291 10 88" },
-                { icon: Mail, title: "Neural Link", info: "ghulamsikandar13@gmail.com", href: "mailto:ghulamsikandar13@gmail.com" },
+                { icon: Mail, title: "Neural Link", info: "bilal_azeemlab@gmail.com", href: "mailto:bilal_azeemlab@gmail.com" },
                 { icon: MapPin, title: "Strategic Center", info: "Kharadar, Karachi, Pakistan", href: "#" }
               ].map((item, i) => (
                 <motion.a
@@ -59,7 +54,7 @@ export const Contact: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0, }}
                   whileHover={{ x: 24, }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: i * 0.1, duration: 0.8, type: "spring" }}
+                  transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   className="flex items-center gap-8 group"
                 >
                   <div className="bg-white/5 p-6 rounded-3xl text-secondary shadow-[0_20px_40px_rgba(0,0,0,0.3)] border border-white/10 group-hover:bg-secondary group-hover:text-white group-hover:shadow-[0_0_30px_rgba(249,115,22,0.5)] transition-all duration-500">
@@ -99,8 +94,8 @@ export const Contact: React.FC = () => {
               initial={{ opacity: 0, x: 24, scale: 0.9 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{   }}
+              transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{}}
               className="bg-white/[0.02] backdrop-blur-3xl p-12 md:p-20 rounded-[4rem] shadow-[0_60px_120px_-30px_rgba(0,0,0,0.9)] border border-white/10 relative overflow-visible preserve-3d"
             >
               <div

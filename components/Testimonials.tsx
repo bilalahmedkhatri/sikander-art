@@ -10,21 +10,48 @@ const testimonials = [
     name: 'Sana Sheikh',
     role: 'Homeowner, DHA Phase 6',
     content: "Sikander Art transformed our entire villa. The team was incredibly professional, punctual, and their attention to the base preparation was something I've never seen before. Truly Karachi's best.",
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop'
+    image: '/images/testimonial-avatars/sana.png',
+    sample: false
   },
   {
     id: 2,
     name: 'Ahmed Raza',
     role: 'CEO, Creative Labs',
     content: "We hired them for our commercial office revamp. They worked during the night shifts to ensure zero disruption to our operations. The finish on the feature walls is flawless.",
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop'
+    image: '/images/testimonial-avatars/ahmed.png',
+    sample: false
   },
   {
     id: 3,
     name: 'Fatima Zahra',
     role: 'Interior Designer',
     content: "As a designer, I am extremely demanding. Sikander Art is the only team I trust with my high-end projects. Their color matching and trim work are unparalleled in the city.",
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop'
+    image: '/images/testimonial-avatars/fatima.png',
+    sample: false
+  },
+  {
+    id: 4,
+    name: 'Usman Ali',
+    role: 'Sample homeowner review',
+    content: 'Ghar ki painting ke liye meri priority saaf finish aur waqt par kaam tha. Achi surface preparation aur furniture ki protection mere liye bohat aham hain.',
+    image: '/images/testimonial-avatars/usman.png',
+    sample: true
+  },
+  {
+    id: 5,
+    name: 'Ayesha Khan',
+    role: 'Sample renovation review',
+    content: 'Room ke colours choose karte waqt mujhe clear guidance chahiye thi. Estimate mein paint, labour aur extra charges alag hon to budget samajhna asaan hota hai.',
+    image: '/images/testimonial-avatars/ayesha.png',
+    sample: true
+  },
+  {
+    id: 6,
+    name: 'Hamza Ahmed',
+    role: 'Sample office review',
+    content: 'For an office repaint, I look for a clear schedule, careful protection of equipment, and an even finish. A detailed estimate helps me plan the work around office hours.',
+    image: '/images/testimonial-avatars/hamza.png',
+    sample: true
   }
 ];
 
@@ -34,6 +61,15 @@ export const Testimonials: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isVisible = useInView(sectionRef, { amount: 0.15 });
   const reducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (!isVisible) return;
+    // Prepare the adjacent portraits before a slide change to avoid a blank avatar.
+    const next = new Image();
+    next.src = testimonials[(currentIndex + 1) % testimonials.length].image;
+    const previous = new Image();
+    previous.src = testimonials[(currentIndex - 1 + testimonials.length) % testimonials.length].image;
+  }, [currentIndex, isVisible]);
 
   useEffect(() => {
     if (!isVisible || reducedMotion) return;
@@ -73,12 +109,7 @@ export const Testimonials: React.FC = () => {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                type: "spring",
-                damping: 20,
-                stiffness: 80
-              }}
+              transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="text-4xl md:text-6xl font-serif font-black text-gray-800 leading-[1] mb-8 tracking-tighter preserve-3d"
             >
               Voices of <br />
@@ -87,10 +118,14 @@ export const Testimonials: React.FC = () => {
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
-              transition={{ delay: 0.8, duration: 0.6, ease: "circOut" }}
+              transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="absolute -bottom-4 left-0 w-full origin-left h-1 bg-gradient-to-r from-secondary via-secondary/50 to-transparent rounded-full shadow-[0_0_30px_rgba(249,115,22,0.6)]"
             />
           </div>
+          <p className="mt-8 text-sm text-gray-500 max-w-xl mx-auto leading-relaxed">
+            Avatars are AI-generated illustrations, not customer photographs.
+            Cards marked “Sample review” are fictional examples, not customer feedback.
+          </p>
         </div>
 
         <div className="max-w-6xl mx-auto relative">
@@ -111,8 +146,8 @@ export const Testimonials: React.FC = () => {
             </motion.div>
           </div>
 
-          <div className="relative z-10 min-h-[600px] flex items-center justify-center pt-10 perspective-3000">
-            <AnimatePresence mode="wait" initial={false} custom={direction}>
+          <div className="relative z-10 min-h-[600px] grid items-center pt-10">
+            <AnimatePresence mode="sync" initial={false} custom={direction}>
               <motion.div
                 key={currentIndex}
                 custom={direction}
@@ -131,22 +166,17 @@ export const Testimonials: React.FC = () => {
                   x: direction > 0 ? -24 : 24,
                   scale: 0.98,
                 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="text-center px-4 md:px-24 will-change-transform preserve-3d"
+                transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="text-center px-4 md:px-24 col-start-1 row-start-1"
               >
+                {testimonials[currentIndex].sample && (
+                  <p className="mb-6 text-sm font-semibold text-gray-600">Sample review · Fictional example</p>
+                )}
                 {/* Five Stars - High Fidelity Landing */}
                 <div className="mb-16 flex justify-center gap-4">
                   {[...Array(5)].map((_, i) => (
                     <motion.div
                       key={i}
-                      initial={{ scale: 0, y: -6 }}
-                      animate={{ scale: 1, y: 0 }}
-                      transition={{
-                        delay: i * 0.1 + 0.5,
-                        type: "spring",
-                        damping: 28,
-                        stiffness: 200
-                      }}
                     >
                       <Star className="text-secondary fill-current w-6 h-6 md:w-8 md:h-8 drop-shadow-[0_0_20px_rgba(249,115,22,0.8)]" />
                     </motion.div>
@@ -154,45 +184,34 @@ export const Testimonials: React.FC = () => {
                 </div>
 
                 <motion.p
-                  initial={{ opacity: 0, y: 24, }}
-                  animate={{ opacity: 1, y: 0, }}
-                  transition={{ delay: 0.6, duration: 0.6 }}
                   className="text-2xl md:text-4xl text-gray-600/90 italic font-serif leading-[1.1] mb-20 tracking-tighter px-4 preserve-3d"
-                  style={{ textShadow: '0 20px 40px rgba(0,0,0,0.5)' }}
                 >
                   "{testimonials[currentIndex].content}"
                 </motion.p>
 
                 <div className="flex flex-col items-center preserve-3d">
                   <motion.div
-                    initial={{ scale: 0, rotate: -45, opacity: 0 }}
-                    animate={{ scale: 1, rotate: 0, opacity: 1 }}
-                    transition={{ delay: 0.8, type: "spring", damping: 28 }}
                     className="relative mb-10"
                     whileHover={{ scale: 1.1, }}
                   >
-                    <div className="absolute inset-0 bg-secondary rounded-full blur-3xl opacity-20 animate-pulse"></div>
+                    <div className="absolute inset-0 bg-secondary rounded-full opacity-10"></div>
                     <div className="relative group/avatar">
-                      <div className="absolute -inset-2 bg-gradient-to-tr from-secondary to-transparent rounded-full animate-spin-slow opacity-50"></div>
+                      <div className="absolute -inset-2 bg-gradient-to-tr from-secondary to-transparent rounded-full opacity-50"></div>
                       <img
                         {...responsiveImageProps(testimonials[currentIndex].image, { sizes: '(min-width: 768px) 224px, 160px', width: 320 })}
-                        alt={testimonials[currentIndex].name}
+                        alt="AI-generated illustrative avatar"
+                        width={320}
+                        height={320}
                         className="relative w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4 border-white/10 shadow-[0_50px_80px_-20px_rgba(0,0,0,0.8)] transition-all duration-700"
                       />
                     </div>
                   </motion.div>
                   <motion.h4
-                    initial={{ y: 24, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 1 }}
                     className="text-4xl md:text-5xl font-black text-gray-700 uppercase tracking-tighter mb-4"
                   >
                     {testimonials[currentIndex].name}
                   </motion.h4>
                   <motion.p
-                    initial={{ y: 24, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 1.1 }}
                     className="text-secondary font-black text-xs md:text-sm uppercase tracking-[0.5em]"
                   >
                     {testimonials[currentIndex].role}
@@ -207,8 +226,8 @@ export const Testimonials: React.FC = () => {
               whileHover={{ scale: 1.03, x: -24, }}
               whileTap={{ scale: 0.9 }}
               onClick={handlePrev}
-              className="group relative p-10 rounded-full bg-white/5 text-white overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/10 backdrop-blur-xl transition-colors duration-500 preserve-3d"
-              aria-label="Previous testimonial"
+              className="group relative p-10 rounded-full bg-white text-gray-700 overflow-hidden shadow-lg border border-gray-200 transition-colors duration-300"
+              aria-label="Previous testimonial" transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
             >
               <div className="absolute inset-0 bg-secondary translate-y-[101%] group-hover:translate-y-0 transition-transform duration-700 ease-productive" />
               <ChevronLeft className="relative z-10 w-10 h-10 md:w-12 md:h-12 drop-shadow-lg" />
@@ -217,8 +236,8 @@ export const Testimonials: React.FC = () => {
               whileHover={{ scale: 1.03, x: 24, }}
               whileTap={{ scale: 0.9 }}
               onClick={handleNext}
-              className="group relative p-10 rounded-full bg-white/5 text-white overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/10 backdrop-blur-xl transition-colors duration-500 preserve-3d"
-              aria-label="Next testimonial"
+              className="group relative p-10 rounded-full bg-white text-gray-700 overflow-hidden shadow-lg border border-gray-200 transition-colors duration-300"
+              aria-label="Next testimonial" transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
             >
               <div className="absolute inset-0 bg-secondary translate-y-[101%] group-hover:translate-y-0 transition-transform duration-700 ease-productive" />
               <ChevronRight className="relative z-10 w-10 h-10 md:w-12 md:h-12 drop-shadow-lg" />

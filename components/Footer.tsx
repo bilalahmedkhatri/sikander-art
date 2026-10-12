@@ -6,7 +6,7 @@ import { Logo5 } from './Logos';
 
 export const Footer: React.FC = () => {
 
-  const [email, setEmail] = useState('ghulamsikandar13@gmail.com');
+  const [email, setEmail] = useState('bilal_azeemlab@gmail.com');
   return (
     <footer className="bg-[#fbfbfb] text-gray-900 pt-32 pb-12 relative overflow-hidden perspective-2000">
       {/* Cinematic Background Elements */}
@@ -160,9 +160,22 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-white/5 sm:pt-5 pt-12 flex flex-col md:flex-row justify-between items-center gap-10">
-          <p className="text-gray-500 text-xs font-black tracking-[0.3em] uppercase text-center md:text-left">
-            &copy; {new Date().getFullYear()} SIKANDER ART PAINTING CONTRACTORS. ALL RIGHTS RESERVED.
-          </p>
+          <div className="text-center md:text-left">
+            <p className="text-gray-500 text-xs font-black tracking-[0.3em] uppercase">
+              &copy; {new Date().getFullYear()} SIKANDER ART PAINTING CONTRACTORS. ALL RIGHTS RESERVED.
+            </p>
+            <p className="mt-3 text-xs text-gray-500">
+              Developed by{' '}
+              <a
+                href="https://azeemlab.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-gray-700 hover:text-secondary transition-colors underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
+              >
+                AzeemLab
+              </a>
+            </p>
+          </div>
           <div className="flex gap-10 text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">
             <Link to="/privacy-policy" className="hover:text-secondary transition-colors underline decoration-secondary/30 underline-offset-4">Privacy Policy</Link>
             <Link to="/terms-of-service" className="hover:text-secondary transition-colors underline decoration-secondary/30 underline-offset-4">Terms of Service</Link>

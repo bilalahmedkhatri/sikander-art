@@ -40,7 +40,7 @@ export const WhyChooseUs: React.FC = () => {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="text-4xl md:text-6xl font-serif font-black mb-8 tracking-tighter leading-[1] preserve-3d"
             >
               The <span className="text-secondary">Sikander</span> <br />
@@ -49,7 +49,7 @@ export const WhyChooseUs: React.FC = () => {
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
+              transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="absolute -bottom-4 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent blur-[1px]"
             />
           </div>
@@ -76,12 +76,7 @@ export const WhyChooseUs: React.FC = () => {
                 y: -6,
               }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                type: "spring",
-                damping: 28,
-                stiffness: 80,
-                delay: index * 0.1,
-              }}
+              transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="relative p-12 rounded-[3.5rem] bg-white/[0.03]  border border-white/5 transition-colors duration-700 group cursor-default overflow-hidden text-center preserve-3d"
             >
               {/* Cinematic Glare Effect */}
@@ -91,7 +86,7 @@ export const WhyChooseUs: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.98, }}
                   whileInView={{ opacity: 1, scale: 1, }}
-                  transition={{ delay: index * 0.2 + 0.4, duration: 0.6, type: "spring" }}
+                  transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   className="text-4xl md:text-6xl font-black text-gray-800 mb-6 tracking-tighter drop-shadow-[0_10px_30px_rgba(249,115,22,0.4)] translate-z-30"
                 >
                   {stat.value}

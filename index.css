@@ -11,6 +11,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Radial gradients avoid rasterizing huge blurred surfaces while scrolling. */
+.landing-page [class*="blur-[150px]"],
+.landing-page [class*="blur-[180px]"] {
+  filter: none;
+  background: radial-gradient(ellipse, rgba(249, 115, 22, 0.07), transparent 70%);
+}
+
 /* CSS hover effects honor the same accessibility setting as MotionConfig. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

@@ -37,7 +37,7 @@ const App: React.FC = () => {
         <main>
           <Routes>
             <Route path="/" element={
-              <>
+              <div className="landing-page">
                 <SEO 
                   title="Sikander Arts | Professional Painting Contractor & Latest 2026 Paint Labour Rates in Karachi"
                   description="Sikander Arts – Karachi's most trusted painting contractor. Check latest 2026 paint labour rates in Karachi. Interior, exterior, texture, waterproofing & wood polish. 500+ projects completed. Get a free quote today!"
@@ -51,7 +51,7 @@ const App: React.FC = () => {
                 <Process />
                 <Testimonials />
                 <ContactSection />
-              </>
+              </div>
             } />
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />

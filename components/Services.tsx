@@ -59,7 +59,7 @@ export const Services: React.FC = () => {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="text-4xl md:text-6xl font-black mb-8 tracking-tighter leading-none"
             >
               PREMIUM <span className="text-secondary">FINISHES</span>
@@ -70,7 +70,7 @@ export const Services: React.FC = () => {
             initial={{ scaleX: 0, opacity: 0 }}
             whileInView={{ scaleX: 1, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="w-[120px] h-1.5 bg-secondary mx-auto mb-10 shadow-[0_0_25px_rgba(249,115,22,1)]"
           />
 
@@ -78,7 +78,7 @@ export const Services: React.FC = () => {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.7, duration: 0.6 }}
+            transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="text-gray-400 text-xl font-medium max-w-2xl mx-auto leading-relaxed"
           >
             We don't just paint walls; we sculpt atmospheres. Our artisanal techniques
@@ -88,13 +88,13 @@ export const Services: React.FC = () => {
 
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 perspective-2000"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
         >
           {services.map((service, index) => (
             <motion.div
               key={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
               variants={{
                 hidden: {
                   opacity: 0,
@@ -107,7 +107,7 @@ export const Services: React.FC = () => {
                   scale: 1,
                   transition: {
                     type: "tween", ease: "easeOut", duration: 0.55,
-                    delay: index * 0.07
+                    delay: (index % 3) * 0.04
                   }
                 }
               }}
@@ -116,7 +116,7 @@ export const Services: React.FC = () => {
                 scale: 1.05,
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
-              className="group relative h-full preserve-3d"
+              className="group relative h-full preserve-3d" transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
             >
               {/* Cinematic Shine/Glow Parent */}
               <div className="relative bg-white border border-white/5 rounded-[2.5rem] overflow-hidden h-full flex flex-col backdrop-blur-sm transition-all duration-500 group-hover:border-secondary/50 group-hover:shadow-[0_0_100px_rgba(249,115,22,0.2)]  preserve-3d">
@@ -164,7 +164,7 @@ export const Services: React.FC = () => {
                       <span>Explore Finish</span>
                       <motion.div
                         whileHover={{ x: 5 }}
-                        className="w-8 h-8 rounded-full border border-secondary/30 flex items-center justify-center group-hover/btn:bg-secondary group-hover/btn:text-white transition-colors duration-300"
+                        className="w-8 h-8 rounded-full border border-secondary/30 flex items-center justify-center group-hover/btn:bg-secondary group-hover/btn:text-white transition-colors duration-300" transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
                       >
                         <span className="text-lg">→</span>
                       </motion.div>

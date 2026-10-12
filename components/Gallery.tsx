@@ -44,7 +44,7 @@ export const Gallery: React.FC = () => {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 80, damping: 20 }}
+                transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 className="text-4xl md:text-6xl font-black text-gray-800 leading-[0.85] tracking-tighter"
               >
                 CINEMATIC <br /> FINISHES
@@ -57,7 +57,7 @@ export const Gallery: React.FC = () => {
           >
             <motion.div
               whileHover={{ scale: 1.03, x: 6 }}
-              className="flex items-center gap-4 border border-secondary/30 px-8 py-4 rounded-full backdrop-blur-xl group-hover:bg-secondary group-hover:text-white transition-colors duration-500"
+              className="flex items-center gap-4 border border-secondary/30 px-8 py-4 rounded-full backdrop-blur-xl group-hover:bg-secondary group-hover:text-white transition-colors duration-500" transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
             >
               Full Showcase <Paintbrush size={16} className="group-hover:rotate-45 transition-transform" />
             </motion.div>
@@ -67,13 +67,13 @@ export const Gallery: React.FC = () => {
         {/* Main Grid */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
         >
           {projects.map((project, idx) => (
             <motion.div
               key={project.id}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
               variants={{
                 hidden: {
                   opacity: 0,
@@ -86,7 +86,7 @@ export const Gallery: React.FC = () => {
                   scale: 1,
                   transition: {
                     type: "tween", ease: "easeOut", duration: 0.55,
-                    delay: idx * 0.1,
+                    delay: (idx % 3) * 0.04,
                   }
                 }
               }}
@@ -96,7 +96,7 @@ export const Gallery: React.FC = () => {
                 transition: { type: "spring", stiffness: 300, damping: 30 }
               }}
               className="group relative overflow-hidden rounded-[4rem] cursor-pointer aspect-[4/5] will-change-transform border border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] [-webkit-mask-image:-webkit-radial-gradient(white,black)]"
-              onClick={() => setSelectedId(project.id)}
+              onClick={() => setSelectedId(project.id)} transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
             >
               {/* Animated Border Glow */}
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-secondary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
@@ -104,7 +104,7 @@ export const Gallery: React.FC = () => {
               <motion.img
                 initial={{ scale: 1.06 }}
                 whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.6, ease: "circOut" }}
+                transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 {...responsiveImageProps(project.img, { sizes: '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw' })}
                 alt={project.title}
                 className="w-full h-full object-cover transition-colors duration-1000 opacity-80 group-hover:opacity-100"
@@ -116,7 +116,7 @@ export const Gallery: React.FC = () => {
                 <motion.div
                   initial={{ y: 24, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3 }}
+                  transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   className=" transition-colors duration-500"
                 >
                   <span className="text-secondary text-[10px] font-black uppercase tracking-[0.5em] mb-4 block px-1 border-l-2 border-secondary/50 pl-4">{project.cat}</span>
@@ -144,7 +144,7 @@ export const Gallery: React.FC = () => {
               <motion.h2
                 initial={{ opacity: 0, }}
                 whileInView={{ opacity: 1, }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 className="text-4xl md:text-6xl font-black text-gray-800 tracking-tighter leading-[0.85]"
               >
                 THE VOID <br /> TO COLOR
@@ -159,7 +159,7 @@ export const Gallery: React.FC = () => {
                 initial={{ opacity: 0, y: 24, }}
                 whileInView={{ opacity: 1, y: 0, }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ type: "spring", stiffness: 40, damping: 20 }}
+                transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 className="rounded-[5rem] overflow-hidden border border-white/5 group perspective-3000 shadow-2xl"
               >
                 <div className="grid md:grid-cols-2 relative h-[500px] md:h-[700px] overflow-hidden">
@@ -169,7 +169,7 @@ export const Gallery: React.FC = () => {
                       initial={{ scale: 1.4 }}
                       whileInView={{ scale: 1 }}
                       whileHover={{ scale: 1.04 }}
-                      transition={{ duration: 2.5 }}
+                      transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                       {...responsiveImageProps(item.before, { sizes: '(min-width: 1024px) 50vw, 100vw' })}
                       className="w-full h-full object-cover transition-opacity duration-300 opacity-60 group-hover:opacity-80"
                       alt="Before"
@@ -181,7 +181,7 @@ export const Gallery: React.FC = () => {
                       initial={{ scale: 1.4 }}
                       whileInView={{ scale: 1 }}
                       whileHover={{ scale: 1.04 }}
-                      transition={{ duration: 2.5, delay: 0.2 }}
+                      transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                       {...responsiveImageProps(item.after, { sizes: '(min-width: 1024px) 50vw, 100vw' })}
                       className="w-full h-full object-cover transition-opacity duration-300 opacity-80 group-hover:opacity-100"
                       alt="After"
@@ -215,7 +215,7 @@ export const Gallery: React.FC = () => {
                     <motion.p
                       initial={{ y: 24, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.2 }}
+                      transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                       className="text-gray-400 leading-relaxed text-xl md:text-2xl font-medium border-l-4 border-secondary/40 pl-10 italic"
                     >
                       {item.description}
@@ -243,7 +243,7 @@ export const Gallery: React.FC = () => {
                 initial={{ scale: 0.98, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.98, opacity: 0 }}
-                transition={{ type: "spring", stiffness: 150, damping: 25 }}
+                transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               >
                 <button
                   className="absolute top-10 right-10 z-50 bg-white/5 hover:bg-secondary p-5 rounded-full transition-all group border border-white/10 shadow-2xl"
@@ -274,7 +274,7 @@ export const Gallery: React.FC = () => {
                         <motion.h3
                           initial={{ opacity: 0, y: 24 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.1 }}
+                          transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                           className="text-5xl md:text-6xl font-black text-white mb-10 leading-[0.9] tracking-tighter"
                         >
                           {project.title}
@@ -282,7 +282,7 @@ export const Gallery: React.FC = () => {
                         <motion.p
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
-                          transition={{ delay: 0.2 }}
+                          transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                           className="text-gray-400 text-xl leading-relaxed mb-12 font-medium italic"
                         >
                           Our team delivered a peerless finish for this {project.cat} project in Karachi, redefining luxury through artisanal precision.
@@ -293,7 +293,7 @@ export const Gallery: React.FC = () => {
                           whileTap={{ scale: 0.95 }}
                           initial={{ opacity: 0, y: 24 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.3 }}
+                          transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                           onClick={() => {
                             setSelectedId(null);
                             document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });

@@ -12,6 +12,8 @@ export const Navbar: React.FC = () => {
   const isLightPage = location.pathname === '/about';
   const isSolidNav = scrolled || isLightPage || isOpen;
 
+  useEffect(() => { setIsOpen(false); }, [location.pathname]);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -20,6 +22,13 @@ export const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = previousOverflow; };
+  }, [isOpen]);
 
   const navLinks = [
     { name: 'Services', path: '/services' },
@@ -82,7 +91,7 @@ export const Navbar: React.FC = () => {
           >
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="flex items-center gap-3 mr-2 sm:mr-4 transform-gpu transition-colors duration-500"
+              className="flex items-center gap-3 mr-2 sm:mr-4 transform-gpu transition-colors duration-500" transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
             >
               <div className="-mt-1 lg:-mt-2 filter drop-shadow-[0_5px_15px_rgba(0,0,0,0.3)]">
                 <Logo5 isSolidNav={isSolidNav} />
@@ -111,7 +120,7 @@ export const Navbar: React.FC = () => {
               <motion.div
                 whileHover={{ scale: 1.05, y: -2, }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-secondary text-white px-8 py-3.5 rounded-xl font-black text-xs transition-colors shadow-2xl flex items-center gap-3 group overflow-hidden relative uppercase tracking-[0.2em]"
+                className="bg-secondary text-white px-8 py-3.5 rounded-xl font-black text-xs transition-colors shadow-2xl flex items-center gap-3 group overflow-hidden relative uppercase tracking-[0.2em]" transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 <Phone size={18} className="group-hover:rotate-12 transition-transform duration-500" />
@@ -149,8 +158,8 @@ export const Navbar: React.FC = () => {
             initial={{ opacity: 0, originY: 0 }}
             animate={{ opacity: 1, }}
             exit={{ opacity: 0, }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-x-0 top-[64px] lg:hidden bg-secondary/90 backdrop-blur-5xl border-t border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.5)] overflow-hidden z-40 h-[calc(100vh-64px)]"
+            transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-x-0 top-full lg:hidden bg-secondary border-t border-white/10 shadow-lg overflow-y-auto z-40 h-[calc(100dvh-100%)]"
           >
             <div className="flex flex-col p-10 space-y-8 h-full justify-center perspective-2000">
               {navLinks.map((link, i) => (
@@ -162,7 +171,7 @@ export const Navbar: React.FC = () => {
                   <motion.div
                     initial={{ opacity: 0, x: -24, }}
                     animate={{ opacity: 1, x: 0, }}
-                    transition={{ delay: 0.2 + i * 0.1 }}
+                    transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                     className="text-gray-800 text-4xl font-black hover:text-secondary px-6 py-4 rounded-2xl hover:bg-white/5 transition-colors flex items-center gap-8 group"
                   >
                     <span className="text-secondary/20 font-serif italic text-2xl group-hover:text-secondary group-hover:opacity-100 transition-all">0{i + 1}</span>
@@ -174,7 +183,7 @@ export const Navbar: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
+                  transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   className="bg-secondary text-white text-center py-6 rounded-2xl font-black text-xl shadow-[0_20px_40px_-10px_rgba(249,115,22,0.5)] active:scale-95 transition-colors mt-12 uppercase tracking-[0.3em] relative overflow-hidden group"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />

@@ -112,7 +112,7 @@ const policySections: PolicySection[] = [
       "Company: Sikander Arts",
       "Location: Karachi, Pakistan",
       "Phone: +92 302 291 10 88",
-      "Email: ghulamsikandar13@gmail.com",
+      "Email: bilal_azeemlab@gmail.com",
       "WhatsApp: +92 302 291 10 88",
       "Working Hours: Monday to Saturday, 9:00 AM to 7:00 PM"
     ]

@@ -40,7 +40,7 @@ export const Hero: React.FC = () => {
                   y: -6,
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative bg-white text-gray-700 px-12 py-6 md:px-16 md:py-8 rounded-3xl font-black text-sm md:text-2xl transition-colors shadow-2xl flex items-center justify-center gap-6 overflow-hidden min-w-[250px] md:min-w-[320px] transform-style-3d"
+                className="group relative bg-white text-gray-700 px-12 py-6 md:px-16 md:py-8 rounded-3xl font-black text-sm md:text-2xl transition-colors shadow-2xl flex items-center justify-center gap-6 overflow-hidden min-w-[250px] md:min-w-[320px] transform-style-3d" transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 <PaintRoller size={28} className="text-secondary group-hover:rotate-[25deg] transition-transform duration-500" />
@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
                   y: -6,
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative bg-secondary text-white px-12 py-6 md:px-16 md:py-8 rounded-3xl font-black text-sm md:text-2xl transition-colors shadow-2xl flex items-center justify-center gap-6 overflow-hidden min-w-[250px] md:min-w-[320px] transform-style-3d"
+                className="group relative bg-secondary text-white px-12 py-6 md:px-16 md:py-8 rounded-3xl font-black text-sm md:text-2xl transition-colors shadow-2xl flex items-center justify-center gap-6 overflow-hidden min-w-[250px] md:min-w-[320px] transform-style-3d" transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 <Calculator size={24} className="group-hover:rotate-[-20deg] transition-transform duration-500" />

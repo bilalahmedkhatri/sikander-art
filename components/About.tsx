@@ -20,7 +20,7 @@ export const About: React.FC = () => {
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, type: "spring", damping: 25 }}
+              transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="relative rounded-[5rem] overflow-hidden shadow-[0_100px_200px_-50px_rgba(0,0,0,0.8)] group preserve-3d border border-white/5"
             >
               <img
@@ -31,7 +31,7 @@ export const About: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-secondary/30 via-transparent to-white/5 mix-blend-overlay"></div>
 
               {/* Overlay Glass Layer */}
-              <div className="absolute inset-0 bg-black/10 backdrop-blur-[1px] group-hover:backdrop-blur-0 transition-all duration-1000"></div>
+              <div className="absolute inset-0 bg-black/10 group-hover:opacity-0 transition-opacity duration-300"></div>
             </motion.div>
 
             {/* Experience Badge - High Fidelity 3D Glass */}
@@ -39,8 +39,8 @@ export const About: React.FC = () => {
               initial={{ x: 24, y: 24, opacity: 0, }}
               whileInView={{ x: 0, y: 0, opacity: 1, }}
               viewport={{ once: true }}
-              transition={{ delay: 1, duration: 0.6, type: "spring", damping: 28 }}
-              className="absolute -bottom-16 -right-8 md:-right-20 bg-white/5 backdrop-blur-[40px] p-14 rounded-[4rem] shadow-[0_80px_160px_-40px_rgba(0,0,0,0.6)] border border-white/10 z-20 group preserve-3d  transition-colors"
+              transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute -bottom-16 -right-8 md:-right-20 bg-white/95 p-14 rounded-[4rem] shadow-xl border border-white/10 z-20 group transition-colors"
             >
               <div className="absolute inset-0 bg-secondary/5 rounded-[4rem] blur-2xl group-hover:bg-secondary/10 transition-colors"></div>
               <div className="flex items-center gap-10 relative">
@@ -71,7 +71,7 @@ export const About: React.FC = () => {
               initial={{ opacity: 0, }}
               whileInView={{ opacity: 1, }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "circOut" }}
+              transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="text-4xl md:text-6xl font-serif font-black text-gray-900 leading-[0.85] mb-12 tracking-tighter"
             >
               PAINTING <span className="text-secondary italic">KARACHI'S</span> VISION SINCE '08
@@ -79,7 +79,7 @@ export const About: React.FC = () => {
             <motion.p
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
+              transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="text-gray-500 text-xl md:text-2xl mb-16 leading-relaxed font-medium italic opacity-80"
             >
               At <Link to="https://sikanderart.com/" className="font-black text-secondary">Sikander Art</Link>, we redefine architecture through the lens of color. Our heritage is built on a decade of precision, merging traditional Pakistani craft with cutting-edge cinematic finishes.
@@ -97,7 +97,7 @@ export const About: React.FC = () => {
                   initial={{ opacity: 0, y: 24, }}
                   whileInView={{ opacity: 1, y: 0, }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.5 + i * 0.1, duration: 0.6, type: "spring" }}
+                  transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   className="group relative preserve-3d hover:translate-z-10 transition-colors duration-500"
                 >
                   <div className="flex items-center gap-6 text-gra-700 font-black uppercase tracking-[0.3em] text-[12px] mb-4">
@@ -117,14 +117,14 @@ export const About: React.FC = () => {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.8 }}
+              transition={{ type: "tween", duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-wrap gap-10 items-center"
             >
               <motion.a
                 href="#contact"
                 whileHover={{ scale: 1.05, }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-secondary text-white px-12 py-6 rounded-3xl font-black uppercase tracking-[0.2em] text-[12px] shadow-[0_30px_60px_-15px_rgba(249,115,22,0.4)] inline-flex items-center gap-5 transition-colors border border-white/10"
+                className="bg-secondary text-white px-12 py-6 rounded-3xl font-black uppercase tracking-[0.2em] text-[12px] shadow-[0_30px_60px_-15px_rgba(249,115,22,0.4)] inline-flex items-center gap-5 transition-colors border border-white/10" transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
               >
                 Start Your Masterwork <Target size={20} />
               </motion.a>
