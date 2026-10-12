@@ -56,10 +56,10 @@ export const Services: React.FC = () => {
         <div className="text-center max-w-4xl mx-auto mb-24">
           <div className="relative inline-block perspective-1000">
             <motion.h2
-              initial={{ opacity: 0, rotateX: -30, y: 30 }}
-              whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="text-4xl md:text-6xl font-black mb-8 tracking-tighter leading-none"
             >
               PREMIUM <span className="text-secondary">FINISHES</span>
@@ -67,18 +67,18 @@ export const Services: React.FC = () => {
           </div>
 
           <motion.div
-            initial={{ width: 0, opacity: 0 }}
-            whileInView={{ width: '120px', opacity: 1 }}
+            initial={{ scaleX: 0, opacity: 0 }}
+            whileInView={{ scaleX: 1, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.2, delay: 0.5 }}
-            className="h-1.5 bg-secondary mx-auto mb-10 shadow-[0_0_25px_rgba(249,115,22,1)]"
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="w-[120px] h-1.5 bg-secondary mx-auto mb-10 shadow-[0_0_25px_rgba(249,115,22,1)]"
           />
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.7, duration: 1 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
             className="text-gray-400 text-xl font-medium max-w-2xl mx-auto leading-relaxed"
           >
             We don't just paint walls; we sculpt atmospheres. Our artisanal techniques
@@ -98,37 +98,28 @@ export const Services: React.FC = () => {
               variants={{
                 hidden: {
                   opacity: 0,
-                  y: 150,
-                  rotateX: 45,
-                  scale: 0.8,
-                  filter: 'blur(20px)',
+                  y: 24,
+                  scale: 0.98,
                 },
                 visible: {
                   opacity: 1,
                   y: 0,
-                  rotateX: 0,
                   scale: 1,
-                  filter: 'blur(0px)',
                   transition: {
-                    type: "spring",
-                    damping: 20,
-                    stiffness: 50,
-                    delay: index * 0.2,
-                    duration: 1.2
+                    type: "tween", ease: "easeOut", duration: 0.55,
+                    delay: index * 0.07
                   }
                 }
               }}
               whileHover={{
-                y: -25,
-                rotateY: 8,
-                rotateX: -8,
+                y: -6,
                 scale: 1.05,
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
               className="group relative h-full preserve-3d"
             >
               {/* Cinematic Shine/Glow Parent */}
-              <div className="relative bg-white border border-white/5 rounded-[2.5rem] overflow-hidden h-full flex flex-col backdrop-blur-sm transition-all duration-500 group-hover:border-secondary/50 group-hover:shadow-[0_0_100px_rgba(249,115,22,0.2)] group-hover:translate-z-20 preserve-3d">
+              <div className="relative bg-white border border-white/5 rounded-[2.5rem] overflow-hidden h-full flex flex-col backdrop-blur-sm transition-all duration-500 group-hover:border-secondary/50 group-hover:shadow-[0_0_100px_rgba(249,115,22,0.2)]  preserve-3d">
 
                 {/* Moving Light Beam on Hover */}
                 {/* <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10">
@@ -173,7 +164,7 @@ export const Services: React.FC = () => {
                       <span>Explore Finish</span>
                       <motion.div
                         whileHover={{ x: 5 }}
-                        className="w-8 h-8 rounded-full border border-secondary/30 flex items-center justify-center group-hover/btn:bg-secondary group-hover/btn:text-white transition-all duration-300"
+                        className="w-8 h-8 rounded-full border border-secondary/30 flex items-center justify-center group-hover/btn:bg-secondary group-hover/btn:text-white transition-colors duration-300"
                       >
                         <span className="text-lg">→</span>
                       </motion.div>

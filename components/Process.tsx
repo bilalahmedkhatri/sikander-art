@@ -35,7 +35,7 @@ export const Process: React.FC = () => {
       <div className="container mx-auto px-4 relative">
         <div className="text-center mb-24 relative">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="inline-block"
@@ -43,11 +43,11 @@ export const Process: React.FC = () => {
           </motion.div>
           <div className="relative inline-block perspective-2000">
             <motion.h2
-              initial={{ opacity: 0, rotateX: 45, y: 50 }}
-              whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: 1.2,
+                duration: 0.6,
                 type: "spring",
                 damping: 20,
                 stiffness: 80
@@ -87,37 +87,23 @@ export const Process: React.FC = () => {
                 variants={{
                   hidden: {
                     opacity: 0,
-                    y: 100,
-                    rotateX: 45,
-                    rotateY: index % 2 === 0 ? -30 : 30,
-                    z: -300,
-                    scale: 0.8,
-                    filter: "blur(20px)"
+                    y: 24,
+                    scale: 0.98,
                   },
                   visible: {
                     opacity: 1,
                     y: 0,
-                    rotateX: 0,
-                    rotateY: 0,
-                    z: 0,
                     scale: 1,
-                    filter: "blur(0px)",
                     transition: {
-                      type: "spring",
-                      damping: 18,
-                      stiffness: 60,
-                      delay: index * 0.2,
+                      type: "tween", ease: "easeOut", duration: 0.55,
+                      delay: index * 0.07,
                     }
                   }
                 }}
                 whileHover={{
-                  y: -25,
-                  rotateY: index % 2 === 0 ? 15 : -15,
-                  translateZ: 50,
-                  backgroundColor: "rgba(255, 255, 255, 0.08)",
-                  borderColor: "rgba(249, 115, 22, 0.3)",
+                  y: -6,
                 }}
-                className="bg-white/[0.03] backdrop-blur-2xl p-12 rounded-[3.5rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)] relative group border border-white/5 transition-all duration-700 overflow-visible text-center preserve-3d"
+                className="bg-white/[0.03]  p-12 rounded-[3.5rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)] relative group border border-white/5 transition-colors duration-700 overflow-visible text-center preserve-3d"
               >
                 {/* Internal Orbital Background Accent */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-3xl -mr-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
@@ -130,10 +116,10 @@ export const Process: React.FC = () => {
                 </div>
 
                 <motion.div
-                  initial={{ rotateY: 90, scale: 0 }}
-                  whileInView={{ rotateY: 0, scale: 1 }}
-                  transition={{ delay: index * 0.2 + 0.4, duration: 1, type: "spring" }}
-                  className="relative w-28 h-28 bg-gradient-to-br from-secondary via-secondary/80 to-orange-700 text-white rounded-[2.5rem] flex items-center justify-center mb-10 mx-auto shadow-[0_20px_50px_-10px_rgba(249,115,22,0.4)] group-hover:scale-110 transition-transform duration-700 preserve-3d translate-z-40"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ delay: index * 0.2 + 0.4, duration: 0.6, type: "spring" }}
+                  className="relative w-28 h-28 bg-gradient-to-br from-secondary via-secondary/80 to-orange-700 text-white rounded-[2.5rem] flex items-center justify-center mb-10 mx-auto shadow-[0_20px_50px_-10px_rgba(249,115,22,0.4)] transition-colors duration-700"
                 >
                   <div className="absolute inset-0 bg-white opacity-20 blur-xl scale-75 group-hover:scale-125 transition-transform duration-1000"></div>
                   <div className="relative z-10 group-hover:rotate-[360deg] transition-transform duration-1000">

@@ -41,8 +41,8 @@ export const Gallery: React.FC = () => {
           <div className="max-w-3xl">
             <div className="overflow-hidden">
               <motion.h2
-                initial={{ opacity: 0, rotateX: 90, y: 50 }}
-                whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 80, damping: 20 }}
                 className="text-4xl md:text-6xl font-black text-gray-800 leading-[0.85] tracking-tighter"
@@ -56,8 +56,8 @@ export const Gallery: React.FC = () => {
             className="hidden md:flex items-center gap-6 text-secondary font-black uppercase tracking-[0.3em] text-[10px] group transition-all mt-8 md:mt-0"
           >
             <motion.div
-              whileHover={{ scale: 1.05, x: 10 }}
-              className="flex items-center gap-4 border border-secondary/30 px-8 py-4 rounded-full backdrop-blur-xl group-hover:bg-secondary group-hover:text-white transition-all duration-500"
+              whileHover={{ scale: 1.03, x: 6 }}
+              className="flex items-center gap-4 border border-secondary/30 px-8 py-4 rounded-full backdrop-blur-xl group-hover:bg-secondary group-hover:text-white transition-colors duration-500"
             >
               Full Showcase <Paintbrush size={16} className="group-hover:rotate-45 transition-transform" />
             </motion.div>
@@ -77,31 +77,22 @@ export const Gallery: React.FC = () => {
               variants={{
                 hidden: {
                   opacity: 0,
-                  y: 200,
-                  rotateX: 90, // Vertical flip entrance
-                  scale: 0.8,
-                  z: -600
+                  y: 24,
+                  scale: 0.98,
                 },
                 visible: {
                   opacity: 1,
                   y: 0,
-                  rotateX: 0,
                   scale: 1,
-                  z: 0,
                   transition: {
-                    type: "spring",
-                    damping: 25,
-                    stiffness: 35,
+                    type: "tween", ease: "easeOut", duration: 0.55,
                     delay: idx * 0.1,
                   }
                 }
               }}
               whileHover={{
-                y: -30,
-                rotateY: idx % 2 === 0 ? 12 : -12,
-                rotateX: -7,
+                y: -6,
                 scale: 1.04,
-                translateZ: 150,
                 transition: { type: "spring", stiffness: 300, damping: 30 }
               }}
               className="group relative overflow-hidden rounded-[4rem] cursor-pointer aspect-[4/5] will-change-transform border border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] [-webkit-mask-image:-webkit-radial-gradient(white,black)]"
@@ -111,22 +102,22 @@ export const Gallery: React.FC = () => {
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-secondary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
               <motion.img
-                initial={{ scale: 1.3 }}
-                whileHover={{ scale: 1.15 }}
-                transition={{ duration: 1.5, ease: "circOut" }}
+                initial={{ scale: 1.06 }}
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.6, ease: "circOut" }}
                 {...responsiveImageProps(project.img, { sizes: '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw' })}
                 alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-1000 opacity-80 group-hover:opacity-100"
+                className="w-full h-full object-cover transition-colors duration-1000 opacity-80 group-hover:opacity-100"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/20 to-transparent opacity-90 transition-opacity group-hover:opacity-70 duration-700" />
 
               <div className="absolute inset-0 p-12 flex flex-col justify-end z-10">
                 <motion.div
-                  initial={{ y: 50, opacity: 0 }}
+                  initial={{ y: 24, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.3 }}
-                  className="group-hover:translate-z-20 transition-transform duration-500"
+                  className=" transition-colors duration-500"
                 >
                   <span className="text-secondary text-[10px] font-black uppercase tracking-[0.5em] mb-4 block px-1 border-l-2 border-secondary/50 pl-4">{project.cat}</span>
                   <h3 className="text-gray-100 text-3xl md:text-4xl font-black tracking-tighter leading-none mb-8 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">{project.title}</h3>
@@ -138,7 +129,7 @@ export const Gallery: React.FC = () => {
                 </motion.div>
 
                 {/* Floating Glass Icon */}
-                <div className="absolute top-12 right-12 w-16 h-16 bg-white/5 backdrop-blur-2xl rounded-[2rem] border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:rotate-12 translate-z-40 transition-all duration-700 shadow-2xl">
+                <div className="absolute top-12 right-12 w-16 h-16 bg-white/5  rounded-[2rem] border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:rotate-12 translate-z-40 transition-all duration-700 shadow-2xl">
                   <ZoomIn className="text-white w-8 h-8" />
                 </div>
               </div>
@@ -151,9 +142,9 @@ export const Gallery: React.FC = () => {
           <div className="text-center mb-32">
             <div className="overflow-hidden">
               <motion.h2
-                initial={{ opacity: 0, rotateX: -90 }}
-                whileInView={{ opacity: 1, rotateX: 0 }}
-                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, }}
+                whileInView={{ opacity: 1, }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 className="text-4xl md:text-6xl font-black text-gray-800 tracking-tighter leading-[0.85]"
               >
                 THE VOID <br /> TO COLOR
@@ -165,21 +156,22 @@ export const Gallery: React.FC = () => {
             {transformations.map((item, index) => (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 150, rotateX: 30 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                initial={{ opacity: 0, y: 24, }}
+                whileInView={{ opacity: 1, y: 0, }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ type: "spring", stiffness: 40, damping: 20 }}
                 className="rounded-[5rem] overflow-hidden border border-white/5 group perspective-3000 shadow-2xl"
               >
                 <div className="grid md:grid-cols-2 relative h-[500px] md:h-[700px] overflow-hidden">
                   <div className="relative overflow-hidden group/before border-r border-white/5">
-                    <div className="absolute top-12 left-12 z-20 bg-white/80 backdrop-blur-2xl text-gray-800 text-[10px] font-black px-10 py-4 rounded-full tracking-[0.5em] shadow-2xl border border-white/10">BEFORE</div>
+                    <div className="absolute top-12 left-12 z-20 bg-white/80  text-gray-800 text-[10px] font-black px-10 py-4 rounded-full tracking-[0.5em] shadow-2xl border border-white/10">BEFORE</div>
                     <motion.img
                       initial={{ scale: 1.4 }}
                       whileInView={{ scale: 1 }}
+                      whileHover={{ scale: 1.04 }}
                       transition={{ duration: 2.5 }}
                       {...responsiveImageProps(item.before, { sizes: '(min-width: 1024px) 50vw, 100vw' })}
-                      className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 opacity-60 group-hover:opacity-80"
+                      className="w-full h-full object-cover transition-opacity duration-300 opacity-60 group-hover:opacity-80"
                       alt="Before"
                     />
                   </div>
@@ -188,9 +180,10 @@ export const Gallery: React.FC = () => {
                     <motion.img
                       initial={{ scale: 1.4 }}
                       whileInView={{ scale: 1 }}
+                      whileHover={{ scale: 1.04 }}
                       transition={{ duration: 2.5, delay: 0.2 }}
                       {...responsiveImageProps(item.after, { sizes: '(min-width: 1024px) 50vw, 100vw' })}
-                      className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                      className="w-full h-full object-cover transition-opacity duration-300 opacity-80 group-hover:opacity-100"
                       alt="After"
                     />
                   </div>
@@ -213,14 +206,14 @@ export const Gallery: React.FC = () => {
                   </div>
                   <div className="relative z-10 max-w-4xl">
                     <motion.h3
-                      initial={{ x: -30, opacity: 0 }}
+                      initial={{ x: -24, opacity: 0 }}
                       whileInView={{ x: 0, opacity: 1 }}
                       className="text-4xl md:text-7xl font-black text-white mb-10 tracking-tighter leading-none"
                     >
                       {item.title}
                     </motion.h3>
                     <motion.p
-                      initial={{ y: 20, opacity: 0 }}
+                      initial={{ y: 24, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.2 }}
                       className="text-gray-400 leading-relaxed text-xl md:text-2xl font-medium border-l-4 border-secondary/40 pl-10 italic"
@@ -247,9 +240,9 @@ export const Gallery: React.FC = () => {
                 layoutId={`gallery-${selectedId}`}
                 className="bg-[#111] border border-white/10 rounded-[5rem] overflow-hidden max-w-7xl w-full relative shadow-[0_100px_200px_-50px_rgba(0,0,0,0.8)] flex flex-col lg:flex-row h-full max-h-[90vh]"
                 onClick={(e) => e.stopPropagation()}
-                initial={{ scale: 0.8, rotateX: 45, opacity: 0 }}
-                animate={{ scale: 1, rotateX: 0, opacity: 1 }}
-                exit={{ scale: 0.8, rotateX: 45, opacity: 0 }}
+                initial={{ scale: 0.98, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.98, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 150, damping: 25 }}
               >
                 <button
@@ -272,14 +265,14 @@ export const Gallery: React.FC = () => {
                         <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/5 blur-[100px] rounded-full"></div>
 
                         <motion.span
-                          initial={{ opacity: 0, x: -20 }}
+                          initial={{ opacity: 0, x: -24 }}
                           animate={{ opacity: 1, x: 0 }}
                           className="text-secondary font-black uppercase tracking-[0.5em] text-xs mb-8 block px-1 border-l-2 border-secondary/50 pl-4"
                         >
                           {project.cat}
                         </motion.span>
                         <motion.h3
-                          initial={{ opacity: 0, y: 30 }}
+                          initial={{ opacity: 0, y: 24 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.1 }}
                           className="text-5xl md:text-6xl font-black text-white mb-10 leading-[0.9] tracking-tighter"
@@ -296,16 +289,16 @@ export const Gallery: React.FC = () => {
                         </motion.p>
 
                         <motion.button
-                          whileHover={{ scale: 1.05, translateZ: 20 }}
+                          whileHover={{ scale: 1.05, }}
                           whileTap={{ scale: 0.95 }}
-                          initial={{ opacity: 0, y: 20 }}
+                          initial={{ opacity: 0, y: 24 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.3 }}
                           onClick={() => {
                             setSelectedId(null);
                             document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                           }}
-                          className="bg-secondary text-white py-6 px-12 rounded-[2rem] font-black uppercase tracking-[0.3em] text-[10px] shadow-[0_20px_40px_rgba(249,115,22,0.3)] hover:shadow-secondary/50 transition-all border border-white/10"
+                          className="bg-secondary text-white py-6 px-12 rounded-[2rem] font-black uppercase tracking-[0.3em] text-[10px] shadow-[0_20px_40px_rgba(249,115,22,0.3)] hover:shadow-secondary/50 transition-colors border border-white/10"
                         >
                           Request Consultation
                         </motion.button>

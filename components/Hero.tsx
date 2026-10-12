@@ -36,14 +36,11 @@ export const Hero: React.FC = () => {
             <Link to="/view-projects">
               <motion.div
                 whileHover={{
-                  scale: 1.08,
-                  y: -15,
-                  rotateY: -10,
-                  boxShadow: "0 50px 100px -20px rgba(0, 0, 0, 0.8)",
-                  translateZ: 50
+                  scale: 1.03,
+                  y: -6,
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative bg-white text-gray-700 px-12 py-6 md:px-16 md:py-8 rounded-3xl font-black text-sm md:text-2xl transition-all shadow-2xl flex items-center justify-center gap-6 overflow-hidden min-w-[250px] md:min-w-[320px] transform-style-3d"
+                className="group relative bg-white text-gray-700 px-12 py-6 md:px-16 md:py-8 rounded-3xl font-black text-sm md:text-2xl transition-colors shadow-2xl flex items-center justify-center gap-6 overflow-hidden min-w-[250px] md:min-w-[320px] transform-style-3d"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 <PaintRoller size={28} className="text-secondary group-hover:rotate-[25deg] transition-transform duration-500" />
@@ -53,14 +50,11 @@ export const Hero: React.FC = () => {
             <Link to="/calculate-cost">
               <motion.div
                 whileHover={{
-                  scale: 1.08,
-                  y: -15,
-                  rotateY: 10,
-                  boxShadow: "0 50px 100px -20px rgba(249, 115, 22, 0.5)",
-                  translateZ: 50
+                  scale: 1.03,
+                  y: -6,
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative bg-secondary text-white px-12 py-6 md:px-16 md:py-8 rounded-3xl font-black text-sm md:text-2xl transition-all shadow-2xl flex items-center justify-center gap-6 overflow-hidden min-w-[250px] md:min-w-[320px] transform-style-3d"
+                className="group relative bg-secondary text-white px-12 py-6 md:px-16 md:py-8 rounded-3xl font-black text-sm md:text-2xl transition-colors shadow-2xl flex items-center justify-center gap-6 overflow-hidden min-w-[250px] md:min-w-[320px] transform-style-3d"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 <Calculator size={24} className="group-hover:rotate-[-20deg] transition-transform duration-500" />

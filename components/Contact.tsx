@@ -26,11 +26,11 @@ export const Contact: React.FC = () => {
             </motion.div>
             <div className="relative inline-block perspective-2000">
               <motion.h2
-                initial={{ opacity: 0, rotateX: 45, y: 50 }}
-                whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{
-                  duration: 1.2,
+                  duration: 0.6,
                   type: "spring",
                   damping: 20,
                   stiffness: 80
@@ -55,9 +55,9 @@ export const Contact: React.FC = () => {
                 <motion.a
                   key={i}
                   href={item.href}
-                  initial={{ opacity: 0, x: -30, rotateY: -30 }}
-                  whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-                  whileHover={{ x: 15, translateZ: 20 }}
+                  initial={{ opacity: 0, x: -24, }}
+                  whileInView={{ opacity: 1, x: 0, }}
+                  whileHover={{ x: 24, }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ delay: i * 0.1, duration: 0.8, type: "spring" }}
                   className="flex items-center gap-8 group"
@@ -96,11 +96,11 @@ export const Contact: React.FC = () => {
           {/* Form */}
           <div className="lg:w-7/12 perspective-3000">
             <motion.div
-              initial={{ opacity: 0, x: 100, rotateY: -30, scale: 0.9 }}
-              whileInView={{ opacity: 1, x: 0, rotateY: 0, scale: 1 }}
+              initial={{ opacity: 0, x: 24, scale: 0.9 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ rotateY: -5, rotateX: 2, translateZ: 20 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{   }}
               className="bg-white/[0.02] backdrop-blur-3xl p-12 md:p-20 rounded-[4rem] shadow-[0_60px_120px_-30px_rgba(0,0,0,0.9)] border border-white/10 relative overflow-visible preserve-3d"
             >
               <div
@@ -111,8 +111,8 @@ export const Contact: React.FC = () => {
 
               <div className="relative z-10 preserve-3d">
                 <motion.h3
-                  initial={{ opacity: 0, translateZ: -20 }}
-                  animate={{ opacity: 1, translateZ: 0 }}
+                  initial={{ opacity: 0, }}
+                  animate={{ opacity: 1, }}
                   className="text-4xl md:text-5xl font-black text-gray-700 mb-12 uppercase tracking-tighter translate-z-30"
                 >
                   Architect Your <br /> <span className="text-secondary">Masterpiece</span>

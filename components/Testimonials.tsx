@@ -1,7 +1,7 @@
 import { responsiveImageProps } from '../utils/Images';
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useInView, useReducedMotion } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const testimonials = [
@@ -31,13 +31,17 @@ const testimonials = [
 export const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useInView(sectionRef, { amount: 0.15 });
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
+    if (!isVisible || reducedMotion) return;
     const timer = setInterval(() => {
       handleNext();
     }, 8000);
     return () => clearInterval(timer);
-  }, [currentIndex]);
+  }, [currentIndex, isVisible, reducedMotion]);
 
   const handleNext = () => {
     setDirection(1);
@@ -50,7 +54,7 @@ export const Testimonials: React.FC = () => {
   };
 
   return (
-    <section className="py-32 bg-[#fbfbfb] overflow-hidden relative">
+    <section ref={sectionRef} className="py-32 bg-[#fbfbfb] overflow-hidden relative">
       {/* Cinematic Background Lighting */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-secondary/10 rounded-full blur-[180px] -mr-96 -mt-96 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[150px] -ml-72 -mb-72 pointer-events-none" />
@@ -58,7 +62,7 @@ export const Testimonials: React.FC = () => {
       <div className="container mx-auto px-4 relative">
         <div className="text-center mb-32 relative">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="inline-block"
@@ -66,11 +70,11 @@ export const Testimonials: React.FC = () => {
           </motion.div>
           <div className="relative inline-block perspective-2000">
             <motion.h2
-              initial={{ opacity: 0, rotateX: 45, y: 50 }}
-              whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: 1.2,
+                duration: 0.6,
                 type: "spring",
                 damping: 20,
                 stiffness: 80
@@ -81,10 +85,10 @@ export const Testimonials: React.FC = () => {
               <span className="text-secondary drop-shadow-[0_10px_30px_rgba(249,115,22,0.3)]">Satisfaction</span>
             </motion.h2>
             <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: "100%" }}
-              transition={{ delay: 0.8, duration: 1.5, ease: "circOut" }}
-              className="absolute -bottom-4 left-0 h-1 bg-gradient-to-r from-secondary via-secondary/50 to-transparent rounded-full shadow-[0_0_30px_rgba(249,115,22,0.6)]"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              transition={{ delay: 0.8, duration: 0.6, ease: "circOut" }}
+              className="absolute -bottom-4 left-0 w-full origin-left h-1 bg-gradient-to-r from-secondary via-secondary/50 to-transparent rounded-full shadow-[0_0_30px_rgba(249,115,22,0.6)]"
             />
           </div>
         </div>
@@ -99,7 +103,7 @@ export const Testimonials: React.FC = () => {
             <motion.div
               key={currentIndex}
               initial={{ x: "-100%" }}
-              animate={{ x: "0%" }}
+              animate={{ x: isVisible && !reducedMotion ? "0%" : "-100%" }}
               transition={{ duration: 8, ease: "linear" }}
               className="h-full bg-gradient-to-r from-transparent via-secondary to-secondary shadow-[0_0_40px_rgba(249,115,22,1)]"
             >
@@ -114,29 +118,20 @@ export const Testimonials: React.FC = () => {
                 custom={direction}
                 initial={{
                   opacity: 0,
-                  x: direction > 0 ? 300 : -300,
-                  rotateY: direction > 0 ? 60 : -60,
-                  z: -500,
-                  scale: 0.8,
-                  filter: "blur(15px)"
+                  x: direction > 0 ? 24 : -24,
+                  scale: 0.98,
                 }}
                 animate={{
                   opacity: 1,
                   x: 0,
-                  rotateY: 0,
-                  z: 0,
                   scale: 1,
-                  filter: "blur(0px)"
                 }}
                 exit={{
                   opacity: 0,
-                  x: direction > 0 ? -300 : 300,
-                  rotateY: direction > 0 ? -60 : 60,
-                  z: -500,
-                  scale: 0.8,
-                  filter: "blur(15px)"
+                  x: direction > 0 ? -24 : 24,
+                  scale: 0.98,
                 }}
-                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 className="text-center px-4 md:px-24 will-change-transform preserve-3d"
               >
                 {/* Five Stars - High Fidelity Landing */}
@@ -144,12 +139,12 @@ export const Testimonials: React.FC = () => {
                   {[...Array(5)].map((_, i) => (
                     <motion.div
                       key={i}
-                      initial={{ scale: 0, rotateZ: -180, y: -50 }}
-                      animate={{ scale: 1, rotateZ: 0, y: 0 }}
+                      initial={{ scale: 0, y: -6 }}
+                      animate={{ scale: 1, y: 0 }}
                       transition={{
                         delay: i * 0.1 + 0.5,
                         type: "spring",
-                        damping: 12,
+                        damping: 28,
                         stiffness: 200
                       }}
                     >
@@ -159,9 +154,9 @@ export const Testimonials: React.FC = () => {
                 </div>
 
                 <motion.p
-                  initial={{ opacity: 0, y: 40, rotateX: 20 }}
-                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{ delay: 0.6, duration: 1 }}
+                  initial={{ opacity: 0, y: 24, }}
+                  animate={{ opacity: 1, y: 0, }}
+                  transition={{ delay: 0.6, duration: 0.6 }}
                   className="text-2xl md:text-4xl text-gray-600/90 italic font-serif leading-[1.1] mb-20 tracking-tighter px-4 preserve-3d"
                   style={{ textShadow: '0 20px 40px rgba(0,0,0,0.5)' }}
                 >
@@ -172,9 +167,9 @@ export const Testimonials: React.FC = () => {
                   <motion.div
                     initial={{ scale: 0, rotate: -45, opacity: 0 }}
                     animate={{ scale: 1, rotate: 0, opacity: 1 }}
-                    transition={{ delay: 0.8, type: "spring", damping: 15 }}
+                    transition={{ delay: 0.8, type: "spring", damping: 28 }}
                     className="relative mb-10"
-                    whileHover={{ scale: 1.1, rotateY: 15 }}
+                    whileHover={{ scale: 1.1, }}
                   >
                     <div className="absolute inset-0 bg-secondary rounded-full blur-3xl opacity-20 animate-pulse"></div>
                     <div className="relative group/avatar">
@@ -187,7 +182,7 @@ export const Testimonials: React.FC = () => {
                     </div>
                   </motion.div>
                   <motion.h4
-                    initial={{ y: 30, opacity: 0 }}
+                    initial={{ y: 24, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 1 }}
                     className="text-4xl md:text-5xl font-black text-gray-700 uppercase tracking-tighter mb-4"
@@ -195,7 +190,7 @@ export const Testimonials: React.FC = () => {
                     {testimonials[currentIndex].name}
                   </motion.h4>
                   <motion.p
-                    initial={{ y: 20, opacity: 0 }}
+                    initial={{ y: 24, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 1.1 }}
                     className="text-secondary font-black text-xs md:text-sm uppercase tracking-[0.5em]"
@@ -209,20 +204,20 @@ export const Testimonials: React.FC = () => {
 
           <div className="flex justify-center gap-16 mt-32">
             <motion.button
-              whileHover={{ scale: 1.15, rotateY: -25, x: -15, translateZ: 50 }}
+              whileHover={{ scale: 1.03, x: -24, }}
               whileTap={{ scale: 0.9 }}
               onClick={handlePrev}
-              className="group relative p-10 rounded-full bg-white/5 text-white overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/10 backdrop-blur-xl transition-all duration-500 preserve-3d"
+              className="group relative p-10 rounded-full bg-white/5 text-white overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/10 backdrop-blur-xl transition-colors duration-500 preserve-3d"
               aria-label="Previous testimonial"
             >
               <div className="absolute inset-0 bg-secondary translate-y-[101%] group-hover:translate-y-0 transition-transform duration-700 ease-productive" />
               <ChevronLeft className="relative z-10 w-10 h-10 md:w-12 md:h-12 drop-shadow-lg" />
             </motion.button>
             <motion.button
-              whileHover={{ scale: 1.15, rotateY: 25, x: 15, translateZ: 50 }}
+              whileHover={{ scale: 1.03, x: 24, }}
               whileTap={{ scale: 0.9 }}
               onClick={handleNext}
-              className="group relative p-10 rounded-full bg-white/5 text-white overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/10 backdrop-blur-xl transition-all duration-500 preserve-3d"
+              className="group relative p-10 rounded-full bg-white/5 text-white overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/10 backdrop-blur-xl transition-colors duration-500 preserve-3d"
               aria-label="Next testimonial"
             >
               <div className="absolute inset-0 bg-secondary translate-y-[101%] group-hover:translate-y-0 transition-transform duration-700 ease-productive" />

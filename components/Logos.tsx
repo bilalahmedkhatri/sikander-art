@@ -287,7 +287,7 @@ export const Logo5: React.FC<LogoProps> = ({ isSolidNav = true }) => {
                             rest: { y: 0 },
                             hover: {
                                 y: [0, -4, 0], // Wavy Bounce (Logo 4)
-                                transition: { duration: 0.8, delay: i * 0.05, repeat: Infinity, repeatType: "mirror" }
+                                transition: { duration: 0.8, delay: i * 0.05, repeat: 0, repeatType: "mirror" }
                             }
                         }}
                     >
@@ -311,7 +311,7 @@ export const Logo5: React.FC<LogoProps> = ({ isSolidNav = true }) => {
                                 className={`absolute top-0 left-0 text-black/50 -z-20`}
                                 variants={{
                                     rest: { opacity: 0, y: 0, x: 0 },
-                                    hover: { opacity: 1, y: 5, x: 5, filter: "blur(2px)" }
+                                    hover: { opacity: 1, y: 5, x: 5 }
                                 }}
                             >
                                 {char}
@@ -330,7 +330,7 @@ export const Logo5: React.FC<LogoProps> = ({ isSolidNav = true }) => {
                                 rest: { y: 0 },
                                 hover: {
                                     y: [0, -4, 0],
-                                    transition: { duration: 0.8, delay: (idxOffset + i) * 0.05, repeat: Infinity, repeatType: "mirror" }
+                                    transition: { duration: 0.8, delay: (idxOffset + i) * 0.05, repeat: 0, repeatType: "mirror" }
                                 }
                             }}
                         >
@@ -350,7 +350,7 @@ export const Logo5: React.FC<LogoProps> = ({ isSolidNav = true }) => {
                                 className={`absolute top-0 left-0 text-black/50 -z-20`}
                                 variants={{
                                     rest: { opacity: 0, y: 0, x: 0 },
-                                    hover: { opacity: 1, y: 5, x: 5, filter: "blur(2px)" }
+                                    hover: { opacity: 1, y: 5, x: 5 }
                                 }}
                             >
                                 {char}
@@ -364,8 +364,8 @@ export const Logo5: React.FC<LogoProps> = ({ isSolidNav = true }) => {
             <motion.span
                 className="absolute top-0 left-0 right-0 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-black tracking-tighter uppercase text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-500 to-yellow-400 -z-30 pointer-events-none"
                 variants={{
-                    rest: { opacity: 0, scale: 0.9, filter: "blur(0px)", y: 0 },
-                    hover: { opacity: 0.7, scale: 1.1, filter: "blur(8px)", y: -4 }
+                    rest: { opacity: 0, scale: 0.9, y: 0 },
+                    hover: { opacity: 0.7, scale: 1.1, y: -4 }
                 }}
             >
                 SIKANDER ART
@@ -376,7 +376,7 @@ export const Logo5: React.FC<LogoProps> = ({ isSolidNav = true }) => {
                 className={`absolute bottom-[20%] left-0 right-0 h-4 rounded-[100%] z-0 pointer-events-none ${isSolidNav ? 'bg-gradient-to-r from-cyan-500 via-pink-500 to-yellow-500' : 'bg-gradient-to-r from-cyan-600 via-pink-600 to-yellow-600'} blur-large`}
                 variants={{
                     rest: { scaleX: 0.5, opacity: 0 },
-                    hover: { scaleX: 1, opacity: 0.6, y: 12, filter: "blur(12px)" }
+                    hover: { scaleX: 1, opacity: 0.6, y: 12 }
                 }}
             />
 
@@ -384,7 +384,7 @@ export const Logo5: React.FC<LogoProps> = ({ isSolidNav = true }) => {
                 className="hidden md:block text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] -mt-1 relative z-40 text-grey-500"
                 variants={{
                     rest: { opacity: 0.8, y: 0, letterSpacing: "0.2em" },
-                    hover: { opacity: 1, y: 5, letterSpacing: "0.3em", color: isSolidNav ? "#df6311" : "#df6311" } // Shifts to purple tint
+                    hover: { opacity: 1, y: 5, letterSpacing: "0.2em", color: isSolidNav ? "#df6311" : "#df6311" } // Shifts to purple tint
                 }}
                 transition={{ duration: 0.4 }}
             >

@@ -1,14 +1,11 @@
 import { responsiveImageProps } from '../utils/Images';
 
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Award, ShieldCheck, Users, Clock, Target, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const About: React.FC = () => {
-  const { scrollYProgress } = useScroll();
-  const imgScale = useTransform(scrollYProgress, [0.1, 0.4], [0.8, 1]);
-  const imgRotate = useTransform(scrollYProgress, [0.1, 0.4], [10, 0]);
 
   return (
     <section id="about" className="py-32 md:py-48 bg-[#fbfbfb] text-gray-900 overflow-hidden perspective-2000">
@@ -17,17 +14,13 @@ export const About: React.FC = () => {
 
           {/* Image Side - 3D Cinematic */}
           <motion.div
-            style={{
-              scale: imgScale,
-              rotateY: imgRotate,
-            }}
-            className="w-full lg:w-1/2 relative will-change-transform preserve-3d"
+            className="w-full lg:w-1/2 relative"
           >
             <motion.div
-              initial={{ rotateY: -30, opacity: 0, x: -100 }}
-              whileInView={{ rotateY: 0, opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.8, type: "spring", damping: 25 }}
+              transition={{ duration: 0.6, type: "spring", damping: 25 }}
               className="relative rounded-[5rem] overflow-hidden shadow-[0_100px_200px_-50px_rgba(0,0,0,0.8)] group preserve-3d border border-white/5"
             >
               <img
@@ -43,22 +36,21 @@ export const About: React.FC = () => {
 
             {/* Experience Badge - High Fidelity 3D Glass */}
             <motion.div
-              initial={{ x: 100, y: 100, opacity: 0, rotateZ: 20 }}
-              whileInView={{ x: 0, y: 0, opacity: 1, rotateZ: 0 }}
+              initial={{ x: 24, y: 24, opacity: 0, }}
+              whileInView={{ x: 0, y: 0, opacity: 1, }}
               viewport={{ once: true }}
-              transition={{ delay: 1, duration: 1.5, type: "spring", damping: 12 }}
-              className="absolute -bottom-16 -right-8 md:-right-20 bg-white/5 backdrop-blur-[40px] p-14 rounded-[4rem] shadow-[0_80px_160px_-40px_rgba(0,0,0,0.6)] border border-white/10 z-20 group preserve-3d hover:translate-z-20 transition-transform"
+              transition={{ delay: 1, duration: 0.6, type: "spring", damping: 28 }}
+              className="absolute -bottom-16 -right-8 md:-right-20 bg-white/5 backdrop-blur-[40px] p-14 rounded-[4rem] shadow-[0_80px_160px_-40px_rgba(0,0,0,0.6)] border border-white/10 z-20 group preserve-3d  transition-colors"
             >
               <div className="absolute inset-0 bg-secondary/5 rounded-[4rem] blur-2xl group-hover:bg-secondary/10 transition-colors"></div>
               <div className="flex items-center gap-10 relative">
                 <motion.div
                   animate={{
                     y: [0, -15, 0],
-                    rotateY: [0, 20, 0]
                   }}
                   transition={{
                     duration: 5,
-                    repeat: Infinity,
+                    repeat: 0,
                     ease: "easeInOut"
                   }}
                   className="bg-secondary p-8 rounded-[2rem] text-white shadow-[0_20px_40px_rgba(249,115,22,0.4)]"
@@ -76,18 +68,18 @@ export const About: React.FC = () => {
           {/* Content Side */}
           <div className="w-full lg:w-1/2 preserve-3d">
             <motion.h2
-              initial={{ opacity: 0, rotateX: 90 }}
-              whileInView={{ opacity: 1, rotateX: 0 }}
+              initial={{ opacity: 0, }}
+              whileInView={{ opacity: 1, }}
               viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: "circOut" }}
+              transition={{ duration: 0.6, ease: "circOut" }}
               className="text-4xl md:text-6xl font-serif font-black text-gray-900 leading-[0.85] mb-12 tracking-tighter"
             >
               PAINTING <span className="text-secondary italic">KARACHI'S</span> VISION SINCE '08
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 1 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
               className="text-gray-500 text-xl md:text-2xl mb-16 leading-relaxed font-medium italic opacity-80"
             >
               At <Link to="https://sikanderart.com/" className="font-black text-secondary">Sikander Art</Link>, we redefine architecture through the lens of color. Our heritage is built on a decade of precision, merging traditional Pakistani craft with cutting-edge cinematic finishes.
@@ -102,11 +94,11 @@ export const About: React.FC = () => {
               ].map((item, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 30, rotateY: 30 }}
-                  whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                  initial={{ opacity: 0, y: 24, }}
+                  whileInView={{ opacity: 1, y: 0, }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.5 + i * 0.1, duration: 1, type: "spring" }}
-                  className="group relative preserve-3d hover:translate-z-10 transition-all duration-500"
+                  transition={{ delay: 0.5 + i * 0.1, duration: 0.6, type: "spring" }}
+                  className="group relative preserve-3d hover:translate-z-10 transition-colors duration-500"
                 >
                   <div className="flex items-center gap-6 text-gra-700 font-black uppercase tracking-[0.3em] text-[12px] mb-4">
                     <div className="p-5 bg-white/5 rounded-2xl group-hover:bg-secondary group-hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] transition-all duration-500">
@@ -122,7 +114,7 @@ export const About: React.FC = () => {
             </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8 }}
@@ -130,9 +122,9 @@ export const About: React.FC = () => {
             >
               <motion.a
                 href="#contact"
-                whileHover={{ scale: 1.05, translateZ: 20 }}
+                whileHover={{ scale: 1.05, }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-secondary text-white px-12 py-6 rounded-3xl font-black uppercase tracking-[0.2em] text-[12px] shadow-[0_30px_60px_-15px_rgba(249,115,22,0.4)] inline-flex items-center gap-5 transition-all border border-white/10"
+                className="bg-secondary text-white px-12 py-6 rounded-3xl font-black uppercase tracking-[0.2em] text-[12px] shadow-[0_30px_60px_-15px_rgba(249,115,22,0.4)] inline-flex items-center gap-5 transition-colors border border-white/10"
               >
                 Start Your Masterwork <Target size={20} />
               </motion.a>

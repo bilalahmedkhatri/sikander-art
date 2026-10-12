@@ -16,7 +16,8 @@ export const Navbar: React.FC = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -55,9 +56,9 @@ export const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-700 perspective-2000 ${isSolidNav
-        ? 'bg-grey/80 backdrop-blur-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] py-3'
-        : 'bg-transparent py-5'
+      className={`fixed w-full z-50 py-3 transition-colors duration-300 ${isSolidNav
+        ? 'bg-white/95 shadow-lg'
+        : 'bg-transparent'
         }`}
     >
       {/* Laser Bottom Glow */}
@@ -80,8 +81,8 @@ export const Navbar: React.FC = () => {
             className="flex items-center gap-3 group relative"
           >
             <motion.div
-              whileHover={{ rotateY: 15, rotateX: -10, z: 50 }}
-              className="flex items-center gap-3 mr-2 sm:mr-4 transform-gpu transition-transform duration-500"
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center gap-3 mr-2 sm:mr-4 transform-gpu transition-colors duration-500"
             >
               <div className="-mt-1 lg:-mt-2 filter drop-shadow-[0_5px_15px_rgba(0,0,0,0.3)]">
                 <Logo5 isSolidNav={isSolidNav} />
@@ -101,16 +102,16 @@ export const Navbar: React.FC = () => {
                     } hover:text-secondary`}
                 >
                   {link.name === 'Calculator' && <Calculator size={14} className="text-secondary animate-pulse" />}
-                  <span className="group-hover:tracking-[0.4em] transition-all duration-500">{link.name}</span>
+                  <span className="transition-colors duration-200">{link.name}</span>
                   <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-secondary to-orange-400 transition-all duration-500 group-hover:w-full shadow-[0_0_10px_rgba(249,115,22,0.5)]"></span>
                 </motion.div>
               </Link>
             ))}
             <Link to="/contact">
               <motion.div
-                whileHover={{ scale: 1.05, y: -2, rotateY: 10 }}
+                whileHover={{ scale: 1.05, y: -2, }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-secondary text-white px-8 py-3.5 rounded-xl font-black text-xs transition-all shadow-2xl flex items-center gap-3 group overflow-hidden relative uppercase tracking-[0.2em]"
+                className="bg-secondary text-white px-8 py-3.5 rounded-xl font-black text-xs transition-colors shadow-2xl flex items-center gap-3 group overflow-hidden relative uppercase tracking-[0.2em]"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 <Phone size={18} className="group-hover:rotate-12 transition-transform duration-500" />
@@ -121,7 +122,7 @@ export const Navbar: React.FC = () => {
 
           {/* Mobile Menu Button - 3D */}
           <motion.button
-            whileTap={{ scale: 0.8, rotate: 90 }}
+            whileTap={{ scale: 0.98 }}
             className="lg:hidden text-grey-900 p-3 bg-black/20 border border-white/10 rounded-xl backdrop-blur-3xl shadow-2xl"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
@@ -145,9 +146,9 @@ export const Navbar: React.FC = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, rotateX: -90, originY: 0 }}
-            animate={{ opacity: 1, rotateX: 0 }}
-            exit={{ opacity: 0, rotateX: -90 }}
+            initial={{ opacity: 0, originY: 0 }}
+            animate={{ opacity: 1, }}
+            exit={{ opacity: 0, }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-x-0 top-[64px] lg:hidden bg-secondary/90 backdrop-blur-5xl border-t border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.5)] overflow-hidden z-40 h-[calc(100vh-64px)]"
           >
@@ -159,10 +160,10 @@ export const Navbar: React.FC = () => {
                   onClick={() => setIsOpen(false)}
                 >
                   <motion.div
-                    initial={{ opacity: 0, x: -50, rotateY: 45 }}
-                    animate={{ opacity: 1, x: 0, rotateY: 0 }}
+                    initial={{ opacity: 0, x: -24, }}
+                    animate={{ opacity: 1, x: 0, }}
                     transition={{ delay: 0.2 + i * 0.1 }}
-                    className="text-gray-800 text-4xl font-black hover:text-secondary px-6 py-4 rounded-2xl hover:bg-white/5 transition-all flex items-center gap-8 group"
+                    className="text-gray-800 text-4xl font-black hover:text-secondary px-6 py-4 rounded-2xl hover:bg-white/5 transition-colors flex items-center gap-8 group"
                   >
                     <span className="text-secondary/20 font-serif italic text-2xl group-hover:text-secondary group-hover:opacity-100 transition-all">0{i + 1}</span>
                     <span className="tracking-tighter uppercase">{link.name}</span>
@@ -171,10 +172,10 @@ export const Navbar: React.FC = () => {
               ))}
               <Link to="/contact" onClick={() => setIsOpen(false)}>
                 <motion.div
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 }}
-                  className="bg-secondary text-white text-center py-6 rounded-2xl font-black text-xl shadow-[0_20px_40px_-10px_rgba(249,115,22,0.5)] active:scale-95 transition-transform mt-12 uppercase tracking-[0.3em] relative overflow-hidden group"
+                  className="bg-secondary text-white text-center py-6 rounded-2xl font-black text-xl shadow-[0_20px_40px_-10px_rgba(249,115,22,0.5)] active:scale-95 transition-colors mt-12 uppercase tracking-[0.3em] relative overflow-hidden group"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                   GET FREE QUOTE
