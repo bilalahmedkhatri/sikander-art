@@ -14,6 +14,7 @@ import { FloatingActions } from './components/FloatingActions';
 import { MotionConfig } from 'framer-motion';
 import ScrollToTop from './components/ScrollToTop';
 import SEO from './components/SEO';
+import { Analytics } from '@vercel/analytics/react';
 
 // Import Pages
 import Services from './pages/Services';
@@ -32,6 +33,7 @@ const App: React.FC = () => {
     <MotionConfig reducedMotion="user">
     <Router>
       <ScrollToTop />
+      <Analytics />
       <div className="font-sans text-gray-800 bg-white overflow-x-hidden selection:bg-secondary selection:text-white">
         <Navbar />
         <main>
